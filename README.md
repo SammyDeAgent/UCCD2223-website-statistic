@@ -8,8 +8,8 @@ Contributor:
 
 **Git Commands**
 ```
- git push uccd master --force
- git pull uccd master --force
+ git push [remote name] [branch name] --force
+ git pull [remote name] [branch name] --force
 ```
 
 ## Procedure:
