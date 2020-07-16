@@ -8,8 +8,10 @@ Contributor:
 
 **Git Commands**
 ```
- git push [remote name] [branch name] --force
- git pull [remote name] [branch name] --force
+git remote add [remote name] [URL]
+git checkout -b [branch name]
+git push [remote name] [branch name] --force
+git pull [remote name] [branch name] --force
 ```
 
 ## Procedure:
