@@ -8,6 +8,7 @@ Contributor:
 
 **Git Commands**
 ```
+git add .
 git remote add [remote name] [URL]
 git checkout -b [branch name]
 git push [remote name] [branch name] --force
