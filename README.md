@@ -1,4 +1,4 @@
-# UCCD2223-website-statistic
+# UCCD2223 Website Statistics
 UCCD2223 Statistic Gang Repos - P4 Group
 
 Contributors: 
