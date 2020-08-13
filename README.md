@@ -6,6 +6,11 @@ Contributors:
 - Jac
 - Ernest
 
+Azure URL:
+```
+https://the-silk-road.azurewebsites.net
+```
+
 **Git Commands**
 ```
 git status
