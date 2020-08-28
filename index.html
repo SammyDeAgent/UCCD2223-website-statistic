@@ -116,6 +116,7 @@
 						<a class="dropdown-item" href="#" id="style02"">Darkly</a>
 						<a class="dropdown-item" href="#" id="style03"">United</a>
 						<a class="dropdown-item" href="#" id="style04"">Solar</a>
+						<a class="dropdown-item" href="#" id="style05"">Vanilla</a>
 					</div>
 				</li>
 			</ul>
@@ -185,6 +186,12 @@
 				if (typeof (Storage) !=="undefined" ) 
 					localStorage.setItem("BS_Style", styling); 
 			}) 
+			$("#style05").on("click", function (event) {
+				$("#csstheme").attr('href', "css/bootstrap.css" );
+				styling="css/bootstrap.css";
+				if (typeof (Storage) !=="undefined" ) 
+					localStorage.setItem("BS_Style", styling); 
+			})
 		})
 		
 		//Hero-Image Resize
