@@ -49,8 +49,11 @@
 	<link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="css/index.css" />
 	<script src="js/jquery-3.5.1.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+	</script>
 	<script src="js/bootstrap.js"></script>
+	<script src="js/holder.js"></script>
 
 	<style>
 		#abs-center {
@@ -63,74 +66,148 @@
 		.mdi {
 			font-size: 1.25rem;
 		}
+		.jumbotron {
+			color: brown;
+  			background-image: url(img/TSR-HeroImg.png);
+  			background-position: bottom;
+  			background-repeat: no-repeat;
+  			background-size: cover;
+  			height: 50vh;
+		}
+		#navbar{
+			transition: top 0.2s ease-in;
+		}
 	</style>
 
 </head>
+
 <body>
 
 	<!-- CSS Bootstrap Theme -->
-	<link id="csstheme" rel="stylesheet" property="stylesheet" href="css/bootstrap-darkly.css">	
+	<link id="csstheme" rel="stylesheet" property="stylesheet" href="css/bootstrap-darkly.css">
 
-	<div id="abs-center" class="shadow jumbotron">
-		<img class="img-fluid" alt="TSR BackDrop" src="img/TSR_backdrop.png">
-		<h3 style="margin-top: 1rem;">The Silk Road <span class="badge badge-info">WIP</span></h3>
-		<p>We sell drugs, more importantly fried chicken. Sometimes TNT, another times a lovely brew of coffee.</p>
-		<div class="alert alert-warning" role="alert">
-			<span class="mdi mdi-alert-circle-check-outline"> <strong>Stay tune!</strong></span> This website is still
-			work in progress,
-			be sure to check it out often for updates.
+	<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="index.html">
+			<img src="img/TSR_favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="logo">
+			The Silk Road
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+			aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item active">
+					<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="wip.html">Category</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="wip.html">Order</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+						Theme
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#" id="style01"">Cyborg</a>
+						<a class="dropdown-item" href="#" id="style02"">Darkly</a>
+						<a class="dropdown-item" href="#" id="style03"">United</a>
+						<a class="dropdown-item" href="#" id="style04"">Solar</a>
+					</div>
+				</li>
+			</ul>
 		</div>
-		<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-				aria-haspopup="true" aria-expanded="false">
-				Theme
-			</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				<a class="dropdown-item" href="#" id="style01"">Cyborg</a>
-				<a class="dropdown-item" href="#" id="style02"">Darkly</a>
-				<a class="dropdown-item" href="#" id="style03"">United</a>
-				<a class="dropdown-item" href="#" id="style04"">Solar</a>
-			</div>
+	</nav>
+
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+		  <h1 class="display-3 font-weight-bold">Supply and Demand</h1>
+		  <p class="lead font-weight-bold">We sell drugs, more importantly fried chicken. Sometimes TNT, another times a lovely brew of coffee.</p>
 		</div>
-		<script>
-			$(document).ready(function(){
-				
+	</div>
 
-				if (typeof (Storage) !== "undefined"){
-					var styling = localStorage.getItem("BS_Style");
-					if(styling==null)
-						$("#csstheme").attr('href',"css/bootstrap-darkly.css");
-					else
-						$("#csstheme").attr('href',styling);
-				}
+	<div class="card m-5">
+		<div class="card-body">
+		  <h4 class="card-title">Card title</h4>
+		  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+		  <p class="card-text">
+			Some quick example text to build on the card title
+			and make up the bulk of the card's content.
+		  </p>
+		  <a href="#!" class="card-link">Card link</a>
+		  <a href="#!" class="card-link">Another link</a>
+		</div>
+	</div>
 
-				$("#style01").on("click",function(event){
-					$("#csstheme").attr('href',"css/bootstrap-cyborg.css");
-					styling = "css/bootstrap-cyborg.css";
-					if (typeof (Storage) !== "undefined")
-						localStorage.setItem("BS_Style", styling);
-				})
-				$("#style02").on("click",function(event){
-					$("#csstheme").attr('href',"css/bootstrap-darkly.css");
-					styling = "css/bootstrap-darkly.css";
-					if (typeof (Storage) !== "undefined")
-						localStorage.setItem("BS_Style", styling);
-				})
-				$("#style03").on("click",function(event){
-					$("#csstheme").attr('href',"css/bootstrap-united.css");
-					styling = "css/bootstrap-united.css";
-					if (typeof (Storage) !== "undefined")
-						localStorage.setItem("BS_Style", styling);
-				})
-				$("#style04").on("click",function(event){
-					$("#csstheme").attr('href',"css/bootstrap-solar.css");
-					styling = "css/bootstrap-solar.css";
-					if (typeof (Storage) !== "undefined")
-						localStorage.setItem("BS_Style", styling);
-				})
+	<div class="card m-5">
+		<h3 class="card-header">Featured</h3>
+		<div class="card-body">
+		  <h4 class="card-title">Special title treatment</h4>
+		  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+		  <a href="#!" class="btn btn-primary">Go somewhere</a>
+		</div>
+	  </div>
+	  
+	<script>
+		$(document).ready(function () {
+
+			//Theme Changer
+			if (typeof (Storage) !== " undefined") { 
+				var styling=localStorage.getItem("BS_Style"); 
+				if (styling==null)
+					$("#csstheme").attr('href', "css/bootstrap-darkly.css" ); 
+				else $("#csstheme").attr('href',styling); 
+			} 
+			$("#style01").on("click", function (event) {
+				$("#csstheme").attr('href', "css/bootstrap-cyborg.css" ); 
+					styling="css/bootstrap-cyborg.css"; 
+				if (typeof (Storage) !=="undefined" ) 
+					localStorage.setItem("BS_Style", styling); 
 			})
-		</script>
-	</div>	
-</body>
+			$("#style02").on("click", function (event) {
+				$("#csstheme").attr('href', "css/bootstrap-darkly.css" ); 
+				styling="css/bootstrap-darkly.css";
+				if (typeof (Storage) !=="undefined" ) 
+					localStorage.setItem("BS_Style", styling); 
+			})				
+			$("#style03").on("click", function (event) {
+				$("#csstheme").attr('href', "css/bootstrap-united.css" );
+				styling="css/bootstrap-united.css"; 
+				if (typeof (Storage) !=="undefined" ) 
+					localStorage.setItem("BS_Style", styling); 
+			})		
+			$("#style04").on("click", function (event) {
+				$("#csstheme").attr('href', "css/bootstrap-solar.css" );
+				styling="css/bootstrap-solar.css";
+				if (typeof (Storage) !=="undefined" ) 
+					localStorage.setItem("BS_Style", styling); 
+			}) 
+		})
+		
+		//Hero-Image Resize
+		// $(".jumbotron").css({ height: $(window).height() + "px" });
+		// $(window).on("resize", function() {
+  		// 	$(".jumbotron").css({ height: $(window).height() + "px" });
+		// });
 
+		//Hide Navbar on Scroll Script
+		var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+			document.getElementById("navbar").style.top = "0";
+            // menuwrap.classList.remove("show");
+        } 
+        else {
+			document.getElementById("navbar").style.top = "-50px";
+            // menuwrap.classList.remove("show");
+        }
+            prevScrollpos = currentScrollPos;
+        }
+	</script> 
+	</div> 
+</body>
 </html>
