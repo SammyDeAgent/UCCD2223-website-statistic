@@ -199,21 +199,6 @@
 		// $(window).on("resize", function() {
   		// 	$(".jumbotron").css({ height: $(window).height() + "px" });
 		// });
-
-		//Hide Navbar on Scroll Script
-		var prevScrollpos = window.pageYOffset;
-        window.onscroll = function() {
-        var currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-			document.getElementById("navbar").style.top = "0";
-            // menuwrap.classList.remove("show");
-        } 
-        else {
-			document.getElementById("navbar").style.top = "-50px";
-            // menuwrap.classList.remove("show");
-        }
-            prevScrollpos = currentScrollPos;
-        }
 	</script> 
 	</div> 
 </body>
