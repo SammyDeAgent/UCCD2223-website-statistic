@@ -58,7 +58,6 @@
 
 	<!-- Google Login API -->
 	<script src="https://apis.google.com/js/platform.js?onload=init"></script>
-	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 	<meta name="google-signin-client_id"
 		content="505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com">
 	<script>
@@ -179,6 +178,32 @@
 
 					<!-- <div id="btnSignIn" class="my-signin2" data-onsuccess="onSignIn"></div> -->
 					<div id="my-signin2"></div>
+					<script>
+						function onSuccess(googleUser) {
+							var profile = googleUser.getBasicProfile();
+							console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+							console.log('Name: ' + profile.getName());
+							console.log('Image URL: ' + profile.getImageUrl());
+							console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+						}
+
+						function onFailure(error) {
+							console.log(error);
+						}
+
+						function renderButton() {
+							gapi.signin2.render('my-signin2', {
+								'scope': 'profile email',
+								'width': 240,
+								'height': 38,
+								'longtitle': true,
+								'theme': 'dark',
+								'onsuccess': onSuccess,
+								'onfailure': onFailure
+							});
+						}
+					</script>
+					<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 					<button id="btnSignOut" type="button" class="btn btn-secondary" onclick="signOut();">Sign out</a>
 		</div>
 	</nav>
@@ -415,28 +440,6 @@
 			})
 
 			//Google Profile Accesor
-			function onSuccess(googleUser) {
-				var profile = googleUser.getBasicProfile();
-				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-				console.log('Name: ' + profile.getName());
-				console.log('Image URL: ' + profile.getImageUrl());
-				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-			}
-			function onFailure(error) {
-				console.log(error);
-			}
-			function renderButton() {
-				gapi.signin2.render('my-signin2', {
-					'scope': 'profile email',
-					'width': 240,
-					'height': 38,
-					'longtitle': true,
-					'theme': 'dark',
-					'onsuccess': onSuccess,
-					'onfailure': onFailure
-				});
-			}
-
 			function signOut() {
 				var auth2 = gapi.auth2.getAuthInstance();
 				auth2.signOut().then(function () {
@@ -444,8 +447,6 @@
 					window.location.href = "index.html";
 				});
 			}
-
-			//Login API Button
 
 
 			//Hero-Image Resize
