@@ -222,8 +222,10 @@
 	</div> -->
 
 	<div class="card m-5">
-		<img id="userImg" class="card-img-top w-100" src="" alt="Card image cap">
-		<div class="card-body">
+		<div class="text-center">
+			<img id="userImg" class="card-img-top w-25" src="" alt="User Image">
+		</div>
+		<div class="card-body text-center">
 			<h4 class="card-title">User Details</h4>
 			<p id="userName" class="card-text">
 			</p>
@@ -419,6 +421,9 @@
 			var auth2 = gapi.auth2.getAuthInstance();
 			auth2.signOut().then(function () {
 				console.log('User signed out.');
+				$("#userImg").attr("src", "holder.js/1000x250");
+				$("#userName").html("Null Name");
+				$("#userEmail").html("Null Email");
 				window.location.href = "index.html";
 			});
 		}
