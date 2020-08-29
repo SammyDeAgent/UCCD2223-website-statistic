@@ -58,6 +58,7 @@
 
 	<!-- Google Login API -->
 	<script src="https://apis.google.com/js/platform.js?onload=init"></script>
+	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 	<meta name="google-signin-client_id"
 		content="505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com">
 	<script>
@@ -199,8 +200,6 @@
 							});
 						}
 					</script>
-
-					<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
 					<button id="btnSignOut" type="button" class="btn btn-secondary" onclick="signOut();">Sign out</a>
 		</div>
@@ -419,9 +418,22 @@
 
 			//Card Details
 			$(document).ready(function () {
-				$("#userImg").attr("src", "holder.js/1000x250");
-				$("#userName").html("Null Name");
-				$("#userEmail").html("Null Email");
+				
+
+				if(gapi.auth2.getAuthInstance().isSignedIn.get()){
+					var profile = ggapi.auth2.getBasicProfile();
+					$("#btnSignIn").hide();
+					$("#btnSignOut").show();
+					$("#userImg").attr("src", profile.getImageUrl());
+					$("#userName").html(profile.getName());
+					$("#userEmail").html(profile.getEmail());
+				}else{
+					$("#btnSignIn").show();
+					$("#btnSignOut").hide();
+					$("#userImg").attr("src", "holder.js/1000x250");
+					$("#userName").html("Null Name");
+					$("#userEmail").html("Null Email");
+				}
 			})
 
 			//Google Profile Accesor
@@ -442,13 +454,7 @@
 			}
 
 			//Login API Button
-			// if(GoogleAuth.isSignedIn.get()){
-			// 	$("#btnSignIn").hide();
-			// 	$("#btnSignOut").show();
-			// }else{
-			// 	$("#btnSignIn").show();
-			// 	$("#btnSignOut").hide();
-			// }
+			
 
 			//Hero-Image Resize
 			// $(".jumbotron").css({ height: $(window).height() + "px" });
