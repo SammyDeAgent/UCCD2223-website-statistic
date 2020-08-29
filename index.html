@@ -421,7 +421,7 @@
 				
 
 				if(gapi.auth2.getAuthInstance().isSignedIn.get()){
-					var profile = ggapi.auth2.getBasicProfile();
+					var profile = gapi.auth2.getBasicProfile();
 					$("#btnSignIn").hide();
 					$("#btnSignOut").show();
 					$("#userImg").attr("src", profile.getImageUrl());
