@@ -2,9 +2,9 @@
 <html prefix="og: http://ogp.me/ns#" lang="en-US ">
 
 <head>
-  
+
 	<title>The Silk Road</title>
-  
+
 	<link rel="shortcut icon" href="img/TSR_favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<meta name="description"
@@ -85,8 +85,10 @@
 			width: 300px;
 			height: 200px;
 			border: 1px solid #f1f1f1;
-			perspective: 1000px; /* Remove this if you don't want the 3D effect */
+			perspective: 1000px;
+			/* Remove this if you don't want the 3D effect */
 		}
+
 		.flip-card-inner {
 			position: relative;
 			width: 100%;
@@ -95,20 +97,26 @@
 			transition: transform 0.8s;
 			transform-style: preserve-3d;
 		}
+
 		.flip-card:hover .flip-card-inner {
 			transform: rotateY(180deg);
 		}
-		.flip-card-front, .flip-card-back {
+
+		.flip-card-front,
+		.flip-card-back {
 			position: absolute;
 			width: 100%;
 			height: 100%;
-			-webkit-backface-visibility: hidden; /* Safari */
+			-webkit-backface-visibility: hidden;
+			/* Safari */
 			backface-visibility: hidden;
 		}
+
 		.flip-card-front {
 			background-color: #bbb;
 			color: black;
 		}
+
 		.flip-card-back {
 			background-color: dodgerblue;
 			color: white;
@@ -116,6 +124,7 @@
 		}
 	</style>
 </head>
+
 <body>
 
 	<!-- CSS Bootstrap Theme -->
@@ -174,6 +183,16 @@
 				</div>
 				<div class="modal-body">
 					<div class="g-signin2" data-onsuccess="onSignIn">Sign in with Google</div>
+					<a href="#" onclick="signOut();">Sign out</a>
+					<script>
+						function signOut() {
+							var auth2 = gapi.auth2.getAuthInstance();
+							auth2.signOut().then(function () {
+								console.log('User signed out.');
+							});
+						}
+					</script>
+
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -216,169 +235,170 @@
 		<div class="card-body">
 			<div class="row">
 
-							<div class="col-sm-6 col-md-4">
-								<div class="flip-card">
-									<div class="flip-card-inner">
-										<div class="flip-card-front">
-											<img src="/img/product_cat/ciken.jpg" alt="Chicken" style="width:300px;height:300px;">
-										</div>
-										<div class="flip-card-back">
-											<h1>Chicken</h1>
-											<p>Fried Chicken with suaces</p>
-											<p>Lorem, ipsum.</p>
-										</div>
-									</div>
-								</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="flip-card">
+						<div class="flip-card-inner">
+							<div class="flip-card-front">
+								<img src="/img/product_cat/ciken.jpg" alt="Chicken" style="width:300px;height:300px;">
 							</div>
-
-							<div class="col-sm-6 col-md-4">
-								<div class="flip-card">
-									<div class="flip-card-inner">
-										<div class="flip-card-front">
-											<img src="/img/product_cat/burger.jpg" alt="Burger" style="width:300px;height:300px;">
-										</div>
-										<div class="flip-card-back">
-											<h1>Burger</h1>
-											<p>Chicken burgers and shit</p>
-											<p>Lorem, ipsum.</p>
-										</div>
-									</div>
-								</div>
+							<div class="flip-card-back">
+								<h1>Chicken</h1>
+								<p>Fried Chicken with suaces</p>
+								<p>Lorem, ipsum.</p>
 							</div>
+						</div>
+					</div>
+				</div>
 
-							<div class="col-sm-6 col-md-4">
-								<div class="flip-card">
-									<div class="flip-card-inner">
-										<div class="flip-card-front">
-											<img src="/img/product_cat/coffee.jpg" alt="Coffee" style="width:300px;height:300px;">
-										</div>
-										<div class="flip-card-back">
-											<h1>Coffee</h1>
-											<p>Black Roast and shit</p>
-											<p>Lorem, ipsum.</p>
-										</div>
-									</div>
-								</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="flip-card">
+						<div class="flip-card-inner">
+							<div class="flip-card-front">
+								<img src="/img/product_cat/burger.jpg" alt="Burger" style="width:300px;height:300px;">
 							</div>
-		</div>
-	</div>
-<section>
-		<div class="card m-5">
-			<h3 class="card-header">Product Categories</h3>
-			<div class="card-body">
-				<div class="row">
-
-							<div class="col-sm-6 col-md-4">
-								<div class="flip-card">
-									<div class="flip-card-inner">
-										<div class="flip-card-front">
-											<img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
-										</div>
-										<div class="flip-card-back">
-											<h1>John Doe</h1>
-											<p>Architect & Engineer</p>
-											<p>We love that guy</p>
-										</div>
-									</div>
-								</div>
+							<div class="flip-card-back">
+								<h1>Burger</h1>
+								<p>Chicken burgers and shit</p>
+								<p>Lorem, ipsum.</p>
 							</div>
+						</div>
+					</div>
+				</div>
 
-							<div class="col-sm-6 col-md-4">
-								<div class="flip-card">
-									<div class="flip-card-inner">
-										<div class="flip-card-front">
-											<img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
-										</div>
-										<div class="flip-card-back">
-											<h1>John Doe</h1>
-											<p>Architect & Engineer</p>
-											<p>We love that guy</p>
-										</div>
-									</div>
-								</div>
+				<div class="col-sm-6 col-md-4">
+					<div class="flip-card">
+						<div class="flip-card-inner">
+							<div class="flip-card-front">
+								<img src="/img/product_cat/coffee.jpg" alt="Coffee" style="width:300px;height:300px;">
 							</div>
-
-							<div class="col-sm-6 col-md-4">
-								<div class="flip-card">
-									<div class="flip-card-inner">
-										<div class="flip-card-front">
-											<img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
-										</div>
-										<div class="flip-card-back">
-											<h1>John Doe</h1>
-											<p>Architect & Engineer</p>
-											<p>We love that guy</p>
-										</div>
-									</div>
-								</div>
+							<div class="flip-card-back">
+								<h1>Coffee</h1>
+								<p>Black Roast and shit</p>
+								<p>Lorem, ipsum.</p>
 							</div>
-			</div>
-		</div>
-	</section>
-
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="text-center">
-						<p>All Rights Reserved &copy 2020</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</footer>
+		<section>
+			<div class="card m-5">
+				<h3 class="card-header">Product Categories</h3>
+				<div class="card-body">
+					<div class="row">
 
-	<script>
-		$(document).ready(function () {
+						<div class="col-sm-6 col-md-4">
+							<div class="flip-card">
+								<div class="flip-card-inner">
+									<div class="flip-card-front">
+										<img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+									</div>
+									<div class="flip-card-back">
+										<h1>John Doe</h1>
+										<p>Architect & Engineer</p>
+										<p>We love that guy</p>
+									</div>
+								</div>
+							</div>
+						</div>
 
-			//Theme Changer
-			if (typeof (Storage) !== " undefined") {
-				var styling = localStorage.getItem("BS_Style");
-				if (styling == null)
+						<div class="col-sm-6 col-md-4">
+							<div class="flip-card">
+								<div class="flip-card-inner">
+									<div class="flip-card-front">
+										<img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+									</div>
+									<div class="flip-card-back">
+										<h1>John Doe</h1>
+										<p>Architect & Engineer</p>
+										<p>We love that guy</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 col-md-4">
+							<div class="flip-card">
+								<div class="flip-card-inner">
+									<div class="flip-card-front">
+										<img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+									</div>
+									<div class="flip-card-back">
+										<h1>John Doe</h1>
+										<p>Architect & Engineer</p>
+										<p>We love that guy</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
+
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="text-center">
+							<p>All Rights Reserved &copy 2020</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			$(document).ready(function () {
+
+				//Theme Changer
+				if (typeof (Storage) !== " undefined") {
+					var styling = localStorage.getItem("BS_Style");
+					if (styling == null)
+						$("#csstheme").attr('href', "css/bootstrap-darkly.css");
+					else $("#csstheme").attr('href', styling);
+				}
+				$("#style01").on("click", function (event) {
 					$("#csstheme").attr('href', "css/bootstrap-darkly.css");
-				else $("#csstheme").attr('href', styling);
+					styling = "css/bootstrap-darkly.css";
+					if (typeof (Storage) !== "undefined")
+						localStorage.setItem("BS_Style", styling);
+				})
+				$("#style02").on("click", function (event) {
+					$("#csstheme").attr('href', "css/bootstrap-united.css");
+					styling = "css/bootstrap-united.css";
+					if (typeof (Storage) !== "undefined")
+						localStorage.setItem("BS_Style", styling);
+				})
+				$("#style03").on("click", function (event) {
+					$("#csstheme").attr('href', "css/bootstrap-solar.css");
+					styling = "css/bootstrap-solar.css";
+					if (typeof (Storage) !== "undefined")
+						localStorage.setItem("BS_Style", styling);
+				})
+				$("#style04").on("click", function (event) {
+					$("#csstheme").attr('href', "css/bootstrap.css");
+					styling = "css/bootstrap.css";
+					if (typeof (Storage) !== "undefined")
+						localStorage.setItem("BS_Style", styling);
+				})
+			})
+
+			//Google Profile Accesor
+			function onSignIn(googleUser) {
+				var profile = googleUser.getBasicProfile();
+				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+				console.log('Name: ' + profile.getName());
+				console.log('Image URL: ' + profile.getImageUrl());
+				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 			}
-			$("#style01").on("click", function (event) {
-				$("#csstheme").attr('href', "css/bootstrap-darkly.css");
-				styling = "css/bootstrap-darkly.css";
-				if (typeof (Storage) !== "undefined")
-					localStorage.setItem("BS_Style", styling);
-			})
-			$("#style02").on("click", function (event) {
-				$("#csstheme").attr('href', "css/bootstrap-united.css");
-				styling = "css/bootstrap-united.css";
-				if (typeof (Storage) !== "undefined")
-					localStorage.setItem("BS_Style", styling);
-			})
-			$("#style03").on("click", function (event) {
-				$("#csstheme").attr('href', "css/bootstrap-solar.css");
-				styling = "css/bootstrap-solar.css";
-				if (typeof (Storage) !== "undefined")
-					localStorage.setItem("BS_Style", styling);
-			})
-			$("#style04").on("click", function (event) {
-				$("#csstheme").attr('href', "css/bootstrap.css");
-				styling = "css/bootstrap.css";
-				if (typeof (Storage) !== "undefined")
-					localStorage.setItem("BS_Style", styling);
-			})
-		})
 
-		//Google Profile Accesor
-		function onSignIn(googleUser) {
-			var profile = googleUser.getBasicProfile();
-			console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-			console.log('Name: ' + profile.getName());
-			console.log('Image URL: ' + profile.getImageUrl());
-			console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-		}
-
-		//Hero-Image Resize
-		// $(".jumbotron").css({ height: $(window).height() + "px" });
-		// $(window).on("resize", function() {
-		// 	$(".jumbotron").css({ height: $(window).height() + "px" });
-		// });
-	</script>
+			//Hero-Image Resize
+			// $(".jumbotron").css({ height: $(window).height() + "px" });
+			// $(window).on("resize", function() {
+			// 	$(".jumbotron").css({ height: $(window).height() + "px" });
+			// });
+		</script>
 	</div>
 </body>
+
 </html>
