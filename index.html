@@ -179,28 +179,6 @@
 
 					<!-- <div id="btnSignIn" class="my-signin2" data-onsuccess="onSignIn"></div> -->
 					<div id="my-signin2"></div>
-					<script>
-						function onSuccess(googleUser) {
-							console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-						}
-
-						function onFailure(error) {
-							console.log(error);
-						}
-
-						function renderButton() {
-							gapi.signin2.render('my-signin2', {
-								'scope': 'profile email',
-								'width': 240,
-								'height': 38,
-								'longtitle': true,
-								'theme': 'dark',
-								'onsuccess': onSuccess,
-								'onfailure': onFailure
-							});
-						}
-					</script>
-
 					<button id="btnSignOut" type="button" class="btn btn-secondary" onclick="signOut();">Sign out</a>
 		</div>
 	</nav>
@@ -418,16 +396,16 @@
 
 			//Card Details
 			$(document).ready(function () {
-				
 
-				if(gapi.auth2.getAuthInstance().isSignedIn.get()){
+
+				if (gapi.auth2.getAuthInstance().isSignedIn.get()) {
 					var profile = gapi.auth2.getBasicProfile();
 					$("#btnSignIn").hide();
 					$("#btnSignOut").show();
 					$("#userImg").attr("src", profile.getImageUrl());
 					$("#userName").html(profile.getName());
 					$("#userEmail").html(profile.getEmail());
-				}else{
+				} else {
 					$("#btnSignIn").show();
 					$("#btnSignOut").hide();
 					$("#userImg").attr("src", "holder.js/1000x250");
@@ -437,12 +415,26 @@
 			})
 
 			//Google Profile Accesor
-			function onSignIn(googleUser) {
+			function onSuccess(googleUser) {
 				var profile = googleUser.getBasicProfile();
 				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
 				console.log('Name: ' + profile.getName());
 				console.log('Image URL: ' + profile.getImageUrl());
 				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+			}
+			function onFailure(error) {
+				console.log(error);
+			}
+			function renderButton() {
+				gapi.signin2.render('my-signin2', {
+					'scope': 'profile email',
+					'width': 240,
+					'height': 38,
+					'longtitle': true,
+					'theme': 'dark',
+					'onsuccess': onSuccess,
+					'onfailure': onFailure
+				});
 			}
 
 			function signOut() {
@@ -454,7 +446,7 @@
 			}
 
 			//Login API Button
-			
+
 
 			//Hero-Image Resize
 			// $(".jumbotron").css({ height: $(window).height() + "px" });
