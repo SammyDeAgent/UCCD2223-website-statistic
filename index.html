@@ -55,17 +55,23 @@
 	<script src="js/bootstrap.js"></script>
 	<script src="js/holder.js"></script>
 
+	<!-- Google Login API -->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id"
+		content="505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com">
+
 	<style>
 		.mdi {
 			font-size: 1.25rem;
 		}
+
 		.jumbotron {
 			color: brown;
-  			background-image: url(img/TheSilkRoad_banner.png);
-  			background-position: bottom;
-  			background-repeat: no-repeat;
-  			background-size: cover;
-  			height: 50vh;
+			background-image: url(img/TheSilkRoad_banner.png);
+			background-position: bottom;
+			background-repeat: no-repeat;
+			background-size: cover;
+			height: 50vh;
 		}
 	</style>
 
@@ -103,15 +109,39 @@
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<a class="dropdown-item" href="#" id="style01"">Darkly</a>
-						<a class="dropdown-item" href="#" id="style02"">United</a>
-						<a class="dropdown-item" href="#" id="style03"">Solar</a>
-						<a class="dropdown-item" href="#" id="style04"">Vanilla</a>
+						<a class=" dropdown-item" href="#" id="style02"">United</a>
+						<a class=" dropdown-item" href="#" id="style03"">Solar</a>
+						<a class=" dropdown-item" href="#" id="style04"">Vanilla</a>
 					</div>
 				</li>
 			</ul>
+			<div class=" my-2 my-lg-0">
+							<button id="btnLog" class="btn btn-primary my-2 my-sm-0" type="button" data-toggle="modal"
+								data-target="#LogInModal">Log In</button>
+					</div>
 		</div>
 	</nav>
 
+	<!-- Modal -->
+	<div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="LogInModalCenteredLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="LogInModalCenteredLabel">Log In</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="g-signin2" data-onsuccess="onSignIn"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- <div id="abs-center" class="image m-5 center w-50">
 		<img src="img/TheSilkRoad_logo.png" class="img-fluid" alt="Responsive image">
@@ -131,68 +161,78 @@
 
 	<div class="card m-5">
 		<div class="card-body">
-		  <h4 class="card-title">Card title</h4>
-		  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-		  <p class="card-text">
-			Some quick example text to build on the card title
-			and make up the bulk of the card's content.
-		  </p>
-		  <a href="#!" class="card-link">Card link</a>
-		  <a href="#!" class="card-link">Another link</a>
+			<h4 class="card-title">Card title</h4>
+			<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+			<p class="card-text">
+				Some quick example text to build on the card title
+				and make up the bulk of the card's content.
+			</p>
+			<a href="#!" class="card-link">Card link</a>
+			<a href="#!" class="card-link">Another link</a>
 		</div>
 	</div>
 
 	<div class="card m-5">
 		<h3 class="card-header">Featured</h3>
 		<div class="card-body">
-		  <h4 class="card-title">Special title treatment</h4>
-		  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-		  <a href="#!" class="btn btn-primary">Go somewhere</a>
+			<h4 class="card-title">Special title treatment</h4>
+			<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+			<a href="#!" class="btn btn-primary">Go somewhere</a>
 		</div>
-	  </div>
-	  
+	</div>
+
 	<script>
 		$(document).ready(function () {
 
 			//Theme Changer
-			if (typeof (Storage) !== " undefined") { 
-				var styling=localStorage.getItem("BS_Style"); 
-				if (styling==null)
-					$("#csstheme").attr('href', "css/bootstrap-darkly.css" ); 
-				else $("#csstheme").attr('href',styling); 
-			} 
+			if (typeof (Storage) !== " undefined") {
+				var styling = localStorage.getItem("BS_Style");
+				if (styling == null)
+					$("#csstheme").attr('href', "css/bootstrap-darkly.css");
+				else $("#csstheme").attr('href', styling);
+			}
 			$("#style01").on("click", function (event) {
-				$("#csstheme").attr('href', "css/bootstrap-darkly.css" ); 
-				styling="css/bootstrap-darkly.css";
-				if (typeof (Storage) !=="undefined" ) 
-					localStorage.setItem("BS_Style", styling); 
-			})				
+				$("#csstheme").attr('href', "css/bootstrap-darkly.css");
+				styling = "css/bootstrap-darkly.css";
+				if (typeof (Storage) !== "undefined")
+					localStorage.setItem("BS_Style", styling);
+			})
 			$("#style02").on("click", function (event) {
-				$("#csstheme").attr('href', "css/bootstrap-united.css" );
-				styling="css/bootstrap-united.css"; 
-				if (typeof (Storage) !=="undefined" ) 
-					localStorage.setItem("BS_Style", styling); 
-			})		
+				$("#csstheme").attr('href', "css/bootstrap-united.css");
+				styling = "css/bootstrap-united.css";
+				if (typeof (Storage) !== "undefined")
+					localStorage.setItem("BS_Style", styling);
+			})
 			$("#style03").on("click", function (event) {
-				$("#csstheme").attr('href', "css/bootstrap-solar.css" );
-				styling="css/bootstrap-solar.css";
-				if (typeof (Storage) !=="undefined" ) 
-					localStorage.setItem("BS_Style", styling); 
-			}) 
+				$("#csstheme").attr('href', "css/bootstrap-solar.css");
+				styling = "css/bootstrap-solar.css";
+				if (typeof (Storage) !== "undefined")
+					localStorage.setItem("BS_Style", styling);
+			})
 			$("#style04").on("click", function (event) {
-				$("#csstheme").attr('href', "css/bootstrap.css" );
-				styling="css/bootstrap.css";
-				if (typeof (Storage) !=="undefined" ) 
-					localStorage.setItem("BS_Style", styling); 
+				$("#csstheme").attr('href', "css/bootstrap.css");
+				styling = "css/bootstrap.css";
+				if (typeof (Storage) !== "undefined")
+					localStorage.setItem("BS_Style", styling);
 			})
 		})
-		
+
+		//Google Profile Accesor
+		function onSignIn(googleUser) {
+			var profile = googleUser.getBasicProfile();
+			console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+			console.log('Name: ' + profile.getName());
+			console.log('Image URL: ' + profile.getImageUrl());
+			console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		}
+
 		//Hero-Image Resize
 		// $(".jumbotron").css({ height: $(window).height() + "px" });
 		// $(window).on("resize", function() {
-  		// 	$(".jumbotron").css({ height: $(window).height() + "px" });
+		// 	$(".jumbotron").css({ height: $(window).height() + "px" });
 		// });
-	</script> 
-	</div> 
+	</script>
+	</div>
 </body>
+
 </html>
