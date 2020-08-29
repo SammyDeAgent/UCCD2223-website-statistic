@@ -56,13 +56,6 @@
 	<script src="js/holder.js"></script>
 
 	<style>
-		#abs-center {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
-
 		.mdi {
 			font-size: 1.25rem;
 		}
@@ -73,9 +66,6 @@
   			background-repeat: no-repeat;
   			background-size: cover;
   			height: 50vh;
-		}
-		#navbar{
-			transition: top 0.2s ease-in;
 		}
 	</style>
 
@@ -112,16 +102,22 @@
 						Theme
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#" id="style01"">Cyborg</a>
-						<a class="dropdown-item" href="#" id="style02"">Darkly</a>
-						<a class="dropdown-item" href="#" id="style03"">United</a>
-						<a class="dropdown-item" href="#" id="style04"">Solar</a>
-						<a class="dropdown-item" href="#" id="style05"">Vanilla</a>
+						<a class="dropdown-item" href="#" id="style01"">Darkly</a>
+						<a class="dropdown-item" href="#" id="style02"">United</a>
+						<a class="dropdown-item" href="#" id="style03"">Solar</a>
+						<a class="dropdown-item" href="#" id="style04"">Vanilla</a>
 					</div>
 				</li>
 			</ul>
 		</div>
 	</nav>
+
+
+	<div class="image m-5 center w-50">
+		<img src="img/TheSilkRoad_logo.png" class="img-fluid" alt="Responsive image">
+	</div>
+
+
 
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
@@ -163,30 +159,24 @@
 				else $("#csstheme").attr('href',styling); 
 			} 
 			$("#style01").on("click", function (event) {
-				$("#csstheme").attr('href', "css/bootstrap-cyborg.css" ); 
-					styling="css/bootstrap-cyborg.css"; 
-				if (typeof (Storage) !=="undefined" ) 
-					localStorage.setItem("BS_Style", styling); 
-			})
-			$("#style02").on("click", function (event) {
 				$("#csstheme").attr('href', "css/bootstrap-darkly.css" ); 
 				styling="css/bootstrap-darkly.css";
 				if (typeof (Storage) !=="undefined" ) 
 					localStorage.setItem("BS_Style", styling); 
 			})				
-			$("#style03").on("click", function (event) {
+			$("#style02").on("click", function (event) {
 				$("#csstheme").attr('href', "css/bootstrap-united.css" );
 				styling="css/bootstrap-united.css"; 
 				if (typeof (Storage) !=="undefined" ) 
 					localStorage.setItem("BS_Style", styling); 
 			})		
-			$("#style04").on("click", function (event) {
+			$("#style03").on("click", function (event) {
 				$("#csstheme").attr('href', "css/bootstrap-solar.css" );
 				styling="css/bootstrap-solar.css";
 				if (typeof (Storage) !=="undefined" ) 
 					localStorage.setItem("BS_Style", styling); 
 			}) 
-			$("#style05").on("click", function (event) {
+			$("#style04").on("click", function (event) {
 				$("#csstheme").attr('href', "css/bootstrap.css" );
 				styling="css/bootstrap.css";
 				if (typeof (Storage) !=="undefined" ) 
