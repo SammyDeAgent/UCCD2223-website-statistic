@@ -58,6 +58,7 @@
 
 	<!-- Google Login API -->
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="js/googleAPI.js"></script>
 	<meta name="google-signin-client_id"
 		content="505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com">
 
@@ -388,22 +389,24 @@
 					localStorage.setItem("BS_Style", styling);
 			})
 
-			var Logged = gapi.auth2.getAuthInstance().isSignedIn.get();
-			if (Logged) {
-				var profile = gapi.auth2.getBasicProfile();
-				// $("#btnSignIn").hide();
-				// $("#btnSignOut").show();
-				$("#userImg").attr("src", profile.getImageUrl());
-				$("#userName").html(profile.getName());
-				$("#userEmail").html(profile.getEmail());
-			} else {
-				// $("#btnSignIn").show();
-				// $("#btnSignOut").hide();
-				$("#userImg").attr("src", "holder.js/1000x250");
-				$("#userName").html("Null Name");
-				$("#userEmail").html("Null Email");
-			}
-		})
+			gapiPromise.then(function () {
+				var Logged = gapi.auth2.getAuthInstance().isSignedIn.get();
+				if (Logged) {
+					var profile = gapi.auth2.getBasicProfile();
+					// $("#btnSignIn").hide();
+					// $("#btnSignOut").show();
+					$("#userImg").attr("src", profile.getImageUrl());
+					$("#userName").html(profile.getName());
+					$("#userEmail").html(profile.getEmail());
+				} else {
+					// $("#btnSignIn").show();
+					// $("#btnSignOut").hide();
+					$("#userImg").attr("src", "holder.js/1000x250");
+					$("#userName").html("Null Name");
+					$("#userEmail").html("Null Email");
+				}
+			});
+		});
 
 		//Google Profile Accesor
 		function onSignIn(googleUser) {
@@ -417,6 +420,10 @@
 			$("#userEmail").html(profile.getEmail());
 			$("#btnSignIn").hide();
 			$("#btnSignOut").show();
+
+			// The ID token you need to pass to your backend:
+			var id_token = googleUser.getAuthResponse().id_token;
+			console.log("ID Token: " + id_token);
 		}
 
 		function signOut() {
@@ -438,4 +445,5 @@
 		// });
 	</script>
 </body>
+
 </html>
