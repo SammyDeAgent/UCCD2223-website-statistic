@@ -396,18 +396,18 @@
 
 			//Card Details
 			$(document).ready(function () {
+				var Logged = gapi.auth2.getAuthInstance().isSignedIn.get();
 
-
-				if (gapi.auth2.getAuthInstance().isSignedIn.get()) {
+				if (Logged) {
 					var profile = gapi.auth2.getBasicProfile();
-					$("#btnSignIn").hide();
-					$("#btnSignOut").show();
+					// $("#btnSignIn").hide();
+					// $("#btnSignOut").show();
 					$("#userImg").attr("src", profile.getImageUrl());
 					$("#userName").html(profile.getName());
 					$("#userEmail").html(profile.getEmail());
 				} else {
-					$("#btnSignIn").show();
-					$("#btnSignOut").hide();
+					// $("#btnSignIn").show();
+					// $("#btnSignOut").hide();
 					$("#userImg").attr("src", "holder.js/1000x250");
 					$("#userName").html("Null Name");
 					$("#userEmail").html("Null Email");
