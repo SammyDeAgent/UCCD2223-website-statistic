@@ -335,98 +335,97 @@
 						</div>
 					</div>
 				</div>
+			</div>
 		</section>
+	</div>
 
-		<footer>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="text-center">
-							<p>All Rights Reserved &copy 2020</p>
-						</div>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="text-center">
+						<p>All Rights Reserved &copy 2020</p>
 					</div>
 				</div>
 			</div>
-		</footer>
+		</div>
+	</footer>
 
-		<script>
-			$(document).ready(function () {
+	<script>
+		$(document).ready(function () {
 
-				//Theme Changer
-				if (typeof (Storage) !== " undefined") {
-					var styling = localStorage.getItem("BS_Style");
-					if (styling == null)
-						$("#csstheme").attr('href', "css/bootstrap-darkly.css");
-					else $("#csstheme").attr('href', styling);
-				}
-				$("#style01").on("click", function (event) {
+			//Theme Changer
+			if (typeof (Storage) !== " undefined") {
+				var styling = localStorage.getItem("BS_Style");
+				if (styling == null)
 					$("#csstheme").attr('href', "css/bootstrap-darkly.css");
-					styling = "css/bootstrap-darkly.css";
-					if (typeof (Storage) !== "undefined")
-						localStorage.setItem("BS_Style", styling);
-				})
-				$("#style02").on("click", function (event) {
-					$("#csstheme").attr('href', "css/bootstrap-united.css");
-					styling = "css/bootstrap-united.css";
-					if (typeof (Storage) !== "undefined")
-						localStorage.setItem("BS_Style", styling);
-				})
-				$("#style03").on("click", function (event) {
-					$("#csstheme").attr('href', "css/bootstrap-solar.css");
-					styling = "css/bootstrap-solar.css";
-					if (typeof (Storage) !== "undefined")
-						localStorage.setItem("BS_Style", styling);
-				})
-				$("#style04").on("click", function (event) {
-					$("#csstheme").attr('href', "css/bootstrap.css");
-					styling = "css/bootstrap.css";
-					if (typeof (Storage) !== "undefined")
-						localStorage.setItem("BS_Style", styling);
-				})
-
-				var Logged = gapi.auth2.getAuthInstance().isSignedIn.get();
-				if (Logged) {
-					var profile = gapi.auth2.getBasicProfile();
-					// $("#btnSignIn").hide();
-					// $("#btnSignOut").show();
-					$("#userImg").attr("src", profile.getImageUrl());
-					$("#userName").html(profile.getName());
-					$("#userEmail").html(profile.getEmail());
-				} else {
-					// $("#btnSignIn").show();
-					// $("#btnSignOut").hide();
-					$("#userImg").attr("src", "holder.js/1000x250");
-					$("#userName").html("Null Name");
-					$("#userEmail").html("Null Email");
-				}
+				else $("#csstheme").attr('href', styling);
+			}
+			$("#style01").on("click", function (event) {
+				$("#csstheme").attr('href', "css/bootstrap-darkly.css");
+				styling = "css/bootstrap-darkly.css";
+				if (typeof (Storage) !== "undefined")
+					localStorage.setItem("BS_Style", styling);
+			})
+			$("#style02").on("click", function (event) {
+				$("#csstheme").attr('href', "css/bootstrap-united.css");
+				styling = "css/bootstrap-united.css";
+				if (typeof (Storage) !== "undefined")
+					localStorage.setItem("BS_Style", styling);
+			})
+			$("#style03").on("click", function (event) {
+				$("#csstheme").attr('href', "css/bootstrap-solar.css");
+				styling = "css/bootstrap-solar.css";
+				if (typeof (Storage) !== "undefined")
+					localStorage.setItem("BS_Style", styling);
+			})
+			$("#style04").on("click", function (event) {
+				$("#csstheme").attr('href', "css/bootstrap.css");
+				styling = "css/bootstrap.css";
+				if (typeof (Storage) !== "undefined")
+					localStorage.setItem("BS_Style", styling);
 			})
 
-			//Google Profile Accesor
-			function onSignIn(googleUser) {
-				var profile = googleUser.getBasicProfile();
-				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-				console.log('Name: ' + profile.getName());
-				console.log('Image URL: ' + profile.getImageUrl());
-				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+			var Logged = gapi.auth2.getAuthInstance().isSignedIn.get();
+			if (Logged) {
+				var profile = gapi.auth2.getBasicProfile();
+				// $("#btnSignIn").hide();
+				// $("#btnSignOut").show();
+				$("#userImg").attr("src", profile.getImageUrl());
+				$("#userName").html(profile.getName());
+				$("#userEmail").html(profile.getEmail());
+			} else {
+				// $("#btnSignIn").show();
+				// $("#btnSignOut").hide();
+				$("#userImg").attr("src", "holder.js/1000x250");
+				$("#userName").html("Null Name");
+				$("#userEmail").html("Null Email");
+			}
+		})
+
+		//Google Profile Accesor
+		function onSignIn(googleUser) {
+			var profile = googleUser.getBasicProfile();
+			console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+			console.log('Name: ' + profile.getName());
+			console.log('Image URL: ' + profile.getImageUrl());
+			console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		}
+
+		function signOut() {
+			var auth2 = gapi.auth2.getAuthInstance();
+			auth2.signOut().then(function () {
+				console.log('User signed out.');
 				window.location.href = "index.html";
-			}
-
-			function signOut() {
-				var auth2 = gapi.auth2.getAuthInstance();
-				auth2.signOut().then(function () {
-					console.log('User signed out.');
-					window.location.href = "index.html";
-				});
-			}
+			});
+		}
 
 
-			//Hero-Image Resize
-			// $(".jumbotron").css({ height: $(window).height() + "px" });
-			// $(window).on("resize", function() {
-			// 	$(".jumbotron").css({ height: $(window).height() + "px" });
-			// });
-		</script>
-	</div>
+		//Hero-Image Resize
+		// $(".jumbotron").css({ height: $(window).height() + "px" });
+		// $(window).on("resize", function() {
+		// 	$(".jumbotron").css({ height: $(window).height() + "px" });
+		// });
+	</script>
 </body>
-
 </html>
