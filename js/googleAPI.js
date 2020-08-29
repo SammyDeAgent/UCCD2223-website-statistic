@@ -1,4 +1,3 @@
-
 var gapiPromise = (function () {
     var deferred = $.Deferred();
     window.onLoadCallback = function () {
