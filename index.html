@@ -57,16 +57,9 @@
 	<script src="js/holder.js"></script>
 
 	<!-- Google Login API -->
-	<script src="https://apis.google.com/js/platform.js?onload=init"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<meta name="google-signin-client_id"
 		content="505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com">
-	<script>
-		gapi.load('auth2', function () {
-			gapi.auth2.init({
-				client_id: '505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com'
-			});
-		});
-	</script>
 
 	<style>
 		.mdi {
@@ -176,34 +169,7 @@
 								data-target="#LogInModal">Log In</button>
 					</div> -->
 
-					<!-- <div id="btnSignIn" class="my-signin2" data-onsuccess="onSignIn"></div> -->
-					<div id="my-signin2"></div>
-					<script>
-						function onSuccess(googleUser) {
-							var profile = googleUser.getBasicProfile();
-							console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-							console.log('Name: ' + profile.getName());
-							console.log('Image URL: ' + profile.getImageUrl());
-							console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-						}
-
-						function onFailure(error) {
-							console.log(error);
-						}
-
-						function renderButton() {
-							gapi.signin2.render('my-signin2', {
-								'scope': 'profile email',
-								'width': 240,
-								'height': 38,
-								'longtitle': true,
-								'theme': 'dark',
-								'onsuccess': onSuccess,
-								'onfailure': onFailure
-							});
-						}
-					</script>
-					<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+					<div id="btnSignIn" class="g-signin2" data-onsuccess="onSignIn"></div>
 					<button id="btnSignOut" type="button" class="btn btn-secondary" onclick="signOut();">Sign out</a>
 		</div>
 	</nav>
@@ -435,27 +401,16 @@
 				}
 			})
 
-			//Card Details
-			// $(document).ready(function () {
-			// 	var Logged = gapi.auth2.getAuthInstance().isSignedIn.get();
-
-			// 	if (Logged) {
-			// 		var profile = gapi.auth2.getBasicProfile();
-			// 		// $("#btnSignIn").hide();
-			// 		// $("#btnSignOut").show();
-			// 		$("#userImg").attr("src", profile.getImageUrl());
-			// 		$("#userName").html(profile.getName());
-			// 		$("#userEmail").html(profile.getEmail());
-			// 	} else {
-			// 		// $("#btnSignIn").show();
-			// 		// $("#btnSignOut").hide();
-			// 		$("#userImg").attr("src", "holder.js/1000x250");
-			// 		$("#userName").html("Null Name");
-			// 		$("#userEmail").html("Null Email");
-			// 	}
-			// })
-
 			//Google Profile Accesor
+			function onSignIn(googleUser) {
+				var profile = googleUser.getBasicProfile();
+				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+				console.log('Name: ' + profile.getName());
+				console.log('Image URL: ' + profile.getImageUrl());
+				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+				window.location.href = "index.html";
+			}
+
 			function signOut() {
 				var auth2 = gapi.auth2.getAuthInstance();
 				auth2.signOut().then(function () {
