@@ -54,7 +54,7 @@
 		integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
 	</script>
 	<script src="js/bootstrap.js"></script>
-	<script src="https://cdn.rawgit.com/imsky/holder/master/holder.js"></script>
+	<script src="js/holder.js"></script>
 
 	<!-- Google Login API -->
 	<script src="https://apis.google.com/js/platform.js?onload=init"></script>
@@ -63,7 +63,7 @@
 	<script>
 		gapi.load('auth2', function () {
 			gapi.auth2.init({
-  				client_id: '505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com'
+				client_id: '505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com'
 			});
 		});
 	</script>
@@ -124,22 +124,12 @@
 			color: white;
 			transform: rotateY(180deg);
 		}
-		
+
 		/* Google Login API Formats */
-		#btnSignOut{
+		#btnSignOut {
 			margin-left: 1rem;
 		}
 	</style>
-
-	<script>
-		if(GoogleAuth.isSignedIn.get()){
-			$("#btnSignIn").hide();
-			$("#btnSignOut").show();
-		}else{
-			$("#btnSignIn").show();
-			$("#btnSignOut").hide();
-		}
-	</script>
 
 </head>
 
@@ -186,7 +176,32 @@
 								data-target="#LogInModal">Log In</button>
 					</div> -->
 
-					<div id="btnSignIn" class="g-signin2" data-onsuccess="onSignIn"></div>
+					<!-- <div id="btnSignIn" class="my-signin2" data-onsuccess="onSignIn"></div> -->
+					<div id="my-signin2"></div>
+					<script>
+						function onSuccess(googleUser) {
+							console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+						}
+
+						function onFailure(error) {
+							console.log(error);
+						}
+
+						function renderButton() {
+							gapi.signin2.render('my-signin2', {
+								'scope': 'profile email',
+								'width': 240,
+								'height': 38,
+								'longtitle': true,
+								'theme': 'dark',
+								'onsuccess': onSuccess,
+								'onfailure': onFailure
+							});
+						}
+					</script>
+
+					<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
 					<button id="btnSignOut" type="button" class="btn btn-secondary" onclick="signOut();">Sign out</a>
 		</div>
 	</nav>
@@ -241,15 +256,13 @@
 	<div class="card m-5">
 		<img id="userImg" class="card-img-top w-100" src="" alt="Card image cap">
 		<div class="card-body">
-		  <h4 class="card-title">User Details</h4>
-		  <p id="userName" class="card-text">
-			Null Name
-		  </p>
-		  <p id="userEmail" class="card-text">
-			Null Email
-		  </p>
+			<h4 class="card-title">User Details</h4>
+			<p id="userName" class="card-text">
+			</p>
+			<p id="userEmail" class="card-text">
+			</p>
 		</div>
-	  </div>
+	</div>
 
 	<div class="card m-5">
 		<h3 class="card-header">Featured</h3>
@@ -404,6 +417,13 @@
 				})
 			})
 
+			//Card Details
+			$(document).ready(function () {
+				$("#userImg").attr("src", "holder.js/1000x250");
+				$("#userName").html("Null Name");
+				$("#userEmail").html("Null Email");
+			})
+
 			//Google Profile Accesor
 			function onSignIn(googleUser) {
 				var profile = googleUser.getBasicProfile();
@@ -413,8 +433,7 @@
 				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 			}
 
-			//Google Login Button Mutator
-			function signOut(){
+			function signOut() {
 				var auth2 = gapi.auth2.getAuthInstance();
 				auth2.signOut().then(function () {
 					console.log('User signed out.');
@@ -422,11 +441,14 @@
 				});
 			}
 
-			//Card Details
-			$(document).ready(function(){
-				console.log(googleUser.getAuthInstance());
-				$("#userImg").attr("src","holder.js/1000x250");
-			})
+			//Login API Button
+			// if(GoogleAuth.isSignedIn.get()){
+			// 	$("#btnSignIn").hide();
+			// 	$("#btnSignOut").show();
+			// }else{
+			// 	$("#btnSignIn").show();
+			// 	$("#btnSignOut").hide();
+			// }
 
 			//Hero-Image Resize
 			// $(".jumbotron").css({ height: $(window).height() + "px" });
