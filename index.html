@@ -57,11 +57,11 @@
 	<script src="js/holder.js"></script>
 
 	<!-- Google Login API -->
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 	<meta name="google-signin-client_id"
 		content="505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com">
 	<script>
-		gapi.load('auth2',function(){
+		gapi.load('auth2', function () {
 			gapi.auth2.init();
 		});
 	</script>
