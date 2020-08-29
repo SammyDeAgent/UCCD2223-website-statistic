@@ -239,17 +239,17 @@
 	</div> -->
 
 	<div class="card m-5">
+		<img id="userImg" class="card-img-top w-100" src="" alt="Card image cap">
 		<div class="card-body">
-			<h4 class="card-title">Card title</h4>
-			<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-			<p class="card-text">
-				Some quick example text to build on the card title
-				and make up the bulk of the card's content.
-			</p>
-			<a href="#!" class="card-link">Card link</a>
-			<a href="#!" class="card-link">Another link</a>
+		  <h4 class="card-title">User Details</h4>
+		  <p id="userName" class="card-text">
+			Null Name
+		  </p>
+		  <p id="userEmail" class="card-text">
+			Null Email
+		  </p>
 		</div>
-	</div>
+	  </div>
 
 	<div class="card m-5">
 		<h3 class="card-header">Featured</h3>
@@ -421,6 +421,12 @@
 					window.location.href = "index.html";
 				});
 			}
+
+			//Card Details
+			$(document).ready(function(){
+				console.log(googleUser.getAuthInstance())
+				$("#userImg").attr("src","holder.js/1000x250");
+			})
 
 			//Hero-Image Resize
 			// $(".jumbotron").css({ height: $(window).height() + "px" });
