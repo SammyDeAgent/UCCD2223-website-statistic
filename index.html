@@ -216,12 +216,13 @@
 			<hr>
 			
 			<!-- <div id=" btnSignIn" class="g-signin2" data-onsuccess="onSignIn"></div> -->
-					<div id="gSignInWrapper">
-						<div id="GBtn" class="customGPlusSignIn">
+					<div id="gSignInWrapper" >
+						<div id="GBtn" class="customGPlusSignIn" data-onsuccess="onSignIn">
 							<span class="Gicon"></span>
 							<span class="GText">Sign in with Google</span>
 						</div>
 					</div>
+					<script>startApp();</script>
 
 					<button id="btnSignOut" type="button" class="btn btn-secondary" onclick="signOut();">Sign out</a>
 		</div>
@@ -439,10 +440,6 @@
 		// 	var id_token = googleUser.getAuthResponse().id_token;
 		// 	console.log("ID Token: " + id_token);
 		// }
-		
-		$("#gSignInWrapper").on("click",function(){
-			startApp();
-		})
 
 		function signOut() {
 			var auth2 = gapi.auth2.getAuthInstance();
