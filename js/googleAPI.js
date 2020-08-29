@@ -14,3 +14,4 @@ var authInited = gapiPromise.then(function () {
 })
 
 //gapiPromise.then(function(){ ... }) - function inside will be execueted when gapi is loaded
+

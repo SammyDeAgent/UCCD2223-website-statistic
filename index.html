@@ -389,23 +389,27 @@
 					localStorage.setItem("BS_Style", styling);
 			})
 
-			gapiPromise.then(function () {
-				var Logged = gapi.auth2.getAuthInstance().isSignedIn.get();
-				if (!Logged) {
-					var profile = gapi.auth2.getBasicProfile();
-					// $("#btnSignIn").hide();
-					// $("#btnSignOut").show();
-					$("#userImg").attr("src", profile.getImageUrl());
-					$("#userName").html(profile.getName());
-					$("#userEmail").html(profile.getEmail());
-				} else {
-					// $("#btnSignIn").show();
-					$("#btnSignOut").hide();
-					$("#userImg").attr("src", "holder.js/1000x250");
-					$("#userName").html("Null Name");
-					$("#userEmail").html("Null Email");
-				}
-			});
+			$("#btnSignIn").show();
+			$("#btnSignOut").hide();
+
+			// gapiPromise.then(function () {
+			// 	var Logged = gapi.auth2.getAuthInstance().isSignedIn.get();
+			// 	console.log(Logged);
+			// 	if (Logged) {
+			// 		var profile = gapi.auth2.getBasicProfile();
+			// 		$("#btnSignIn").hide();
+			// 		$("#btnSignOut").show();
+			// 		$("#userImg").attr("src", profile.getImageUrl());
+			// 		$("#userName").html(profile.getName());
+			// 		$("#userEmail").html(profile.getEmail());
+			// 	} else {
+			// 		$("#btnSignIn").show();
+			// 		$("#btnSignOut").hide();
+			// 		$("#userImg").attr("src", "holder.js/1000x250");
+			// 		$("#userName").html("Null Name");
+			// 		$("#userEmail").html("Null Email");
+			// 	}
+			// });
 		});
 
 		//Google Profile Accesor
