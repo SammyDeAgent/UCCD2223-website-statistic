@@ -82,7 +82,6 @@
 		};
 
 		function attachSignin(element) {
-			console.log(element.id);
 			auth2.attachClickHandler(element, {},
 				function onSignIn(googleUser) {
 					var profile = googleUser.getBasicProfile();
@@ -220,7 +219,7 @@
 			<!-- <div id=" btnSignIn" class="g-signin2" data-onsuccess="onSignIn"></div> -->
 					<div id="gSignInWrapper">
 						<div id="GBtn" class="customGPlusSignIn">
-							<span class="icon"></span>
+							<span class="Gicon"></span>
 							<span class="GText">Sign in with Google</span>
 						</div>
 					</div>

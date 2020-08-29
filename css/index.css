@@ -28,7 +28,7 @@ a, a:active, a:focus {
     background: rgb(247, 247, 247);
     border: thin solid blue
   }
-  span.icon {
+  span.Gicon {
     background: url('../img/google.png') transparent 100% 100% no-repeat;
     display: inline-block;
     vertical-align: middle;
