@@ -391,7 +391,7 @@
 
 			gapiPromise.then(function () {
 				var Logged = gapi.auth2.getAuthInstance().isSignedIn.get();
-				if (Logged) {
+				if (!Logged) {
 					var profile = gapi.auth2.getBasicProfile();
 					// $("#btnSignIn").hide();
 					// $("#btnSignOut").show();
@@ -400,7 +400,7 @@
 					$("#userEmail").html(profile.getEmail());
 				} else {
 					// $("#btnSignIn").show();
-					// $("#btnSignOut").hide();
+					$("#btnSignOut").hide();
 					$("#userImg").attr("src", "holder.js/1000x250");
 					$("#userName").html("Null Name");
 					$("#userEmail").html("Null Email");
@@ -430,9 +430,6 @@
 			var auth2 = gapi.auth2.getAuthInstance();
 			auth2.signOut().then(function () {
 				console.log('User signed out.');
-				$("#userImg").attr("src", "holder.js/1000x250");
-				$("#userName").html("Null Name");
-				$("#userEmail").html("Null Email");
 				window.location.href = "index.html";
 			});
 		}
