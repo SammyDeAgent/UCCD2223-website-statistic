@@ -62,46 +62,46 @@
 	<meta name="google-signin-client_id"
 		content="505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com">
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-	<script src="https://apis.google.com/js/api.js"></script>
+	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+	<script src="https://apis.google.com/js/api.js"></script> -->
 
 	<script>
-		var googleUser = {};
-		var startApp = function () {
-			gapi.load('auth2', function () {
-				// Retrieve the singleton for the GoogleAuth library and set up the client.
-				auth2 = gapi.auth2.init({
-					client_id: '505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com'
-					// Request scopes in addition to 'profile' and 'email'
-					//scope: 'additional_scope'
-				});
-				attachSignin(document.getElementById('GBtn'));
-			});
+		// var googleUser = {};
+		// var startApp = function () {
+		// 	gapi.load('auth2', function () {
+		// 		// Retrieve the singleton for the GoogleAuth library and set up the client.
+		// 		auth2 = gapi.auth2.init({
+		// 			client_id: '505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com'
+		// 			// Request scopes in addition to 'profile' and 'email'
+		// 			//scope: 'additional_scope'
+		// 		});
+		// 		attachSignin(document.getElementById('GBtn'));
+		// 	});
 
-		};
+		// };
 
-		function attachSignin(element) {
-			auth2.attachClickHandler(element, {},
-				function onSignIn(googleUser) {
-					var profile = googleUser.getBasicProfile();
-					console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-					console.log('Name: ' + profile.getName());
-					console.log('Image URL: ' + profile.getImageUrl());
-					console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-					$("#userImg").attr("src", profile.getImageUrl());
-					$("#userName").html(profile.getName());
-					$("#userEmail").html(profile.getEmail());
-					$("#gSignInWrapper").hide();
-					$("#btnSignOut").show();
+		// function attachSignin(element) {
+		// 	auth2.attachClickHandler(element, {},
+		// 		function onSignIn(googleUser) {
+		// 			var profile = googleUser.getBasicProfile();
+		// 			console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		// 			console.log('Name: ' + profile.getName());
+		// 			console.log('Image URL: ' + profile.getImageUrl());
+		// 			console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		// 			$("#userImg").attr("src", profile.getImageUrl());
+		// 			$("#userName").html(profile.getName());
+		// 			$("#userEmail").html(profile.getEmail());
+		// 			$("#gSignInWrapper").hide();
+		// 			$("#btnSignOut").show();
 
-					// The ID token you need to pass to your backend:
-					var id_token = googleUser.getAuthResponse().id_token;
-					console.log("ID Token: " + id_token);
-				},
-				function (error) {
-					console.log(JSON.stringify(error, undefined, 2));
-				});
-		}
+		// 			// The ID token you need to pass to your backend:
+		// 			var id_token = googleUser.getAuthResponse().id_token;
+		// 			console.log("ID Token: " + id_token);
+		// 		},
+		// 		function (error) {
+		// 			console.log(JSON.stringify(error, undefined, 2));
+		// 		});
+		// }
 	</script>
 
 	<style>
@@ -162,12 +162,13 @@
 		}
 
 		/* Misc */
-		@media (max-width: 992px){
-			#GBtn{
+		@media (max-width: 992px) {
+			#GBtn {
 				width: 100%;
 				text-align: center;
 			}
-			#btnSignOut{
+
+			#btnSignOut {
 				width: 100%;
 			}
 		}
@@ -215,14 +216,14 @@
 			</ul>
 			<hr>
 			
-			<!-- <div id=" btnSignIn" class="g-signin2" data-onsuccess="onSignIn"></div> -->
-					<div id="gSignInWrapper" >
+			<div id="gSignInWrapper" data-width="200" class="g-signin2" data-onsuccess="onSignIn"></div>
+					<!-- <div id="gSignInWrapper" >
 						<div id="GBtn" class="customGPlusSignIn" data-onsuccess="onSignIn">
 							<span class="Gicon"></span>
 							<span class="GText">Sign in with Google</span>
 						</div>
 					</div>
-					<script>startApp();</script>
+					<script>startApp();</script> -->
 
 					<button id="btnSignOut" type="button" class="btn btn-secondary" onclick="signOut();">Sign out</a>
 		</div>
@@ -424,22 +425,22 @@
 		});
 
 		//Google Profile Accesor
-		// function onSignIn(googleUser) {
-		// 	var profile = googleUser.getBasicProfile();
-		// 	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-		// 	console.log('Name: ' + profile.getName());
-		// 	console.log('Image URL: ' + profile.getImageUrl());
-		// 	console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-		// 	$("#userImg").attr("src", profile.getImageUrl());
-		// 	$("#userName").html(profile.getName());
-		// 	$("#userEmail").html(profile.getEmail());
-		// 	$("#gSignInWrapper").hide();
-		// 	$("#btnSignOut").show();
+		function onSignIn(googleUser) {
+			var profile = googleUser.getBasicProfile();
+			console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+			console.log('Name: ' + profile.getName());
+			console.log('Image URL: ' + profile.getImageUrl());
+			console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+			$("#userImg").attr("src", profile.getImageUrl());
+			$("#userName").html(profile.getName());
+			$("#userEmail").html(profile.getEmail());
+			$("#gSignInWrapper").hide();
+			$("#btnSignOut").show();
 
-		// 	// The ID token you need to pass to your backend:
-		// 	var id_token = googleUser.getAuthResponse().id_token;
-		// 	console.log("ID Token: " + id_token);
-		// }
+			// The ID token you need to pass to your backend:
+			var id_token = googleUser.getAuthResponse().id_token;
+			console.log("ID Token: " + id_token);
+		}
 
 		function signOut() {
 			var auth2 = gapi.auth2.getAuthInstance();
@@ -447,6 +448,13 @@
 				console.log('User signed out.');
 				window.location.href = "index.html";
 			});
+		}
+
+		//Google Login Button
+		if ($(window).width() < 992) {
+			$("#gSignInWrapper").attr("data-width",$("#navbar").width())
+		} else {
+			$("#gSignInWrapper").attr("data-width",200)
 		}
 	</script>
 </body>
