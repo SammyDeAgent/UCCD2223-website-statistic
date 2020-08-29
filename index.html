@@ -59,6 +59,11 @@
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<meta name="google-signin-client_id"
 		content="505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com">
+	<script>
+		gapi.load('auth2',function(){
+			gapi.auth2,init();
+		});
+	</script>
 
 	<style>
 		.mdi {
@@ -134,7 +139,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<div class="g-signin2" data-onsuccess="onSignIn"></div>
+					<div class="g-signin2" data-onsuccess="onSignIn">Sign in with Google</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
