@@ -5,8 +5,8 @@ a, a:active, a:focus {
     outline: none;
  }
  #abs-center {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
 }
