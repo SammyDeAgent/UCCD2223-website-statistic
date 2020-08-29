@@ -216,7 +216,8 @@
 			</ul>
 			<hr>
 			
-			<div id="gSignInWrapper" data-width="200" class="g-signin2" data-onsuccess="onSignIn"></div>
+			<div id=" gSignInWrapper" class="g-signin2" data-width="GBtnWidth" data-onsuccess="onSignIn"></div>
+
 					<!-- <div id="gSignInWrapper" >
 						<div id="GBtn" class="customGPlusSignIn" data-onsuccess="onSignIn">
 							<span class="Gicon"></span>
@@ -450,12 +451,25 @@
 			});
 		}
 
-		//Google Login Button
-		if ($(window).width() < 992) {
-			$("#gSignInWrapper").attr("data-width",$("#navbar").width())
-		} else {
-			$("#gSignInWrapper").attr("data-width",200)
+
+
+		// Google Login Button
+		function GBtnWidth() {
+			if ($(window).width() < 975) {
+				// $(".abcRioButton").css("width", $("#navbar").width());
+				return $("#navbar").width();
+			} else {
+				// $(".abcRioButton").css("width", "200");
+				return 200;
+			}
 		}
+
+		// var resizeTimer;
+		// $(window).resize(function () {
+		// 	clearTimeout(resizeTimer);
+		// 	resizeTimer = setTimeout(GBtnWidth(), 10);
+		// });
+
 	</script>
 </body>
 
