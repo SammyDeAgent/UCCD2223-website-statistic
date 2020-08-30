@@ -154,18 +154,6 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<div class="nav-item dropdown mr-auto ">
-						<button class="btn btn-primary nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">
-							Theme
-					</button>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#" id="style01"">Darkly</a>
-							<a class=" dropdown-item" href="#" id="style02"">United</a>
-							<a class=" dropdown-item" href="#" id="style03"">Solar</a>
-							<a class=" dropdown-item" href="#" id="style04"">Vanilla</a>
-						</div>
-					</div>
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					<button id="btnSignOut" type="button" class="btn btn-primary" onclick="signOut();">Sign out</a>
 				</div>
@@ -295,7 +283,6 @@
 			//Default Action
 			$("#gSignInWrapper").show();
 			$("#infoWrapper").hide();
-			$("#navtheme").show();
 
 		});
 
@@ -317,7 +304,6 @@
 			
 			$("#gSignInWrapper").hide();
 			$("#infoWrapper").show();
-			$("#navtheme").hide();
 
 			// The ID token you need to pass to your backend:
 			var id_token = googleUser.getAuthResponse().id_token;
