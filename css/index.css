@@ -26,7 +26,7 @@ a, a:active, a:focus {
   margin-right: 0.3rem;
 }
 #infoWrapper{
-  margin-right: 0rem;
+  margin-right: 1rem;
 }
 @media (max-width: 992px) {
   #navbar{
@@ -55,13 +55,15 @@ a, a:active, a:focus {
 
 /* Navbar Theme Changer */
 #navtheme{
-  margin-right: 1rem;
+  margin-left: 1rem;
 }
 @media (max-width: 992px) {
   #navtheme{
     width: 100%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
   }
   #navdropdown{
     width: 100%;
