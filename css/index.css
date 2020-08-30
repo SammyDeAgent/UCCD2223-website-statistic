@@ -11,6 +11,36 @@ a, a:active, a:focus {
     transform: translate(-50%, 0%);
 }
 
+/* Avatar Navbar */
+#userImg{
+  width: 2.5rem; 
+  height: 100%; 
+  padding: 0.2rem;
+  transition: padding 0.1s ease;
+}
+#userImg:hover{
+  cursor: pointer;
+  padding: 0rem;
+}
+#infoWrapper #userName{
+  margin-right: 1rem;
+}
+#infoWrapper{
+  margin-right: 1rem;
+}
+@media (max-width: 992px) {
+  #navbar{
+    padding-bottom: 1rem;
+  }
+  #infoWrapper{
+    margin: 1rem;
+    text-align: center;
+  }
+  #textWrapper{
+   display: none;
+  }
+}
+
 /* Google Login Button */
 #GBtn {
     box-sizing: border-box;
