@@ -109,6 +109,18 @@
 				<img id="userImg" class="rounded-circle border border-success" data-toggle="modal"
 					data-target="#UserDetailsModal" src="" alt="User Image">
 			</div>
+			<div id="navtheme" class="nav-item dropdown">
+				<button id="navthemeBtn" class="btn btn-block btn-primary nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+					Theme
+				</button>
+				<div id="navdropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="#" id="style01"">Darkly</a>
+					<a class=" dropdown-item" href="#" id="style02"">United</a>
+					<a class=" dropdown-item" href="#" id="style03"">Solar</a>
+					<a class=" dropdown-item" href="#" id="style04"">Vanilla</a>
+				</div>
+			</div>
 			<div id="gSignInWrapper" class="g-signin2" data-width="GBtnWidth" data-theme="dark" data-onsuccess="onSignIn"></div>
 		</div>
 	</nav>
@@ -283,6 +295,7 @@
 			//Default Action
 			$("#gSignInWrapper").show();
 			$("#infoWrapper").hide();
+			$("#navtheme").show();
 
 		});
 
@@ -304,6 +317,7 @@
 			
 			$("#gSignInWrapper").hide();
 			$("#infoWrapper").show();
+			$("#navtheme").hide();
 
 			// The ID token you need to pass to your backend:
 			var id_token = googleUser.getAuthResponse().id_token;
