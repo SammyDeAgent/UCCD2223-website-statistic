@@ -119,17 +119,13 @@
 		}
 
 		/* Avatar Navbar */
-		
+
 
 		/* Misc */
 		@media (max-width: 992px) {
 			#GBtn {
 				width: 100%;
 				text-align: center;
-			}
-
-			#btnSignOut {
-				width: 100%;
 			}
 		}
 	</style>
@@ -175,34 +171,59 @@
 				</li>
 			</ul>
 			<hr>
-			<div id="infoWrapper">
-				<span id="textWrapper">Welcome, <span id="userName"></span></span>
-				<img id="userImg" class="rounded-circle border border-success" src="holder.js/50x50?theme=industrial" alt="User Image">
-			</div>
-			<div id="gSignInWrapper" class="g-signin2" data-width="GBtnWidth" data-onsuccess="onSignIn"></div>
-			<button id="btnSignOut" type="button" class="btn btn-secondary" onclick="signOut();">Sign out</a>
+			<div id=" infoWrapper">
+							<span id="textWrapper" class="text-light text-white-50">Welcome, <span
+									id="userName">Username Here</span></span>
+							<img id="userImg" class="rounded-circle border border-success" data-toggle="modal"
+								data-target="#UserDetailsModal" src="img/test.png" alt="User Image">
+					</div>
+					<div id="gSignInWrapper" class="g-signin2" data-width="GBtnWidth" data-onsuccess="onSignIn"></div>
 		</div>
 	</nav>
+
+	<!-- User Details Modal -->
+	<div class="modal fade" id="UserDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModal3Label">User Details</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="media">
+						<img id="modalImg" class="rounded-circle border border-warning d-flex align-self-start mr-3"
+							src="img/test.png" alt="User Image">
+						<div class="media-body">
+							<span id="modalID" class="badge badge-warning">115344441528395444261</span>
+							<h5 id="modalName" class="mt-0">Username Here </h5>
+							<p id="modalEmail">Email Address Here</p>
+							<lead>ID Token</lead>
+							<p id="modalToken" class="overflow-auto border border-secondary p-2 text-break text-monospace text-justify d-inline-block" style="height: 15rem;">
+								<small>
+									eyJhbGciOiJSUzI1NifafafaIsImtpZCI6IjBhN2RjjQ1OTBjOTU3ZmZhZWJmN2I2NzE4Mjk3Yjg2NGJhOTEiLCJ0eXAiOiJKV1QifQeyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNTA1MzM4NjM1MTQ1LTRyM2Y0Y2JxMzFyMm5sNjBnZnFqazdkNDczbmFhcnFiLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNTA1MzM4NjM1MTQ1LTRyM2Y0Y2JxMzFyMm5sNjBnZnFqazdkNDczbmFhcnFiLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE1OTU1NDY5MjU5MzI4Mzk1NDYxIiwiZW1haWwiOiJyaW1hbW90b3N0aGVraW5nQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiUVlXXzdOS3VlZUhyRnhIcFhFTjA4USIsIm5hbWUiOiJMJyBTYW1teURlQWdlbnQiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2dGdklnejcyU2JLU3N5b0Z2Si0yWEtPTE5ZS2VNWWowaTZLcXNJPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IkwnIiwiZmFtaWx5X25hbWUiOiJTYW1teURlQWdlbnQiLCJsb2NhbGUiOiJlbiIsImlhdCI6MTU5ODc4MTA4NSwiZXhwIjoxNTk4Nzg0Njg1LCJqdGkiOiI5ZWJlYTE2OTc5ZDM4NmQ3YmYxYmE0YTA3ODI5ZjY1YzhjNDE3ZDkxIn0.vJhF8wmYWVhVZPTJ3Sxn4Tvw7Z1CMcyb5Ee2D5MLEnic9OJndfIknSBFgIqCsXigO59jQffiFv-9JvlOVS3m5C5EMNXvYh8RIt1dD9nXiGERBvrRvFLHJGyrVtNPoG4JXlnmrGK7o7N7WCl0l3cxSkpZwy7Ar4CGwNQbs22YUwqWYwlt5FtTlMqeS2rVpexW80oTYJkqJJJfRmOgQ6ozw0-NuKRUCAoz2Ae5Bqs2ckZ5P2rg6l15XXJJjoaFaK3Phn8lYYG2fc7tIttAflyVV15151CTGw3hohnB_1rvl0PTO3131-mMtxWQZhYG_LHL__dHNY5DsGtg5MFfsYm9qTmsfXQhlug.
+								</small>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button id="btnSignOut" type="button" class="btn btn-primary" onclick="signOut();">Sign out</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="card">
 		<img class="card-img" src="img/TheSilkRoad_banner.png" alt="banner image">
 	</div>
 
-	<!-- <div class="card m-5">
-		<div class="text-center">
-			<img id="userImg" class="card-img-top h-100 w-25" src="" alt="User Image">
-		</div>
-		<div class="card-body text-center">
-			<h4 class="card-title">User Details</h4>
-			<p id="userName" class="card-text">
-			</p>
-			<p id="userEmail" class="card-text">
-			</p>
-		</div>
-	</div> -->
 
 	<div class="card m-5">
-		<h3 class="card-header">Featured</h3>
+		<h3 class="card-header">Featured <span class="badge badge-pill badge-primary">New!</span></h3>
 		<div class="card-body">
 			<div class="row">
 
@@ -252,18 +273,21 @@
 				</div>
 			</div>
 		</div>
-    </div>
-    
-    <div class="card m-5">
+	</div>
+
+	<div class="card m-5">
 		<h3 class="card-header" style="text-align: center;">Street View</h3>
 		<div class="card-body">
 			<div class="row">
 				<div class="col-md-12 d-flex justify-content-center">
-					<iframe src="https://www.google.com/maps/embed?pb=!4v1598767240705!6m8!1m7!1sTR72f0Al6lWrEzm7n07I4A!2m2!1d5.418897924685583!2d100.3890737288891!3f323.786!4f0!5f0.7820865974627469" width="1450" height="750" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!4v1598767240705!6m8!1m7!1sTR72f0Al6lWrEzm7n07I4A!2m2!1d5.418897924685583!2d100.3890737288891!3f323.786!4f0!5f0.7820865974627469"
+						width="1450" height="750" frameborder="0" style="border:0;" allowfullscreen=""
+						aria-hidden="false" tabindex="0"></iframe>
 				</div>
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 
 	<footer>
 		<div class="container">
@@ -314,7 +338,6 @@
 
 			//Default Action
 			$("#gSignInWrapper").show();
-			$("#btnSignOut").hide();
 			$("#infoWrapper").hide();
 
 		});
@@ -329,15 +352,18 @@
 
 			$("#userImg").attr("src", profile.getImageUrl());
 			$("#userName").html(profile.getFamilyName());
-			// $("#userName").html(profile.getName());
-			// $("#userEmail").html(profile.getEmail());
-		
+
+			$("#modalImg").attr("src", profile.getImageUrl());
+			$("#modalID").html(profile.getId());
+			$("#modalName").html(profile.getName());
+			$("#modalEmail").html(profile.getEmail());
+			
 			$("#gSignInWrapper").hide();
-			$("#btnSignOut").show();
 			$("#infoWrapper").show();
 
 			// The ID token you need to pass to your backend:
 			var id_token = googleUser.getAuthResponse().id_token;
+			$("#modalToken small").html(id_token);
 			console.log("ID Token: " + id_token);
 		}
 
@@ -359,7 +385,6 @@
 				return 200;
 			}
 		}
-
 	</script>
 </body>
 
