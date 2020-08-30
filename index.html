@@ -176,7 +176,7 @@
 			</ul>
 			<hr>
 			<div id="infoWrapper">
-				<span id="textWrapper">Welcome, <span id="userName" ></span></span>
+				<span id="textWrapper">Welcome, <span id="userName"></span></span>
 				<img id="userImg" class="rounded-circle border border-success" src="holder.js/50x50?theme=industrial" alt="User Image">
 			</div>
 			<div id="gSignInWrapper" class="g-signin2" data-width="GBtnWidth" data-onsuccess="onSignIn"></div>
@@ -328,7 +328,7 @@
 			console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
 			$("#userImg").attr("src", profile.getImageUrl());
-			$("#userName").attr("src", profile.getFamilyName());
+			$("#userName").html(profile.getFamilyName());
 			// $("#userName").html(profile.getName());
 			// $("#userEmail").html(profile.getEmail());
 		
