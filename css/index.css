@@ -13,8 +13,8 @@ a, a:active, a:focus {
 
 /* Avatar Navbar */
 #userImg{
-  width: 2.5rem; 
-  height: 100%; 
+  width: auto;
+  height: 2.5rem;
   padding: 0.2rem;
   transition: padding 0.1s ease;
 }
@@ -23,22 +23,34 @@ a, a:active, a:focus {
   padding: 0rem;
 }
 #infoWrapper #userName{
-  margin-right: 1rem;
+  margin-right: 0.3rem;
 }
 #infoWrapper{
-  margin-right: 1rem;
+  margin-right: 0rem;
 }
 @media (max-width: 992px) {
   #navbar{
     padding-bottom: 1rem;
   }
+  #userImg{
+    width: auto;
+    height: 5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
   #infoWrapper{
     margin: 1rem;
-    text-align: center;
   }
   #textWrapper{
    display: none;
   }
+}
+
+/* Modal Details */
+#modalImg{
+  width: auto;
+  height: 5rem;
 }
 
 /* Google Login Button */
