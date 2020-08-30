@@ -26,7 +26,7 @@ a, a:active, a:focus {
   margin-right: 0.3rem;
 }
 #infoWrapper{
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 @media (max-width: 992px) {
   #navbar{
