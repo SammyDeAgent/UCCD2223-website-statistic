@@ -58,8 +58,51 @@
 
 	<!-- Google Login API -->
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="js/googleAPI.js"></script>
 	<meta name="google-signin-client_id"
 		content="505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com">
+
+	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+	<script src="https://apis.google.com/js/api.js"></script> -->
+
+	<script>
+		// var googleUser = {};
+		// var startApp = function () {
+		// 	gapi.load('auth2', function () {
+		// 		// Retrieve the singleton for the GoogleAuth library and set up the client.
+		// 		auth2 = gapi.auth2.init({
+		// 			client_id: '505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com'
+		// 			// Request scopes in addition to 'profile' and 'email'
+		// 			//scope: 'additional_scope'
+		// 		});
+		// 		attachSignin(document.getElementById('GBtn'));
+		// 	});
+
+		// };
+
+		// function attachSignin(element) {
+		// 	auth2.attachClickHandler(element, {},
+		// 		function onSignIn(googleUser) {
+		// 			var profile = googleUser.getBasicProfile();
+		// 			console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		// 			console.log('Name: ' + profile.getName());
+		// 			console.log('Image URL: ' + profile.getImageUrl());
+		// 			console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		// 			$("#userImg").attr("src", profile.getImageUrl());
+		// 			$("#userName").html(profile.getName());
+		// 			$("#userEmail").html(profile.getEmail());
+		// 			$("#gSignInWrapper").hide();
+		// 			$("#btnSignOut").show();
+
+		// 			// The ID token you need to pass to your backend:
+		// 			var id_token = googleUser.getAuthResponse().id_token;
+		// 			console.log("ID Token: " + id_token);
+		// 		},
+		// 		function (error) {
+		// 			console.log(JSON.stringify(error, undefined, 2));
+		// 		});
+		// }
+	</script>
 
 	<style>
 		.mdi {
@@ -77,9 +120,8 @@
 
 		.flip-card {
 			background-color: transparent;
-			
-			width: 30vh;
-			height: 30vh;
+			width: 20rem;
+			height: 20rem;
 			perspective: 1000px;
 			/* Remove this if you don't want the 3D effect */
 		}
@@ -91,7 +133,6 @@
 			text-align: center;
 			transition: transform 0.8s;
 			transform-style: preserve-3d;
-			border-radius: 30px;
 		}
 
 		.flip-card:hover .flip-card-inner {
@@ -114,14 +155,21 @@
 		}
 
 		.flip-card-back {
-			background-color: skyblue;
+			background-color: dodgerblue;
 			color: white;
 			transform: rotateY(180deg);
 		}
 
-		/* Google Login API Formats */
-		#btnSignOut {
-			margin-left: 1rem;
+		/* Misc */
+		@media (max-width: 992px) {
+			#GBtn {
+				width: 100%;
+				text-align: center;
+			}
+
+			#btnSignOut {
+				width: 100%;
+			}
 		}
 	</style>
 
@@ -165,66 +213,31 @@
 					</div>
 				</li>
 			</ul>
-			<!-- <div class=" my-2 my-lg-0">
-							<button id="btnLog" class="btn btn-primary my-2 my-sm-0" type="button" data-toggle="modal"
-								data-target="#LogInModal">Log In</button>
-					</div> -->
+			<hr>
+			
+			<div id="gSignInWrapper" class="g-signin2" data-width="GBtnWidth" data-onsuccess="onSignIn"></div>
 
-					<div id="btnSignIn" class="g-signin2" data-onsuccess="onSignIn"></div>
+					<!-- <div id="gSignInWrapper" >
+						<div id="GBtn" class="customGPlusSignIn" data-onsuccess="onSignIn">
+							<span class="Gicon"></span>
+							<span class="GText">Sign in with Google</span>
+						</div>
+					</div>
+					<script>startApp();</script> -->
+
 					<button id="btnSignOut" type="button" class="btn btn-secondary" onclick="signOut();">Sign out</a>
 		</div>
 	</nav>
-
-	<!-- Modal -->
-	<!-- <div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="LogInModalCenteredLabel"
-		aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="LogInModalCenteredLabel">Log In</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="g-signin2" data-onsuccess="onSignIn"></div>
-					<a href="index.html" onclick="signOut();">Sign out</a>
-					<script>
-						function signOut() {
-							var auth2 = gapi.auth2.getAuthInstance();
-							auth2.signOut().then(function () {
-								console.log('User signed out.');
-							});
-						}
-					</script>
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
-	<!-- <div id="abs-center" class="image m-5 center w-50">
-		<img src="img/TheSilkRoad_logo.png" class="img-fluid" alt="Responsive image">
-	</div> -->
 
 	<div class="card">
 		<img class="card-img" src="img/TheSilkRoad_banner.png" alt="banner image">
 	</div>
 
-
-	<!-- <div class="jumbotron jumbotron-fluid">
-		<div class="container">
-			<h1 class="display-3 font-weight-bold">Supply and Demand</h1>
-			<p class="lead font-weight-bold">We sell drugs, more importantly fried chicken. Sometimes TNT, another times a lovely brew of coffee.</p>
-		</div>
-	</div> -->
-
 	<div class="card m-5">
-		<img id="userImg" class="card-img-top w-100" src="" alt="Card image cap">
-		<div class="card-body">
+		<div class="text-center">
+			<img id="userImg" class="card-img-top h-100 w-25" src="" alt="User Image">
+		</div>
+		<div class="card-body text-center">
 			<h4 class="card-title">User Details</h4>
 			<p id="userName" class="card-text">
 			</p>
@@ -234,15 +247,15 @@
 	</div>
 
 	<div class="card m-5">
-		<h3 class="card-header" style="text-align:center; font-weight: bolder;">Product Categories</h3>
+		<h3 class="card-header">Featured</h3>
 		<div class="card-body">
 			<div class="row">
 
-				<div class="col-sm-6 col-md-4 d-flex justify-content-center">
+				<div class="col-sm-12 col-xl-4 d-flex justify-content-center">
 					<div class="flip-card">
 						<div class="flip-card-inner">
 							<div class="flip-card-front">
-								<img src="/img/product_cat/chicken.jpg" alt="Chicken" style="width: 100%; height: 100%;">
+								<img src="/img/product_cat/chicken.jpg" alt="Chicken" style="width: 100%;height: 100%;">
 							</div>
 							<div class="flip-card-back">
 								<h1>Chicken</h1>
@@ -253,11 +266,11 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 d-flex justify-content-center">
+				<div class="col-sm-12 col-xl-4 d-flex justify-content-center">
 					<div class="flip-card">
 						<div class="flip-card-inner">
 							<div class="flip-card-front">
-								<img src="/img/product_cat/burger.jpg" alt="Burger" style="width: 100%; height: 100%;">
+								<img src="/img/product_cat/burger.jpg" alt="Burger" style="width: 100%;height: 100%;">
 							</div>
 							<div class="flip-card-back">
 								<h1>Burger</h1>
@@ -268,11 +281,11 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 d-flex justify-content-center">
+				<div class="col-sm-12 col-xl-4 d-flex justify-content-center">
 					<div class="flip-card">
 						<div class="flip-card-inner">
 							<div class="flip-card-front">
-								<img src="/img/product_cat/coffee.jpg" alt="Coffee" style="width: 100%; height:100%;">
+								<img src="/img/product_cat/coffee.jpg" alt="Coffee" style="width: 100%;height: 100%;">
 							</div>
 							<div class="flip-card-back">
 								<h1>Coffee</h1>
@@ -282,22 +295,20 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
-		</div>	
-	</div>
-
-	<div class="card m-5">
+		</div>
+    </div>
+    
+    <div class="card m-5">
 		<h3 class="card-header" style="text-align: center;">Street View</h3>
 		<div class="card-body">
 			<div class="row">
 				<div class="col-md-12 d-flex justify-content-center">
 					<iframe src="https://www.google.com/maps/embed?pb=!4v1598767240705!6m8!1m7!1sTR72f0Al6lWrEzm7n07I4A!2m2!1d5.418897924685583!2d100.3890737288891!3f323.786!4f0!5f0.7820865974627469" width="1450" height="750" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 				</div>
-			</div>
-		</div>
-	</div>
-	
+            </div>
+        </div>
+    </div>
 
 	<footer>
 		<div class="container">
@@ -346,22 +357,29 @@
 					localStorage.setItem("BS_Style", styling);
 			})
 
-			var Logged = gapi.auth2.getAuthInstance().isSignedIn.get();
-			if (Logged) {
-				var profile = gapi.auth2.getBasicProfile();
-				// $("#btnSignIn").hide();
-				// $("#btnSignOut").show();
-				$("#userImg").attr("src", profile.getImageUrl());
-				$("#userName").html(profile.getName());
-				$("#userEmail").html(profile.getEmail());
-			} else {
-				// $("#btnSignIn").show();
-				// $("#btnSignOut").hide();
-				$("#userImg").attr("src", "holder.js/1000x250");
-				$("#userName").html("Null Name");
-				$("#userEmail").html("Null Email");
-			}
-		})
+			//Default Action
+			$("#gSignInWrapper").show();
+			$("#btnSignOut").hide();
+
+			// gapiPromise.then(function () {
+			// 	var Logged = gapi.auth2.getAuthInstance().isSignedIn.get();
+			// 	console.log(Logged);
+			// 	if (Logged) {
+			// 		var profile = gapi.auth2.getBasicProfile();
+			// 		$("#btnSignIn").hide();
+			// 		$("#btnSignOut").show();
+			// 		$("#userImg").attr("src", profile.getImageUrl());
+			// 		$("#userName").html(profile.getName());
+			// 		$("#userEmail").html(profile.getEmail());
+			// 	} else {
+			// 		$("#btnSignIn").show();
+			// 		$("#btnSignOut").hide();
+			// 		$("#userImg").attr("src", "holder.js/1000x250");
+			// 		$("#userName").html("Null Name");
+			// 		$("#userEmail").html("Null Email");
+			// 	}
+			// });
+		});
 
 		//Google Profile Accesor
 		function onSignIn(googleUser) {
@@ -373,6 +391,12 @@
 			$("#userImg").attr("src", profile.getImageUrl());
 			$("#userName").html(profile.getName());
 			$("#userEmail").html(profile.getEmail());
+			$("#gSignInWrapper").hide();
+			$("#btnSignOut").show();
+
+			// The ID token you need to pass to your backend:
+			var id_token = googleUser.getAuthResponse().id_token;
+			console.log("ID Token: " + id_token);
 		}
 
 		function signOut() {
@@ -383,12 +407,24 @@
 			});
 		}
 
+		// Google Login Button
+		function GBtnWidth() {
+			if ($(window).width() < 975) {
+				// $(".abcRioButton").css("width", $("#navbar").width());
+				return $("#navbar").width();
+			} else {
+				// $(".abcRioButton").css("width", "200");
+				return 200;
+			}
+		}
 
-		//Hero-Image Resize
-		// $(".jumbotron").css({ height: $(window).height() + "px" });
-		// $(window).on("resize", function() {
-		// 	$(".jumbotron").css({ height: $(window).height() + "px" });
+		// var resizeTimer;
+		// $(window).resize(function () {
+		// 	clearTimeout(resizeTimer);
+		// 	resizeTimer = setTimeout(GBtnWidth(), 10);
 		// });
+
 	</script>
 </body>
+
 </html>
