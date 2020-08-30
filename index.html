@@ -63,10 +63,6 @@
 		content="505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com">
 
 	<style>
-		.mdi {
-			font-size: 1.25rem;
-		}
-
 		.jumbotron {
 			color: brown;
 			background-image: url(img/TheSilkRoad_banner.png);
@@ -74,59 +70,6 @@
 			background-repeat: no-repeat;
 			background-size: cover;
 			height: 50vh;
-		}
-
-		.flip-card {
-			background-color: transparent;
-			width: 20rem;
-			height: 20rem;
-			perspective: 1000px;
-			/* Remove this if you don't want the 3D effect */
-		}
-
-		.flip-card-inner {
-			position: relative;
-			width: 100%;
-			height: 100%;
-			text-align: center;
-			transition: transform 0.8s;
-			transform-style: preserve-3d;
-		}
-
-		.flip-card:hover .flip-card-inner {
-			transform: rotateY(180deg);
-		}
-
-		.flip-card-front,
-		.flip-card-back {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			-webkit-backface-visibility: hidden;
-			/* Safari */
-			backface-visibility: hidden;
-		}
-
-		.flip-card-front {
-			background-color: #bbb;
-			color: black;
-		}
-
-		.flip-card-back {
-			background-color: dodgerblue;
-			color: white;
-			transform: rotateY(180deg);
-		}
-
-		/* Avatar Navbar */
-
-
-		/* Misc */
-		@media (max-width: 992px) {
-			#GBtn {
-				width: 100%;
-				text-align: center;
-			}
 		}
 	</style>
 
@@ -157,27 +100,16 @@
 				<li class="nav-item">
 					<a class="nav-link disabled" href="wip.html">Order</a>
 				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">
-						Theme
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#" id="style01"">Darkly</a>
-						<a class=" dropdown-item" href="#" id="style02"">United</a>
-						<a class=" dropdown-item" href="#" id="style03"">Solar</a>
-						<a class=" dropdown-item" href="#" id="style04"">Vanilla</a>
-					</div>
-				</li>
 			</ul>
 			<hr>
 			<div id="infoWrapper">
-							<span id="textWrapper" class="text-light text-white-50">Welcome, <span
-									id="userName">Username Here</span></span>
-							<img id="userImg" class="rounded-circle border border-success" data-toggle="modal"
-								data-target="#UserDetailsModal" src="img/test.png" alt="User Image">
-					</div>
-					<div id="gSignInWrapper" class="g-signin2" data-width="GBtnWidth" data-onsuccess="onSignIn"></div>
+				<span id="textWrapper" class="text-light text-white-50">
+					Welcome, <span id="userName">Username Here</span>
+				</span>
+				<img id="userImg" class="rounded-circle border border-success" data-toggle="modal"
+					data-target="#UserDetailsModal" src="" alt="User Image">
+			</div>
+			<div id="gSignInWrapper" class="g-signin2" data-width="GBtnWidth" data-theme="dark" data-onsuccess="onSignIn"></div>
 		</div>
 	</nav>
 
@@ -195,7 +127,7 @@
 				<div class="modal-body">
 					<div class="media">
 						<img id="modalImg" class="rounded-circle border border-warning d-flex align-self-start mr-3"
-							src="img/test.png" alt="User Image">
+							src="" alt="User Image">
 						<div class="media-body">
 							<span id="modalID" class="text-break badge badge-warning">ID Here</span>
 							<h5 id="modalName" class="text-break mt-0">Username Here </h5>
@@ -210,6 +142,18 @@
 					</div>
 				</div>
 				<div class="modal-footer">
+					<div class="nav-item dropdown mr-auto ">
+						<button class="btn btn-primary nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">
+							Theme
+					</button>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item" href="#" id="style01"">Darkly</a>
+							<a class=" dropdown-item" href="#" id="style02"">United</a>
+							<a class=" dropdown-item" href="#" id="style03"">Solar</a>
+							<a class=" dropdown-item" href="#" id="style04"">Vanilla</a>
+						</div>
+					</div>
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					<button id="btnSignOut" type="button" class="btn btn-primary" onclick="signOut();">Sign out</a>
 				</div>
