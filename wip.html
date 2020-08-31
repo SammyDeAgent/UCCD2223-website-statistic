@@ -10,7 +10,7 @@
 		content="We sell drugs, more importantly fried chicken. Sometimes TNT, another times a lovely brew of coffee." />
 	<meta name="image" content="https://the-silk-road.azurewebsites.net/img/TSR_backdrop.png" />
 
-	<meta property="og:site_name" content="The Silk Road - Trading Service " />
+	<meta property="og:site_name" content="The Silk Road - Culinary Delight" />
 	<meta property="og:type" content="website" />
 	<meta name="twitter:card" content="summary_large_image" />
 
@@ -46,6 +46,7 @@
 	<meta itemprop="image" content="https://the-silk-road.azurewebsites.net/img/TSR_backdrop.png" />
 
 	<!-- External Files and Plugins -->
+	<script src="js/app.js"></script>
 	<link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="css/index.css" />
 	<script src="js/jquery-3.5.1.js"></script>
@@ -59,6 +60,14 @@
 			left: 50%;
 			transform: translate(-50%, -50%);
 		}
+		@media (max-width:992px){
+			#abs-center {
+				top: 12%;
+				left: 0%;
+				transform: translate(0%, 0%);
+				margin: 1rem;
+			}
+		}
 
 		.mdi {
 			font-size: 1.25rem;
@@ -71,14 +80,14 @@
 	<!-- CSS Bootstrap Theme -->
 	<link id="csstheme" rel="stylesheet" property="stylesheet" href="css/bootstrap-darkly.css">	
 
-	<div id="abs-center" class="shadow jumbotron">
+	<div id="abs-center" class="jumbotron shadow">
 		<img class="img-fluid" alt="TSR BackDrop" src="img/TSR_backdrop.png">
 		<h3 style="margin-top: 1rem;">The Silk Road <span class="badge badge-info">WIP</span></h3>
 		<p>We sell drugs, more importantly fried chicken. Sometimes TNT, another times a lovely brew of coffee.</p>
 		<div class="alert alert-warning" role="alert">
-			<span class="mdi mdi-alert-circle-check-outline"> <strong>Stay tune!</strong></span> This website is still
-			work in progress,
-			be sure to check it out often for updates.
+			<span class="mdi mdi-alert-circle-check-outline"> <strong>Stay tuned!</strong></span> This website is still
+			under development,
+			be sure to visit again for updates.
 		</div>
 		<div class="dropdown">
 			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
