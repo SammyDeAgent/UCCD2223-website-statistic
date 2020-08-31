@@ -1,151 +1,153 @@
-body{
-    font: 14px Tahoma;
+body {
+  font: 14px Tahoma;
 }
-a, a:active, a:focus {
-    outline: none;
- }
- #abs-center {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 0%);
+a,
+a:active,
+a:focus {
+  outline: none;
+}
+#abs-center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 
 /* Avatar Navbar */
-#userImg{
+#userImg {
   width: auto;
   height: 2.5rem;
   padding: 0.2rem;
   transition: padding 0.1s ease;
 }
-#userImg:hover{
+#userImg:hover {
   cursor: pointer;
   padding: 0rem;
 }
-#infoWrapper #userName{
+#infoWrapper #userName {
   margin-right: 0.3rem;
 }
-#infoWrapper{
+#infoWrapper {
   margin-right: 0.5rem;
 }
 @media (max-width: 992px) {
-  #navbar{
+  #navbar {
     padding-bottom: 1rem;
   }
-  #userImg{
+  #userImg {
     width: auto;
     height: 5rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
-  #infoWrapper{
+  #infoWrapper {
     margin: 1rem;
   }
-  #textWrapper{
-   display: none;
+  #textWrapper {
+    display: none;
   }
 }
 
 /* Modal Details */
-#modalImg{
+#modalImg {
   width: auto;
   height: 5rem;
 }
 
 /* Navbar Theme Changer */
-#navtheme{
+#navtheme {
   margin-left: 1rem;
 }
 @media (max-width: 992px) {
-  #navtheme{
+  #navtheme {
     width: 100%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: 0rem;
     margin-right: 0rem;
   }
-  #navdropdown{
+  #navdropdown {
     width: 100%;
   }
 }
 
 /* Google Login Button */
 #GBtn {
-    box-sizing: border-box;
-    display: inline-block;
-    background: white;
-    color: #444;
-    width: 12.5rem;
-    border-radius: 0.25rem;
-    border: thin solid #888;
-    box-shadow: 1px 1px 1px grey;
-    white-space: nowrap;
-  }
-  #GBtn:hover {
-    cursor: pointer;
-    background: rgb(247, 247, 247);
-    border: thin solid blue
-  }
-  span.Gicon {
-    background: url('../img/google.png') transparent 100% 100% no-repeat;
-    display: inline-block;
-    vertical-align: middle;
-    width: 1rem;
-    height: 1rem;
-    margin-left: 1rem;
-    background-size: 100% 100%;
-  }
-  span.GText {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0.4rem 0.25rem;
-    font-size: 1rem;
-    font-weight: bold;
-    /* Use the Roboto font that is loaded in the <head> */
-    font-family: 'Roboto', sans-serif;
-  }
-  @media (max-width: 992px) {
-    #GBtn {
-      width: 100%;
-      text-align: center;
-    }
-  }
-
-  /* 3D-Flip Card */
-  .flip-card {
-    background-color: transparent;
-    width: 20rem;
-    height: 20rem;
-    perspective: 1000px;
-    /* Remove this if you don't want the 3D effect */
-  }
-  .flip-card-inner {
-    position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  background: white;
+  color: #444;
+  width: 12.5rem;
+  border-radius: 0.25rem;
+  border: thin solid #888;
+  box-shadow: 1px 1px 1px grey;
+  white-space: nowrap;
+}
+#GBtn:hover {
+  cursor: pointer;
+  background: rgb(247, 247, 247);
+  border: thin solid blue;
+}
+span.Gicon {
+  background: url("../img/google.png") transparent 100% 100% no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  width: 1rem;
+  height: 1rem;
+  margin-left: 1rem;
+  background-size: 100% 100%;
+}
+span.GText {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0.4rem 0.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  /* Use the Roboto font that is loaded in the <head> */
+  font-family: "Roboto", sans-serif;
+}
+@media (max-width: 992px) {
+  #GBtn {
     width: 100%;
-    height: 100%;
     text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
   }
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    /* Safari */
-    backface-visibility: hidden;
-  }
-  .flip-card-front {
-    background-color: #bbb;
-    color: black;
-  }
-  .flip-card-back {
-    background-color: dodgerblue;
-    color: white;
-    transform: rotateY(180deg);
-  }
+}
+
+/* 3D-Flip Card */
+.flip-card {
+  background-color: transparent;
+  width: 20rem;
+  height: 20rem;
+  perspective: 1000px;
+  /* Remove this if you don't want the 3D effect */
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateX(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+}
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateX(180deg);
+}
