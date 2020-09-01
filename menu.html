@@ -165,6 +165,7 @@
 		</div>
 	</div>
 
+	<!-- Banner -->
 	<div class="card">
 		<img class="card-img" src="img/food_banner.jpg" alt="banner image">
 	</div>
@@ -176,46 +177,476 @@
 		</footer>
 	</blockquote>
 	
-	<hr>
+	<hr class="border border-danger mt-5">
+		<div class="text-center">
+			<div class="display-4">Featured</div>
+		</div>
+	<hr class="border border-danger">
 
-	<!-- <div class="media m-5">
-		<div class="media-body">
-		  <h5 class="mt-0 mb-1">Media object</h5>
-		  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-		</div>
-		<img class="d-flex align-self-center ml-3" src="holder.js/300x300" alt="Generic placeholder image">
-	</div> -->
-	<div class="row flex-wrap m-5">
-
-		<div class="d-flex m-5">
-			<div class="col align-self-center">
-				<h5 class="mt-0 mb-1">Crispy Fried Chicken</h5>
-				<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-				<button class="btn btn-info">Go to Category</button>
+	<!-- Food Category -->
+	<div class="container mt-5">
+		<div class="row align-items-center m-3 mb-5">
+			<div class="col">
+				<h5 class="mt-0 mb-1">Crispy Fried Chicken <span class="badge badge-success"><span class="mdi mdi-chef-hat"></span> Recommanded</span></h5>
+				<p class="text-justify">
+					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+				</p>
+				<a class="btn btn-info" href="#cat1"">Go to Category</a>
 			</div>
-			<img id="imgcat" class="align-self-center p-3" src="holder.js/300x300?theme=industrial" alt="Generic placeholder image">
-		</div>
-	
-		<div class="d-flex m-5">
-			<div class="col align-self-center">
-				<h5 class="mt-0 mb-1">Burgers and Sliders</h5>
-				<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-				<button class="btn btn-info">Go to Category</button>
+			<div class="col-md-auto text-center">
+				<img id="imgcat" class="p-3" src="holder.js/250x250?theme=industrial" alt="Generic placeholder image">
 			</div>
-			<img id="imgcat" class="align-self-center p-3" src="holder.js/300x300?theme=lava" alt="Generic placeholder image">
 		</div>
-	
-		<div class="d-flex m-5">
-			<div class="col align-self-center">
-				<h5 class="mt-0 mb-1">Cup of Joe</h5>
-				<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-				<button class="btn btn-info">Go to Category</button>
+		<div class="row align-items-center  m-3 text-justify mb-5">
+			<div class="col">
+				<h5 class="mt-0 mb-1">Burgers and Sliders <span class="badge badge-warning">Hot!</span></h5>
+				<p class="text-justify">
+					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+				</p>
+				<a class="btn btn-info" href="#cat2"">Go to Category</a>
 			</div>
-			<img id="imgcat" class="align-self-center p-3" src="holder.js/300x300?theme=vine" alt="Generic placeholder image">
+			<div class="col-md-auto text-center">
+				<img id="imgcat" class="p-3" src="holder.js/250x250?theme=social" alt="Generic placeholder image">
+			</div>
+		</div>
+		<div class="row align-items-center  m-3 text-justify mb-5">
+			<div class="col">
+				<h5 class="mt-0 mb-1">Cup of Joe <span class="badge badge-secondary"><span class="mdi mdi-thumb-up"></span> Popular</span></h5>
+				<p class="text-justify">
+					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+				</p>
+				<a class="btn btn-info" href="#cat3"">Go to Category</a>
+			</div>
+			<div class="col-md-auto text-center">
+				<img id="imgcat" class="p-3" src="holder.js/250x250?theme=vine" alt="Generic placeholder image">
+			</div>
 		</div>
 	</div>
 
-	<hr>
+	<hr class="border border-danger">
+		<div class="text-center">
+			<div class="display-4">Our Delight Menu</div>
+		</div>
+	<hr class="border border-danger">
+	
+
+	<!-- IMPORTANT! USE JSON TO FETCH THESE CARDS -->
+	<!-- Menu: Fried-Chicken -->
+	<div id ="cat1" class="text-center mb-5">
+		<div class="lead mt-5">Fried Chicken and Dips</div>
+	</div>
+	<div class="container mt-2 mb-5">
+		<div class="row mb-3">
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<img src="/img/product_cat/chicken.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+					</div>
+					<div class="flip-card-back">
+						<h1>Chicken</h1>
+						<p>Fried Chicken with suaces</p>
+						<p>Lorem, ipsum.</p>
+					</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/chicken.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/chicken.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/chicken.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/chicken.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/chicken.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/chicken.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/chicken.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/chicken.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Menu: Burgers -->
+	<div id ="cat2" class="text-center mb-5">
+		<div class="lead mt-5">Technically Sandwiches</div>
+	</div>
+	<div class="container mt-2 mb-5">
+		<div class="row mb-3">
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<img src="/img/product_cat/burger.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+					</div>
+					<div class="flip-card-back">
+						<h1>Chicken</h1>
+						<p>Fried Chicken with suaces</p>
+						<p>Lorem, ipsum.</p>
+					</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/burger.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/burger.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/burger.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/burger.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/burger.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/burger.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/burger.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/burger.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Menu: Coffee -->
+	<div id ="cat3" class="text-center mb-5">
+		<div class="lead mt-5">Freshly Brewed Coffee</div>
+	</div>
+	<div class="container mt-2 mb-5">
+		<div class="row mb-3">
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<img src="/img/product_cat/coffee.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+					</div>
+					<div class="flip-card-back">
+						<h1>Chicken</h1>
+						<p>Fried Chicken with suaces</p>
+						<p>Lorem, ipsum.</p>
+					</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/coffee.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/coffee.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/coffee.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/coffee.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/coffee.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/coffee.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/coffee.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col d-flex justify-content-around mb-3">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img src="/img/product_cat/coffee.jpg" alt="Chicken" style="width: 100%;height: 100%;">
+						</div>
+						<div class="flip-card-back">
+							<h1>Chicken</h1>
+							<p>Fried Chicken with suaces</p>
+							<p>Lorem, ipsum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<footer>
 		<div class="container">
