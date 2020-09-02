@@ -111,7 +111,11 @@
 					Welcome, <span id="userName">Username Here</span>
 				</span>
 				<img id="userImg" class="rounded-circle border border-success" data-toggle="modal"
-					data-target="#UserDetailsModal" src="img/test.png" alt="User Image">
+					data-target="#UserDetailsModal" src="holder.js/40x40" alt="User Image">
+			</div>
+			<div id="cartWrapper" class="d-flex flex-row justify-content-center align-items-center">
+				<a id="userCart" class="mdi mdi-cart-outline" href=""></a>
+				<span id="cartNumber" class="badge badge-pill badge-primary">0</span>
 			</div>
 			<div id="gSignInWrapper" class="g-signin2" data-width="GBtnWidth" data-theme="dark" data-onsuccess="onSignIn"></div>
 			<div id="navtheme" class="nav-item dropdown">
@@ -220,6 +224,50 @@
 			<div class="col-md-auto text-center">
 				<img id="imgcat" class="p-3" src="holder.js/250x250?theme=vine" alt="Generic placeholder image">
 			</div>
+		</div>
+	</div>
+
+	<div id="slideWrapper" class="mb-5">
+		<div id="slideCaptions" class="carousel slide carousel-fade" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#slideCaptions" data-slide-to="0" class="active"></li>
+				<li data-target="#slideCaptions" data-slide-to="1"></li>
+				<li data-target="#slideCaptions" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="carousel-item active">
+					<img class="d-block w-100" data-src="holder.js/900x300?theme=sky&auto=yes&bg=777&fg=555&text=First slide"
+						alt="First slide">
+					<div class="carousel-caption d-none d-md-block">
+						<h3>First slide label</h3>
+						<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100" data-src="holder.js/900x300?theme=lava&auto=yes&bg=666&fg=444&text=Second slide"
+						alt="Second slide">
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Second slide label</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100" data-src="holder.js/900x300?theme=industrial&auto=yes&bg=666&fg=444&text=Third slide"
+						alt="Third slide">
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Third slide label</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#slideCaptions" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#slideCaptions" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
 		</div>
 	</div>
 
@@ -533,10 +581,10 @@
 		$(document).ready(function () {
 
 			//Theme Changer
-			if (typeof (Storage) !== " undefined") {
+			if (typeof (Storage) !== "undefined") {
 				var styling = localStorage.getItem("BS_Style");
 				if (styling == null)
-					$("#csstheme").attr('href', "css/bootstrap-darkly.css");
+					$("#csstheme").attr('href', "css/bootstrap-united.css");
 				else $("#csstheme").attr('href', styling);
 			}
 			$("#style01").on("click", function (event) {
@@ -567,6 +615,7 @@
 			//Default Action
 			$("#gSignInWrapper").show();
 			$("#infoWrapper").hide();
+			$("#cartWrapper").removeClass("d-flex").addClass("d-none");
 
 		});
 
@@ -588,6 +637,7 @@
 			
 			$("#gSignInWrapper").hide();
 			$("#infoWrapper").show();
+			$("#cartWrapper").addClass("d-flex").removeClass("d-none");
 
 			// The ID token you need to pass to your backend:
 			var id_token = googleUser.getAuthResponse().id_token;
