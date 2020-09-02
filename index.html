@@ -111,7 +111,11 @@
 					Welcome, <span id="userName">Username Here</span>
 				</span>
 				<img id="userImg" class="rounded-circle border border-success" data-toggle="modal"
-					data-target="#UserDetailsModal" src="img/test.png" alt="User Image">
+					data-target="#UserDetailsModal" src="holder.js/40x40" alt="User Image">
+			</div>
+			<div id="cartWrapper" class="d-flex flex-row justify-content-center align-items-center">
+				<a id="userCart" class="mdi mdi-cart-outline" href=""></a>
+				<span id="cartNumber" class="badge badge-pill badge-primary">0</span>
 			</div>
 			<div id="gSignInWrapper" class="g-signin2" data-width="GBtnWidth" data-theme="dark" data-onsuccess="onSignIn"></div>
 			<div id="navtheme" class="nav-item dropdown">
@@ -251,10 +255,10 @@
 		$(document).ready(function () {
 
 			//Theme Changer
-			if (typeof (Storage) !== " undefined") {
+			if (typeof (Storage) !== "undefined") {
 				var styling = localStorage.getItem("BS_Style");
 				if (styling == null)
-					$("#csstheme").attr('href', "css/bootstrap-darkly.css");
+					$("#csstheme").attr('href', "css/bootstrap-united.css");
 				else $("#csstheme").attr('href', styling);
 			}
 			$("#style01").on("click", function (event) {
@@ -285,6 +289,7 @@
 			//Default Action
 			$("#gSignInWrapper").show();
 			$("#infoWrapper").hide();
+			$("#cartWrapper").removeClass("d-flex").addClass("d-none");
 
 		});
 
@@ -306,6 +311,7 @@
 			
 			$("#gSignInWrapper").hide();
 			$("#infoWrapper").show();
+			$("#cartWrapper").addClass("d-flex").removeClass("d-none");
 
 			// The ID token you need to pass to your backend:
 			var id_token = googleUser.getAuthResponse().id_token;

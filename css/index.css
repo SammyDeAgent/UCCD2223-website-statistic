@@ -12,16 +12,17 @@ a, a:active, a:focus {
   height: 2.5rem;
   padding: 0.2rem;
   transition: padding 0.1s ease;
+  margin-right: 0.4rem;
 }
 #userImg:hover{
   cursor: pointer;
   padding: 0rem;
 }
 #infoWrapper #userName{
-  margin-right: 0.3rem;
+  margin-right: 0.5rem;
 }
 #infoWrapper{
-  margin-right: 0.5rem;
+  margin-right: 0.3rem;
 }
 @media (max-width: 992px) {
   #navbar{
@@ -39,6 +40,36 @@ a, a:active, a:focus {
   }
   #textWrapper{
    display: none;
+  }
+}
+
+/* Cart */
+#cartWrapper{
+  margin-right: 0.25rem;
+}
+#userCart.mdi:hover{
+  cursor: pointer;
+  color: yellow;
+}
+#userCart{
+  box-sizing: border-box;
+  margin-right: -0.3rem;
+  padding-left: 0.45rem;
+  padding-right: 0.45rem;
+}
+#userCart.mdi{
+  color: whitesmoke;
+  font-size: 1.75rem;
+  transition: color 0.2s ease;
+}
+@media (max-width: 992px) {
+  #cartWrapper{
+    margin-right: 0rem;
+    margin-bottom: 1rem;
+    justify-items: center;
+  }
+  #userCart.mdi{
+    font-size: 3rem;
   }
 }
 
