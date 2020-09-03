@@ -3,7 +3,7 @@
 
 <head>
 
-	<title>The Silk Road</title>
+	<title>Shopping Cart</title>
 
 	<link rel="shortcut icon" href="img/TSR_favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -15,9 +15,9 @@
 	<meta property="og:type" content="website" />
 	<meta name="twitter:card" content="summary_large_image" />
 
-	<meta name="title" content="Main Page">
-	<meta property="og:title" content="Main Page" />
-	<meta name="twitter:title" content="Main Page" />
+	<meta name="title" content="Shopping Cart">
+	<meta property="og:title" content="Shopping Cart" />
+	<meta name="twitter:title" content="Shopping Cart" />
 	<meta property="og:description"
 		content="We sell drugs, more importantly fried chicken. Sometimes TNT, another times a lovely brew of coffee." />
 	<meta name="twitter:description"
@@ -28,7 +28,7 @@
 	<meta property="og:image" content="https://the-silk-road.azurewebsites.net/img/TSR_backdrop.png" />
 	<meta name="twitter:image" content="https://the-silk-road.azurewebsites.net/img/TSR_backdrop.png" />
 
-	<meta name="og:url" content="https://the-silk-road.azurewebsites.net" />
+	<meta name="og:url" content="https://the-silk-road.azurewebsites.net/cart.html" />
 	<meta name="theme-color" content="#FFEF00">
 
 	<meta name="keywords" content="uccd2223 assignment may 2020">
@@ -64,14 +64,14 @@
 		content="505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com">
 
 	<style>
-		.jumbotron {
+		/* .jumbotron {
 			color: brown;
 			background-image: url(img/TheSilkRoad_banner.png);
 			background-position: bottom;
 			background-repeat: no-repeat;
 			background-size: cover;
 			height: 50vh;
-		}
+		} */
 	</style>
 
 </head>
@@ -92,8 +92,8 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item active">
-					<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="menu.html">Menu</a>
@@ -124,10 +124,10 @@
 					Theme
 				</button>
 				<div id="navdropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="#" id="style01">Darkly</a>
-					<a class="dropdown-item" href="#" id="style02">United</a>
-					<a class="dropdown-item" href="#" id="style03">Solar</a>
-					<a class="dropdown-item" href="#" id="style04">Vanilla</a>
+					<a class="dropdown-item" href="#" id="style01"">Darkly</a>
+					<a class=" dropdown-item" href="#" id="style02"">United</a>
+					<a class=" dropdown-item" href="#" id="style03"">Solar</a>
+					<a class=" dropdown-item" href="#" id="style04"">Vanilla</a>
 				</div>
 			</div>
 		</div>
@@ -169,75 +169,10 @@
 		</div>
 	</div>
 
-	<!-- Banner -->
-	<div class="card mt-2">
-		<img class="card-img mt-5" src="img/TheSilkRoad_banner.png" alt="banner image">
-	</div>
-
-
-	<div class="card m-5">
-		<h3 class="card-header">Featured <span class="badge badge-pill badge-primary">Hot!</span></h3>
-		<div class="card-body">
-			<div class="row">
-
-				<div class="col-sm-12 col-xl-4 d-flex justify-content-center mb-3">
-					<div class="flip-card">
-						<div class="flip-card-inner">
-							<div class="flip-card-front">
-								<img src="/img/product_cat/chicken.jpg" alt="Chicken" style="width: 100%;height: 100%;">
-							</div>
-							<div class="flip-card-back">
-								<h1>Chicken</h1>
-								<p>Fried Chicken with suaces</p>
-								<p>Lorem, ipsum.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-12 col-xl-4 d-flex justify-content-center mb-3">
-					<div class="flip-card">
-						<div class="flip-card-inner">
-							<div class="flip-card-front">
-								<img src="/img/product_cat/burger.jpg" alt="Burger" style="width: 100%;height: 100%;">
-							</div>
-							<div class="flip-card-back">
-								<h1>Burgers</h1>
-								<p>Chicken burgers and shit</p>
-								<p>Lorem, ipsum.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-12 col-xl-4 d-flex justify-content-center mb-3">
-					<div class="flip-card">
-						<div class="flip-card-inner">
-							<div class="flip-card-front">
-								<img src="/img/product_cat/coffee.jpg" alt="Coffee" style="width: 100%;height: 100%;">
-							</div>
-							<div class="flip-card-back">
-								<h1>Coffee</h1>
-								<p>Black Roast and shit</p>
-								<p>Lorem, ipsum.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="card m-5">
-		<h3 class="card-header" style="text-align: center;">Street View</h3>
-		<div class="card-body">
-			<div class="row">
-				<div class="col-md-12 d-flex justify-content-center">
-					<iframe src="https://www.google.com/maps/embed?pb=!4v1598877847095!6m8!1m7!1sCAoSLEFGMVFpcE90YkVfRkczX0hqUTZQOW5jMlVvelpDclF2X0NTckN0R1Y0SjBx!2m2!1d6.296209391296704!2d99.72229988825524!3f249.00091761724516!4f2.4314112419294247!5f0.7820865974627469" width="100%" height="500rem" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div id="abs-center" class="jumbotron shadow">
+		<h3 style="margin-top: 1rem;">FUCK YOU <span class="badge badge-danger">YES</span></h3>
+		<img src="img/ishigami_eatshit.jpg">
+    </div>
 
 	<footer>
 		<div class="container">
