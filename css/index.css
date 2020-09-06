@@ -7,11 +7,6 @@ a:active,
 a:focus {
     outline: none;
 }
-a,
-a:active,
-a:focus {
-    outline: none;
-}
 #abs-center {
     position: absolute;
     top: 50%;
@@ -157,7 +152,6 @@ span.GText {
     width: 20rem;
     height: 20rem;
     perspective: 1000px;
-    border-radius: 10%;
     /* Remove this if you don't want the 3D effect */
 }
 .flip-card-inner {
@@ -167,10 +161,9 @@ span.GText {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    border-radius: 10%;
 }
 .flip-card:hover .flip-card-inner {
-    transform: rotateX(180deg);
+    transform: rotateY(180deg);
 }
 .flip-card-front,
 .flip-card-back {
@@ -180,16 +173,13 @@ span.GText {
     -webkit-backface-visibility: hidden;
     /* Safari */
     backface-visibility: hidden;
-    border-radius: 10%;
 }
 .flip-card-front {
     background-color: #bbb;
     color: black;
-    border-radius: 10%;
 }
 .flip-card-back {
-    background-color: dodgerblue;
+    background-color: #888;
     color: white;
-    transform: rotateX(180deg);
-    border-radius: 10%;
+    transform: rotateY(180deg);
 }
