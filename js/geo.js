@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-var stallLong = 100.3848102;
 var stallLat = 5.4321722;
-=======
-var stallLong = 5.0;
-var stallLat = 100.3;
-
-var x = document.getElementById("demo");
->>>>>>> master
+var stallLong = 100.3848102;
 
 function getLocation() {
     if (navigator.geolocation) {
