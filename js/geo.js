@@ -1,37 +1,74 @@
-var stallLong = 5.0;
-var stallLat = 100.3;
+var stallLat = 5.4321722;
+var stallLon = 100.3848102;
 
-var x = document.getElementById("demo");
+$(function () {
+    $("#calc").click(function () {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(calcDistance, showError);
+        } else {
+            $("#distance").html(
+                "Geolocation is not supported by this browser."
+            );
+        }
+    });
+});
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
+function calcDistance(position) {
+    const rad = 6371;
+
+    let userLat = position.coords.latitude;
+    let userLon = position.coords.longitude;
+
+    let dLat = ((userLat - stallLat) * Math.PI) / 180.0;
+    let dLon = ((userLon - stallLon) * Math.PI) / 180.0;
+
+    userLat = (userLat * Math.PI) / 180.0;
+    stallLat = (stallLat * Math.PI) / 180.0;
+
+    let a =
+        Math.pow(Math.sin(dLat / 2), 2) +
+        Math.pow(Math.sin(dLon / 2), 2) *
+            Math.cos(userLat) *
+            Math.cos(stallLat);
+    let c = 2 * Math.asin(Math.sqrt(a));
+
+    let res = rad * c;
+    let message;
+
+    if (res < 25) {
+        message = "You are less than 20KM away. Come visit us tonight.";
+    } else if (res < 50) {
+        message =
+            "You are less than 50KM away. Leave early and come have dinner with us.";
+    } else if (res < 100) {
+        message =
+            "You are less than 100KM away. You might need to start your journey an hour earlier.";
+    } else if (res < 250) {
+        message =
+            "You are less than 250KM away. You might need to cross the border to visit us";
+    } else if (res < 1000) {
+        message =
+            "You are are quite far away. Thank you for showing interest in our humble stall";
     } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
+        message = "Greetings to you, Mr. Worldwide.";
     }
-}
 
-function showPosition(position) {
-    x.innerHTML =
-        "Latitude: " +
-        position.coords.latitude +
-        "<br>Longitude: " +
-        position.coords.longitude;
+    $("#distance").html(message);
 }
 
 function showError(error) {
     switch (error.code) {
         case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation.";
+            $("#distance").html("User Denied The Request For Geolocation.");
             break;
         case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable.";
+            $("#distance").html("Location Information Is Unavailable.");
             break;
         case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out.";
+            $("#distance").html("The Request to Get User Location Timed Out.");
             break;
         case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred.";
+            $("#distance").html("An Unknown Error Occurred.");
             break;
     }
 }
