@@ -1,5 +1,6 @@
 var stallLat = 5.4321722;
 var stallLon = 100.3848102;
+const RAD = 6371;
 
 $(function () {
     $("#calc").click(function () {
@@ -14,8 +15,6 @@ $(function () {
 });
 
 function calcDistance(position) {
-    const rad = 6371;
-
     let userLat = position.coords.latitude;
     let userLon = position.coords.longitude;
 
@@ -32,7 +31,7 @@ function calcDistance(position) {
             Math.cos(stallLat);
     let c = 2 * Math.asin(Math.sqrt(a));
 
-    let res = rad * c;
+    let res = RAD * c;
     let message;
 
     if (res < 25) {
