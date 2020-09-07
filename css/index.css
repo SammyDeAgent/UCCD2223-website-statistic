@@ -179,7 +179,6 @@ span.GText {
     color: black;
 }
 .flip-card-back {
-    background-color: #888;
     color: white;
     transform: rotateY(180deg);
 }
