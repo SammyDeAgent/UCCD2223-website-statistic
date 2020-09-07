@@ -44,10 +44,10 @@ function calcDistance(position) {
             "You are less than 100KM away. You might need to start your journey an hour earlier.";
     } else if (res < 250) {
         message =
-            "You are less than 250KM away. You might need to cross the border to visit us";
+            "You are less than 250KM away. You might need to cross the border to visit us.";
     } else if (res < 1000) {
         message =
-            "You are are quite far away. Thank you for showing interest in our humble stall";
+            "You are are quite far away. Thank you for showing interest in our humble stall.";
     } else {
         message = "Greetings to you, Mr. Worldwide.";
     }
