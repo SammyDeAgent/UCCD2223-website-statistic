@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
     //Theme Changer
     if (typeof Storage !== "undefined") {
         var styling = localStorage.getItem("BS_Style");
