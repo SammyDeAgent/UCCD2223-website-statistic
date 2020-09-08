@@ -1,26 +1,30 @@
 [
     {
-        "id":"",
-        "name":"",
-        "desc":"",
-        "price":""
+        "id":"1000",
+        "name":"Original Buttermilk Fried Chicken",
+        "desc":"Fried chicken marinated in traditional buttermilk and spices then fried to perfection",
+        "price":"10.50",
+        "imgsrc":"img/products/chicken.jpg"
     },
     {
-        "id":"",
-        "name":"",
-        "desc":"",
-        "price":""
+        "id":"1001",
+        "name":"Nashville Hot Chicken",
+        "desc":"Crispy fried chicken brushed with hot and spicy oil, comes with customary white bread and pickle",
+        "price":"13.50",
+        "imgsrc":"img/products/chicken.jpg"
     },
     {
-        "id":"",
-        "name":"",
-        "desc":"",
-        "price":""
+        "id":"1002",
+        "name":"Honey Garlic Karaage",
+        "desc":"Japanese style fried chicken chunks topped with creamy garlic butter",
+        "price":"12.00",
+        "imgsrc":"img/products/chicken.jpg"
     },
     {
-        "id":"",
-        "name":"",
-        "desc":"",
-        "price":""
+        "id":"1003",
+        "name":"Parmesan Panko Chicken Poppers",
+        "desc":"Panko battered chicken chunks encrusted with parmesan cheese and",
+        "price":"14.50",
+        "imgsrc":"img/products/chicken.jpg"
     }
 ]
