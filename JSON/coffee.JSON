@@ -1,26 +1,30 @@
 [
     {
-        "id":"",
-        "name":"",
-        "desc":"",
-        "price":""
+        "id":"3000",
+        "name":"Espresso",
+        "desc":"Freshy grounded coffee beans enfused via a coffe bench, can't get wrong with that",
+        "price":"9.90",
+        "imgsrc":"img/products/coffee.jpg"
     },
     {
-        "id":"",
-        "name":"",
-        "desc":"",
-        "price":""
+        "id":"3001",
+        "name":"Mocha",
+        "desc":"Brewed coffee with a mix of dark cocoa for chocolate lovers",
+        "price":"7.50",
+        "imgsrc":"img/products/coffee.jpg"
     },
     {
-        "id":"",
-        "name":"",
-        "desc":"",
-        "price":""
+        "id":"3002",
+        "name":"Latte",
+        "desc":"A combination of steamed milk and aromatic coffee, people's favorate",
+        "price":"7.80",
+        "imgsrc":"img/products/coffee.jpg"
     },
     {
-        "id":"",
-        "name":"",
-        "desc":"",
-        "price":""
+        "id":"3003",
+        "name":"Americano",
+        "desc":"A literal cup of joe for morning workers, plain simple, yet elegant",
+        "price":"5.60",
+        "imgsrc":"img/products/coffee.jpg"
     }
 ]
