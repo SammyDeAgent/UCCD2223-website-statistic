@@ -1,32 +1,32 @@
-$(function () {
+$(document).ready(function () {
     //Theme Changer
     if (typeof Storage !== "undefined") {
-        var styling = localStorage.getItem("BS_Style");
-        if (styling == null)
+        var styling = JSON.parse(localStorage.getItem("BS_Style"));
+        if (styling == null || styling == "undefined")
             $("#csstheme").attr("href", "css/bootstrap-united.css");
-        else $("#csstheme").attr("href", styling);
+        else $("#csstheme").attr("href", styling.style);
     }
     $("#style01").on("click", function (event) {
         $("#csstheme").attr("href", "css/bootstrap-darkly.css");
-        styling = "css/bootstrap-darkly.css";
+        styling = JSON.stringify({style:'css/bootstrap-darkly.css'});
         if (typeof Storage !== "undefined")
             localStorage.setItem("BS_Style", styling);
     });
     $("#style02").on("click", function (event) {
         $("#csstheme").attr("href", "css/bootstrap-united.css");
-        styling = "css/bootstrap-united.css";
+        styling = JSON.stringify({style:'css/bootstrap-united.css'});
         if (typeof Storage !== "undefined")
             localStorage.setItem("BS_Style", styling);
     });
     $("#style03").on("click", function (event) {
         $("#csstheme").attr("href", "css/bootstrap-solar.css");
-        styling = "css/bootstrap-solar.css";
+        styling = JSON.stringify({style:'css/bootstrap-solar.css'});
         if (typeof Storage !== "undefined")
             localStorage.setItem("BS_Style", styling);
     });
     $("#style04").on("click", function (event) {
         $("#csstheme").attr("href", "css/bootstrap.css");
-        styling = "css/bootstrap.css";
+        styling = JSON.stringify({style:'css/bootstrap.css'});
         if (typeof Storage !== "undefined")
             localStorage.setItem("BS_Style", styling);
     });
