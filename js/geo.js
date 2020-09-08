@@ -1,7 +1,3 @@
-var stallLat = 5.4321722;
-var stallLon = 100.3848102;
-const RAD = 6371;
-
 $(function () {
     $("#calc").click(function () {
         if (navigator.geolocation) {
@@ -15,6 +11,10 @@ $(function () {
 });
 
 function calcDistance(position) {
+    let stallLat = 5.4321722;
+    let stallLon = 100.3848102;
+    const RAD = 6371;
+
     let userLat = position.coords.latitude;
     let userLon = position.coords.longitude;
 
