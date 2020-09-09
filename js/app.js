@@ -108,7 +108,7 @@ function onSignIn(googleUser) {
     console.log("ID Token: " + id_token);
 
     // Cart Local Storage
-    if(localStorage.getItem(profile.getId()) !== undefined || localStorage.getItem(profile.getId()) != null){
+    if(localStorage.getItem(profile.getId()) !== undefined){
         var cartItems = null;
         localStorage.setItem(profile.getId(),cartItems);
     }
