@@ -234,17 +234,9 @@
 
 				$("#wea-icon").attr("src", icon);
 				$("#temp-val").html(`Feels like ` + temp + `°C`);
-				$("#temp-desc").html(capitalize(desc));
+				$("#temp-desc").html(desc.toUpperCase());
 			})
 		})
-
-		function capitalize(str) {
-			str = str.split(" ");
-			for (let i = 0; i < str.length; i++) {
-				str[i] = str[i][0].toUpperCase() + str[i].substring(1);
-			}
-			return str.join(" ");
-		}
 	</script>
 
 	<script src ="/js/app.js"></script>
