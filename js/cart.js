@@ -6,44 +6,42 @@ $(document).ready(function () {
         var cartCount = 0;
 
         if (typeof (Storage) !== "undefined") {
-            var record = sessionStorage.getItem("cartItems");
+            var record = JSON.parse(sessionStorage.getItem("cartItems"));
         }
-        if(record = null){
+        if(record == null){
             $("#cartNumber").html(parseInt(cartCount));
         }else{
-
-        for(let i = 0 ; i < record.length; i++){
-            cartCount += parseInt(record[i].count);
-        }
-        $("#cartNumber").html(parseInt(cartCount));
-    }
+            for(x in record){
+                cartCount += parseInt(record[x]);
+            }
+            $("#cartNumber").html(parseInt(cartCount));
+        }  
     });
 });
 
 function updateCount(id) {
     var locate = false;
     if (typeof (Storage) !== "undefined") {
-        var record = sessionStorage.getItem("cartItems");
+        var record = JSON.parse(sessionStorage.getItem("cartItems"));
     }
     if(record == null){
-        record = [];
-    }
-
-    for(let i = 0; i < record.length; i++){
-        if(record[i].id == id){
-            record[i].count++;
-            locate = true;
+        record = {};
+    }else{
+        for(x in record){
+            if(x == id){
+                var temp = parseInt(record[x]);
+                temp++;
+                record[x] = temp;
+                locate = true;
+            }
+            if(locate) break;
         }
-        if(locate) break;
     }
     if(locate == false){
-        var obj = new Object();
-        obj.id = id;
-        obj.count = 1;
-        record.push(obj);
+       record[id] = 1;
     }
-
-    sessionStorage.setItem("cartItems",record);
+    var data = JSON.stringify(record);
+    sessionStorage.setItem("cartItems",data);
 }
 
 // function setCount() {
