@@ -86,7 +86,7 @@ $(document).ready(function () {
                     "" +
                     '<div class="fixed-bottom text-center mt-4"><p>Price: RM' +
                     data[i].price +
-                    '</p><button type="button" class="m-2 btn btn-outline-primary mt-2 mb-4 add-cart" data-id="' +
+                    '</p><button type="button" class="m-2 btn btn-outline-primary mt-2 mb-4" data-id="' +
                     data[i].id +
                     '">Add to Cart</button></div>' +
                     "</div></div></div></div>"
