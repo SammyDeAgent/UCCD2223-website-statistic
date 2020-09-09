@@ -5,9 +5,9 @@ $(document).ready(function () {
     });
 });
 
-function updateCount(id) {
+gapiPromise.then(function updateCount(id) {
     var locate = false;
-    var profile = auth2.currentUser.get().getBasicProfile();
+    var profile = gapi.auth2.currentUser.get().getBasicProfile();
     var record = localStorage.getItem(profile.getId());
     if(record == null){
         record = [];
@@ -24,7 +24,7 @@ function updateCount(id) {
     }
 
     localStorage.setItem(profile.getId(),record);
-}
+})
 
 // function setCount() {
 //     let i = parseInt(localStorage.getItem("tCount"));
