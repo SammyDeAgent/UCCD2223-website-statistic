@@ -1,6 +1,15 @@
 $(document).ready(function () {
     //Adding To Cart
     $("#cardMenuWrapper").on("click", "button", () => {
-        console.log($(this)[0].activeElement.attributes["data-id"].nodeValue);
+        updateCount();
+
+        //console.log($(this)[0].activeElement.attributes["data-id"].nodeValue);
     });
 });
+
+function updateCount() {
+    let i = parseInt(localStorage.getItem("tCount"));
+    i ? (i += 1) : (i = 1);
+    localStorage.setItem("tCount", i);
+    $("#cartNumber").html(i);
+}
