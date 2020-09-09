@@ -74,12 +74,25 @@ $(document).ready(function () {
             );
         }
     }
-
     
     //Default Action
     $("#gSignInWrapper").show();
     $("#infoWrapper").hide();
     $("#cartWrapper").removeClass("d-flex").addClass("d-none");
+
+    //Cart Number
+    var cartCount = 0;
+    var record = localStorage.getItem(profile.getId());
+    if(record == null){
+        $("#cartNumber").html(cartCount);
+    }else{
+        for(let i = 0 ; i < record.length; i++){
+            cartCount += parseInt(record[i][1]);
+        }
+        $("#cartNumber").html(cartCount);
+    }
+   
+
 });
 
 //Google Profile Accesor
@@ -107,6 +120,12 @@ function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
     $("#modalToken small").html(id_token);
     console.log("ID Token: " + id_token);
+
+    // Cart Local Storage
+    if(localStorage.getItem(profile.getId()) !== undefined || localStorage.getItem(profile.getId()) != null){
+        var cartItems = null;
+        localStorage.setItem(profile.getId(),cartItems);
+    }
 }
 
 function signOut() {
