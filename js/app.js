@@ -81,15 +81,18 @@ $(document).ready(function () {
     $("#cartWrapper").removeClass("d-flex").addClass("d-none");
 
     var cartCount = 0;
-    var record = sessionStorage.getItem("cartItems");
-    if(!Array.isArray(record) || !record.length){
-        $("#cartNumber").html(parseInt(cartCount));
-    }else{
-        for(let i = 0 ; i < record.length; i++){
-            cartCount += parseInt(record[i][1]);
+
+        if (typeof (Storage) !== "undefined") {
+            var record = JSON.parse(sessionStorage.getItem("cartItems"));
         }
-        $("#cartNumber").html(parseInt(cartCount));
-    }
+        if(record == null){
+            $("#cartNumber").html(parseInt(cartCount));
+        }else{
+            for(x in record){
+                cartCount += parseInt(record[x]);
+            }
+            $("#cartNumber").html(parseInt(cartCount));
+        }  
 
 });
 

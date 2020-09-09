@@ -11,11 +11,11 @@ $(document).ready(function () {
         if(record == null){
             $("#cartNumber").html(parseInt(cartCount));
         }else{
-        for(x in record){
-            cartCount += parseInt(record[x]);
-        }
-        $("#cartNumber").html(parseInt(cartCount));
-    }
+            for(x in record){
+                cartCount += parseInt(record[x]);
+            }
+            $("#cartNumber").html(parseInt(cartCount));
+        }  
     });
 });
 
