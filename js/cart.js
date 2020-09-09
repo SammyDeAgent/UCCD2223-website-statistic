@@ -2,13 +2,23 @@ $(document).ready(function () {
     //Adding To Cart
     $("#cardMenuWrapper").on("click", "button", () => {
         updateCount($(this)[0].activeElement.attributes["data-id"].nodeValue);
+        var cartCount = 0;
+        var record = sessionStorage.getItem("cartItems");
+        if(!Array.isArray(record) || !record.length){
+            $("#cartNumber").html(parseInt(cartCount));
+        }else{
+        for(let i = 0 ; i < record.length; i++){
+            cartCount += parseInt(record[i][1]);
+        }
+        $("#cartNumber").html(parseInt(cartCount));
+    }
     });
 });
 
 function updateCount(id) {
     var locate = false;
     var record = sessionStorage.getItem("cartItems");
-    if(!Array.isArray(record) || !record.length){
+    if(record == null){
         record = [];
     }
 
