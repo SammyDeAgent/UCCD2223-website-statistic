@@ -81,6 +81,9 @@ $(document).ready(function () {
     $("#cartWrapper").removeClass("d-flex").addClass("d-none");
 
     //Cart Number
+    gapiPromise.then(() => {
+        var profile = gapi.auth2.currentUser.get().getBasicProfile();
+    })
     var cartCount = 0;
     var record = localStorage.getItem(profile.getId());
     if(record == null){
