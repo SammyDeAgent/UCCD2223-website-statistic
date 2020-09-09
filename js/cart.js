@@ -21,7 +21,7 @@ $(document).ready(function () {
                     locate = true;
                 }
             }
-            if (!locate) {
+            if (locate == false) {
                 record.push([id, 1]);
             }
 
