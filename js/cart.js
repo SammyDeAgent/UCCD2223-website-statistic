@@ -2,13 +2,18 @@ $(document).ready(function () {
     //Adding To Cart
     $("#cardMenuWrapper").on("click", "button", () => {
         updateCount($(this)[0].activeElement.attributes["data-id"].nodeValue);
+
         var cartCount = 0;
-        var record = sessionStorage.getItem("cartItems");
-        if(!Array.isArray(record) || !record.length){
+
+        if (typeof (Storage) !== "undefined") {
+            var record = sessionStorage.getItem("cartItems");
+        }
+        if(record = null){
             $("#cartNumber").html(parseInt(cartCount));
         }else{
+
         for(let i = 0 ; i < record.length; i++){
-            cartCount += parseInt(record[i][1]);
+            cartCount += parseInt(record[i].count);
         }
         $("#cartNumber").html(parseInt(cartCount));
     }
@@ -17,19 +22,25 @@ $(document).ready(function () {
 
 function updateCount(id) {
     var locate = false;
-    var record = sessionStorage.getItem("cartItems");
+    if (typeof (Storage) !== "undefined") {
+        var record = sessionStorage.getItem("cartItems");
+    }
     if(record == null){
         record = [];
     }
 
     for(let i = 0; i < record.length; i++){
-        if(record[i][0] == id){
-            record[i][1].count++;
+        if(record[i].id == id){
+            record[i].count++;
             locate = true;
         }
+        if(locate) break;
     }
-    if(!locate){
-        record.push([id,1]);
+    if(locate == false){
+        var obj = new Object();
+        obj.id = id;
+        obj.count = 1;
+        record.push(obj);
     }
 
     sessionStorage.setItem("cartItems",record);
