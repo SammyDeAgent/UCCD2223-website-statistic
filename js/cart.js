@@ -13,3 +13,10 @@ function updateCount() {
     localStorage.setItem("tCount", i);
     $("#cartNumber").html(i);
 }
+
+function setCount() {
+    let i = parseInt(localStorage.getItem("tCount"));
+    i ? $("#cartNumber").html(i) : $("#cartNumber").html(0);
+}
+
+setCount();
