@@ -36,27 +36,27 @@ $(document).ready(function () {
     $("#infoWrapper").hide();
     $("#cartWrapper").removeClass("d-flex").addClass("d-none");
 
-    // //Menu Card JSON Parse
-    // for (let i = 0; i < 3; i++) {
-    //     var catjson = null;
-    //     switch (i) {
-    //         case 0:
-    //             $.getJSON("../JSON/fchicken.json", (jd) =>
-    //                 cardAppend(jd, "cat1", i)
-    //             );
-    //             break;
-    //         case 1:
-    //             $.getJSON("../JSON/burger.json", (jd) =>
-    //                 cardAppend(jd, "cat2", i)
-    //             );
-    //             break;
-    //         case 2:
-    //             $.getJSON("../JSON/coffee.json", (jd) =>
-    //                 cardAppend(jd, "cat3", i)
-    //             );
-    //             break;
-    //     }
-    // }
+    //Menu Card JSON Parse
+    for (let i = 0; i < 3; i++) {
+        var catjson = null;
+        switch (i) {
+            case 0:
+                $.getJSON("../JSON/fchicken.json", (jd) =>
+                    cardAppend(jd, "cat1", i)
+                );
+                break;
+            case 1:
+                $.getJSON("../JSON/burger.json", (jd) =>
+                    cardAppend(jd, "cat2", i)
+                );
+                break;
+            case 2:
+                $.getJSON("../JSON/coffee.json", (jd) =>
+                    cardAppend(jd, "cat3", i)
+                );
+                break;
+        }
+    }
 
     function cardAppend(data, header, k) {
         $("#" + header).after(
