@@ -79,23 +79,6 @@ $(document).ready(function () {
     $("#gSignInWrapper").show();
     $("#infoWrapper").hide();
     $("#cartWrapper").removeClass("d-flex").addClass("d-none");
-
-    //Cart Number
-    gapiPromise.then(() => {
-        var profile = gapi.auth2.currentUser.get().getBasicProfile();
-    })
-    var cartCount = 0;
-    var record = localStorage.getItem(profile.getId());
-    if(record == null){
-        $("#cartNumber").html(cartCount);
-    }else{
-        for(let i = 0 ; i < record.length; i++){
-            cartCount += parseInt(record[i][1]);
-        }
-        $("#cartNumber").html(cartCount);
-    }
-   
-
 });
 
 //Google Profile Accesor
@@ -128,6 +111,18 @@ function onSignIn(googleUser) {
     if(localStorage.getItem(profile.getId()) !== undefined || localStorage.getItem(profile.getId()) != null){
         var cartItems = null;
         localStorage.setItem(profile.getId(),cartItems);
+    }
+
+    //Cart Item Count
+    var cartCount = 0;
+    var record = localStorage.getItem(profile.getId());
+    if(record == null){
+        $("#cartNumber").html(cartCount);
+    }else{
+        for(let i = 0 ; i < record.length; i++){
+            cartCount += parseInt(record[i][1]);
+        }
+        $("#cartNumber").html(cartCount);
     }
 }
 
