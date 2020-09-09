@@ -190,7 +190,7 @@
 					<div class="card bg-white" style="width: 100%;">
 						<div class="card-body d-flex flex-column align-items-center">
 							<h3 class="text-center text-dark">What's the weather like at the stall?</h3>
-							<h6 class="text-center text-dark">Just in case if you want to visit us tonight.</h6>
+							<h6 class="text-center text-dark">Just in case you want to visit us tonight.</h6>
 							<img
 								id="wea-icon"
 								src="http://openweathermap.org/img/wn/01d@2x.png"
@@ -221,12 +221,26 @@
 		</div>
 	</footer>
 
+	<!--Start of Tawk.to Script-->
+	<script type="text/javascript">
+		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+		(function(){
+			var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+			s1.async=true;
+			s1.src='https://embed.tawk.to/5f58940b4704467e89ed6563/default';
+			s1.charset='UTF-8';
+			s1.setAttribute('crossorigin','*');
+			s0.parentNode.insertBefore(s1,s0);
+		})();
+	</script>
+	<!--End of Tawk.to Script-->
+
 	
 	<script src ="/js/app.js"></script>
 
 	<script>
 		let api = `http://api.openweathermap.org/data/2.5/weather?lat=5.432&lon=100.385&appid=7ad1611a74872cdaed64838dfdda759f&units=metric`;
-		
+
 		$(function () {
 			$.getJSON(api, function (result) {
 				let desc = result.weather[0].description;
