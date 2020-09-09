@@ -109,20 +109,19 @@ function onSignIn(googleUser) {
 
     // Cart Local Storage
     if(localStorage.getItem(profile.getId()) !== undefined){
-        var cartItems = null;
-        localStorage.setItem(profile.getId(),cartItems);
+        localStorage.setItem(profile.getId(),[]);
     }
 
     //Cart Item Count
     var cartCount = 0;
     var record = localStorage.getItem(profile.getId());
-    if(record == null){
-        $("#cartNumber").html(cartCount);
+    if(!Array.isArray(record) || !record.length){
+        $("#cartNumber").html(parseInt(cartCount));
     }else{
         for(let i = 0 ; i < record.length; i++){
             cartCount += parseInt(record[i][1]);
         }
-        $("#cartNumber").html(cartCount);
+        $("#cartNumber").html(parseInt(cartCount));
     }
 }
 

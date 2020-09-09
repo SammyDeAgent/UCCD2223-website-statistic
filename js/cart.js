@@ -11,7 +11,7 @@ $(document).ready(function () {
         function updateCount(id) {
             var locate = false;
             var record = localStorage.getItem(profile.getId());
-            if (record == null) {
+            if (!Array.isArray(record) || !record.length) {
                 record = [];
             }
 
