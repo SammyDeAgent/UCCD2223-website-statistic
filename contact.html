@@ -199,8 +199,8 @@
 								width="150px"
 								height="150px"
 							/>
-							<p id="temp-val" class="text-center text-dark m-1"></p>
-							<p id="temp-desc" class="text-center text-dark m-1"></p>
+							<p id="temp-val" class="text-center text-dark m-1">Uh-oh! Something isn't working...</p>
+							<p id="temp-desc" class="text-center text-dark m-1">It is probably sunny outside.</p>
 						</div>
 					</div>
 				</div>
@@ -222,7 +222,7 @@
 	</footer>
 
 	<script>
-		let api = `http://api.openweathermap.org/data/2.5/weather?lat=5.432&lon=100.385&appid=7ad1611a74872cdaed64838dfdda759f&units=metric`;
+		let api = `https://api.openweathermap.org/data/2.5/weather?lat=5.432&lon=100.385&appid=7ad1611a74872cdaed64838dfdda759f&units=metric`;
 
 		$(function () {
 			$.getJSON(api, function (result) {
