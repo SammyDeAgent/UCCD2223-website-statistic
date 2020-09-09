@@ -188,25 +188,20 @@
 				</div>
 
 				<div class="col-sm-12 col-md-4 d-flex justify-content-center mb-3">
-					<div class="card bg-white">
+					<div class="card bg-white" style="width: 100%;">
 
 						<div class="card-body d-flex flex-column align-items-center">
-							
-							<img src="/img/chefs/Ernest.jpg" alt="weather icon" class="m-2 text-center" width="150px" height="150px">
-							<p class="text-center text-dark m-1">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-							
-							<div class="weather-icon">
-								<img src="icons/unknown.png" alt="">
-							</div>
-							<div class="temperature-value">
-								<p>- °<span>C</span></p>
-							</div>
-							<div class="temperature-description">
-								<p> - </p>
-							</div>
-							<div class="location">
-								<p>-</p>
-							</div>
+							<h2 class="text-center text-dark">Hmm... Let's see</h2>
+							<img
+								id="wea-icon"
+								src="http://openweathermap.org/img/wn/01d@2x.png"
+								alt="weather icon"
+								class="m-2 text-center"
+								width="150px"
+								height="150px"
+							/>
+							<p id="temp-val" class="text-center text-dark m-1">30<span> °C</span></p>
+							<p id="temp-desc" class="text-center text-dark m-1">It is current sunny in phaleadelphia</p>
 
 						</div>
 
@@ -232,7 +227,26 @@
 	</footer>
 
 	
-    <script src ="/js/app.js"></script>
+	<script src ="/js/app.js"></script>
+
+	<script>
+		let api = `http://api.openweathermap.org/data/2.5/weather?lat=5.432&lon=100.385&appid=7ad1611a74872cdaed64838dfdda759f&units=metric`;
+		
+		$(function () {
+			$.getJSON(api, function (result) {
+				let weaDesc = result.weather[0].main;
+				let weaIcon = result.weather[0].icon;
+				let temp = Math.floor(result.main.feels_like);
+
+				weaIcon = `http://openweathermap.org/img/wn/${weaIcon}@2x.png`
+
+				$("#wea-icon").attr("src", weaIcon);
+				$("#temp-val").html(temp);
+				$("#temp-desc").html(weaDesc);
+			})
+		})
+
+	</script>
 </body>
 
 </html>
