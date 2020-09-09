@@ -26,21 +26,7 @@
 $(function () {
     $("button").on("click", function () {
         var id = $(this).attr("data-id");
-
         let cat = parseInt(id[0]);
-
-        switch (cat) {
-            case 0:
-                $.getJSON("../JSON/fchicken.json", (result) =>
-                    cardAppend(result, "cat1", i)
-                );
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-        }
-
         console.log(cat);
     });
 });
