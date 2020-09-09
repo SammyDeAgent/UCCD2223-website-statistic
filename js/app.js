@@ -68,7 +68,7 @@ $(document).ready(function () {
         );
         for (let i = 0; i < data.length; i++) {
             $("#" + header + "row").append(
-                '<div class="col d-flex justify-content-around mb-3">' +
+                '<div class="col d-flex justify-content-around mt-3 mb-3">' +
                     '<div class="flip-card">' +
                     '<div class="flip-card-inner">' +
                     '<div class="flip-card-front">' +
@@ -87,8 +87,7 @@ $(document).ready(function () {
                     '<div class="fixed-bottom text-center mt-4"><p>Price: RM' +
                     data[i].price +
                     '</p><button type="button" class="m-2 btn btn-outline-primary mt-2 mb-4 add-cart" data-id="' +
-                    k +
-                    i +
+                    data[i].id +
                     '">Add to Cart</button></div>' +
                     "</div></div></div></div>"
             );
