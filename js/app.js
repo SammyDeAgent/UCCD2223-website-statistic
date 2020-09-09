@@ -79,7 +79,7 @@ $(document).ready(function () {
     //Default Action
     $("#gSignInWrapper").show();
     $("#infoWrapper").hide();
-    $("#cartWrapper").removeClass("d-flex").addClass("d-none");
+    // $("#cartWrapper").removeClass("d-flex").addClass("d-none");
 });
 
 //Google Profile Accesor
@@ -107,6 +107,12 @@ function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
     $("#modalToken small").html(id_token);
     console.log("ID Token: " + id_token);
+
+    // Cart Local Storage
+    if(localStorage.getItem(profile.getId()) !== undefined || localStorage.getItem(profile.getId()) != null){
+        var cartItems = null;
+        localStorage.setItem(profile.getId(),cartItems);
+    }
 }
 
 function signOut() {
