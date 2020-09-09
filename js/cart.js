@@ -1,3 +1,7 @@
+$.getJSON("../JSON/fchicken.json", function (result) {});
+$.getJSON("../JSON/burger.json", function (result) {});
+$.getJSON("../JSON/coffee.json", function (result) {});
+
 var temp = JSON.parse(localStorage.getItem("cartItem"));
 
 if (temp == null) {

@@ -47,7 +47,6 @@
 	<meta itemprop="image" content="https://the-silk-road.azurewebsites.net/img/TSR_backdrop.png" />
 
 	<!-- External Files and Plugins -->
-	<script src="js/app.js"></script>
 	<link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="css/index.css" />
 	<script src="js/jquery-3.5.1.js"></script>
@@ -189,28 +188,24 @@
 
 				<div class="col-sm-12 col-md-4 d-flex justify-content-center mb-3">
 					<div class="card bg-white" style="width: 100%;">
-
 						<div class="card-body d-flex flex-column align-items-center">
-							<h2 class="text-center text-dark">Hmm... Let's see</h2>
+							<h3 class="text-center text-dark">What's the weather like at the stall?</h3>
+							<h6 class="text-center text-dark">Just in case if you want to visit us tonight.</h6>
 							<img
 								id="wea-icon"
 								src="http://openweathermap.org/img/wn/01d@2x.png"
 								alt="weather icon"
-								class="m-2 text-center"
+								class="m-4 text-center"
 								width="150px"
 								height="150px"
 							/>
-							<p id="temp-val" class="text-center text-dark m-1">30<span> °C</span></p>
-							<p id="temp-desc" class="text-center text-dark m-1">It is current sunny in phaleadelphia</p>
-
+							<p id="temp-val" class="text-center text-dark m-1"></p>
+							<p id="temp-desc" class="text-center text-dark m-1"></p>
 						</div>
-
 					</div>
 				</div>
 
-
 			</div>
-			
 		</div>
 	</div>
 
@@ -234,18 +229,25 @@
 		
 		$(function () {
 			$.getJSON(api, function (result) {
-				let weaDesc = result.weather[0].main;
-				let weaIcon = result.weather[0].icon;
+				let desc = result.weather[0].description;
+				let icon = result.weather[0].icon;
 				let temp = Math.floor(result.main.feels_like);
 
-				weaIcon = `http://openweathermap.org/img/wn/${weaIcon}@2x.png`
+				icon = `http://openweathermap.org/img/wn/${icon}@2x.png`
 
-				$("#wea-icon").attr("src", weaIcon);
-				$("#temp-val").html(temp);
-				$("#temp-desc").html(weaDesc);
+				$("#wea-icon").attr("src", icon);
+				$("#temp-val").html(`Feels like ` + temp + `°C`);
+				$("#temp-desc").html(capitalize(desc));
 			})
 		})
 
+		function capitalize(str) {
+			str = str.split(" ");
+			for (let i = 0; i < str.length; i++) {
+				str[i] = str[i][0].toUpperCase() + str[i].substring(1);
+			}
+			return str.join(" ");
+		}
 	</script>
 </body>
 
