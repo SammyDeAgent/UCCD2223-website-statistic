@@ -360,7 +360,9 @@
 				$("#temp-val").html(`Feels like ` + temp + `°C`);
 				$("#temp-desc").html(desc.toUpperCase());
 
-				if (weat.toUpperCase == "RAIN") {
+				weat = weat.toUpperCase();
+
+				if (weat != "Clear" || weat != "Clouds") {
 					$("#open-status").html("We Are Closed!");
 				}
 			})
