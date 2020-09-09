@@ -31,11 +31,6 @@ $(document).ready(function () {
             localStorage.setItem("BS_Style", styling);
     });
 
-    //Default Action
-    $("#gSignInWrapper").show();
-    $("#infoWrapper").hide();
-    $("#cartWrapper").removeClass("d-flex").addClass("d-none");
-
     //Menu Card JSON Parse
     for (let i = 0; i < 3; i++) {
         var catjson = null;
@@ -68,31 +63,23 @@ $(document).ready(function () {
         );
         for (let i = 0; i < data.length; i++) {
             $("#" + header + "row").append(
-                '<div class="col d-flex justify-content-around mt-3 mb-3">' +
-                    '<div class="flip-card">' +
-                    '<div class="flip-card-inner">' +
-                    '<div class="flip-card-front">' +
-                    '<img src="' +
-                    data[i].imgsrc +
-                    '" alt="food image" style="width: 100%;height: 100%;">' +
-                    "</div>" +
-                    '<div class="flip-card-back bg-dark p-3">' +
-                    '<h3 class="mt-4">' +
-                    data[i].name +
-                    "</h3>" +
-                    "<p>" +
-                    data[i].desc +
-                    "</p>" +
-                    "" +
-                    '<div class="fixed-bottom text-center mt-4"><p>Price: RM' +
-                    data[i].price +
-                    '</p><button type="button" class="m-2 btn btn-outline-primary mt-2 mb-4" data-id="' +
-                    data[i].id +
-                    '">Add to Cart</button></div>' +
-                    "</div></div></div></div>"
+                `<div class="col d-flex justify-content-around mt-3 mb-3">
+                <div class="flip-card"><div class="flip-card-inner">
+                <div class="flip-card-front"><img src="${data[i].imgsrc}" alt="food image" style="width: 100%;height: 100%;"></div>
+                <div class="flip-card-back bg-dark p-3"><h3 class="mt-4">${data[i].name}</h3>
+                <p>${data[i].desc}</p>
+                <div class="fixed-bottom text-center mt-4"><p>Price: RM${data[i].price}</p>
+                <button type="button" class="disabled m-2 btn btn-outline-primary mt-2 mb-4" data-id="${data[i].id}">Sign In to Order</button>
+                </div></div></div></div></div>`
             );
         }
     }
+
+    
+    //Default Action
+    $("#gSignInWrapper").show();
+    $("#infoWrapper").hide();
+    $("#cartWrapper").removeClass("d-flex").addClass("d-none");
 });
 
 //Google Profile Accesor
@@ -114,6 +101,7 @@ function onSignIn(googleUser) {
     $("#gSignInWrapper").hide();
     $("#infoWrapper").show();
     $("#cartWrapper").addClass("d-flex").removeClass("d-none");
+    $("#cardMenuWrapper button").removeClass("disabled").html("Add to Cart");
 
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;

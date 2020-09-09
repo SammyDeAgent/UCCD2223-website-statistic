@@ -3,7 +3,7 @@ $(document).ready(function () {
     $("#cardMenuWrapper").on("click", "button", () => {
         updateCount();
 
-        //console.log($(this)[0].activeElement.attributes["data-id"].nodeValue);
+        console.log($(this)[0].activeElement.attributes["data-id"].nodeValue);
     });
 });
 
