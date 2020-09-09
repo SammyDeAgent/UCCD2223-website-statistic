@@ -24,8 +24,6 @@ function updateCount(id) {
     }
 
     localStorage.setItem(profile.getId(),record);
-    
-
 }
 
 // function setCount() {
