@@ -108,11 +108,10 @@ function onSignIn(googleUser) {
     console.log("ID Token: " + id_token);
 
     // Cart Local Storage
-    if(localStorage.getItem(profile.getId()) !== undefined){
-        localStorage.setItem(profile.getId(),[]);
+    if (localStorage.getItem(profile.getId()) === null) {
+       localStorage.setItem(profile.getId(),[])
     }
 
-    //Cart Item Count
     var cartCount = 0;
     var record = localStorage.getItem(profile.getId());
     if(!Array.isArray(record) || !record.length){
@@ -122,6 +121,41 @@ function onSignIn(googleUser) {
             cartCount += parseInt(record[i][1]);
         }
         $("#cartNumber").html(parseInt(cartCount));
+    }
+    
+    //Cart Access
+    $("#cardMenuWrapper").on("click", "button", () => {
+        updateCount($(this)[0].activeElement.attributes["data-id"].nodeValue);
+        var cartCount = 0;
+        var record = localStorage.getItem(profile.getId());
+        if(!Array.isArray(record) || !record.length){
+            $("#cartNumber").html(parseInt(cartCount));
+        }else{
+            for(let i = 0 ; i < record.length; i++){
+            cartCount += parseInt(record[i][1]);
+        }
+        $("#cartNumber").html(parseInt(cartCount));
+    }
+    });
+
+    function updateCount(id) {
+        var locate = false;
+        var record = localStorage.getItem(profile.getId());
+        if (!Array.isArray(record) || !record.length) {
+            record = [];
+        }
+
+        for (let i = 0; i < record.length; i++) {
+            if (record[i][0] == id) {
+                record[i][1].count++;
+                locate = true;
+            }
+        }
+        if (locate == false) {
+            record.push([id, 1]);
+        }
+
+        localStorage.setItem(profile.getId(), record);
     }
 }
 
