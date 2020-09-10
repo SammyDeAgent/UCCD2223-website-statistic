@@ -215,13 +215,14 @@
 			//Default Action on Cart Page
 			if(record != null){
 				$("#emptyTable").hide();
+				var index = 0;
 				for(x in record){
 					$("#tableWrapper table tbody").append(
 						`<tr>
 						<td>
 							<div class="custom-control custom-checkbox">
-								<input id="checkbox" type="checkbox" class="custom-control-input">
-								<label class="custom-control-label" for="checkbox"></label>
+								<input id="checkbox${index+1}" type="checkbox" class="custom-control-input">
+								<label class="custom-control-label" for="checkbox${index+1}"></label>
 							</div>
 						</td>
 						<td>
@@ -238,6 +239,7 @@
 						</td>
 						</tr>`
 					)
+					index++;
 				}
 			}
 
