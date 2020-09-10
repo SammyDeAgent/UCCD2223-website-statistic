@@ -344,6 +344,9 @@
 		let api = `https://api.openweathermap.org/data/2.5/weather?lat=5.432&lon=100.385&appid=7ad1611a74872cdaed64838dfdda759f&units=metric`;
 
 		$(function () {
+			let date = new Date();
+			let hour = date.getHours();
+
 			$.getJSON(api, function (result) {
 				let desc = result.weather[0].description;
 				let icon = result.weather[0].icon;
@@ -355,9 +358,13 @@
 				$("#temp-val").html(`Feels like ` + temp + `°C`);
 				$("#temp-desc").html(desc.toUpperCase());
 
-				if (result.weather[0].id >= 800 && result.weather[0].id <= 804)
-					$("#open-status").html("We Are Open! &#127780");
-				
+				if (hour >= 20 && hour <= 24) {
+					if (result.weather[0].id >= 800 && result.weather[0].id <= 804) {
+						$("#open-status").html("We Are Open! &#127750");
+					}
+				} else {
+					$("#open-status").html("We Are Closed! &#127747")
+				}
 			})
 		})
 	</script>
