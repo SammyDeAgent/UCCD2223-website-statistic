@@ -217,21 +217,24 @@
 				$("#emptyTable").hide();
 				for(x in record){
 					$("#tableWrapper table tbody").append(
-						`<tr><td>
-						<div class="custom-control custom-checkbox">
-  						<input id="checkbox" type="checkbox" class="custom-control-input">
-						</div></td>
+						`<tr>
 						<td>
-						${record[x][0]}
+							<div class="custom-control custom-checkbox">
+								<input id="checkbox" type="checkbox" class="custom-control-input">
+								<label class="custom-control-label" for="checkbox"></label>
+							</div>
 						</td>
 						<td>
-						${parseFloat(record[x][1]).toFixed(2)}
+							${record[x][0]}
 						</td>
 						<td>
-						${parseInt(record[x][2])}
+							${parseFloat(record[x][1]).toFixed(2)}
 						</td>
 						<td>
-						${parseFloat(record[x][2])*parseFloat(record[x][1]).toFixed(2)}
+							${parseInt(record[x][2])}
+						</td>
+						<td>
+							${(parseFloat(record[x][2])*parseFloat(record[x][1]).toFixed(2)).toFixed(2)}
 						</td>
 						</tr>`
 					)
