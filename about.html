@@ -297,32 +297,28 @@
 		<hr class="border border-danger">
 	</div>
 
-	<div class="card m-4">
-		<h3 class="card-header" style="text-align: center;">Find us here</h3>
-		<div class="card-body text-align-center">
-			<div class="row">
+	<div class="container-fluid">
+		<div class="row m-2">
+			<div class="col-sm-12 col-md-8 d-flex justify-content-center mb-3">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.24374411962853!2d100.3848102!3d5.4321722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac4f836881441%3A0x831afd91c9a1701d!2sKompleks%20Makan%20Taman%20Sin%20Tatt!5e0!3m2!1sen!2sus!4v1599394515986!5m2!1sen!2sus" width="100%" height="480" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+			</div>
 
-				<div class="col-sm-12 col-md-8 d-flex justify-content-center mb-3">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.24374411962853!2d100.3848102!3d5.4321722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac4f836881441%3A0x831afd91c9a1701d!2sKompleks%20Makan%20Taman%20Sin%20Tatt!5e0!3m2!1sen!2sus!4v1599394515986!5m2!1sen!2sus" width="100%" height="480" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-				</div>
-
-				<div class="col-sm-12 col-md-4 d-flex justify-content-center mb-3">
-					<div class="card bg-white" style="width: 100%;">
-						<div class="card-body d-flex flex-column align-items-center">
-							<h3 class="text-center text-dark">What's the weather like at the stall?</h3>
-							<h6 class="text-center text-dark">Just in case you want to visit us tonight.</h6>
-							<img
-								id="wea-icon"
-								src="http://openweathermap.org/img/wn/01d@2x.png"
-								alt="weather icon"
-								class="m-4 text-center"
-								width="150px"
-								height="150px"
-							/>
-							<p id="temp-val" class="text-center text-dark m-1">Uh-oh! Something isn't working...</p>
-							<p id="temp-desc" class="text-center text-dark m-1">It is probably sunny outside.</p>
-							<p id="open-status" class="text-center text-dark m-1">We Are Open!</p>
-						</div>
+			<div class="col-sm-12 col-md-4 d-flex justify-content-center mb-3">
+				<div class="card bg-white" style="width: 100%;">
+					<div class="card-body d-flex flex-column align-items-center">
+						<h3 class="text-center text-dark">What's the weather like at the stall?</h3>
+						<h6 class="text-center text-dark">Just in case you want to visit us tonight.</h6>
+						<img
+							id="wea-icon"
+							src="http://openweathermap.org/img/wn/01d@2x.png"
+							alt="weather icon"
+							class="m-4 text-center"
+							width="150px"
+							height="150px"
+						/>
+						<p id="temp-val" class="text-center text-dark m-1">Uh-oh! Something isn't working...</p>
+						<p id="temp-desc" class="text-center text-dark m-1">It is probably sunny outside.</p>
+						<p id="open-status" class="text-center text-dark m-1">We Are Closed! &#127783 </p>
 					</div>
 				</div>
 			</div>
@@ -349,7 +345,6 @@
 
 		$(function () {
 			$.getJSON(api, function (result) {
-				let weat = result.weather[0].main;
 				let desc = result.weather[0].description;
 				let icon = result.weather[0].icon;
 				let temp = Math.floor(result.main.feels_like);
@@ -360,11 +355,9 @@
 				$("#temp-val").html(`Feels like ` + temp + `°C`);
 				$("#temp-desc").html(desc.toUpperCase());
 
-				weat = weat.toUpperCase();
-
-				if (weat != "Clear" || weat != "Clouds") {
-					$("#open-status").html("We Are Closed!");
-				}
+				if (result.weather[0].id >= 800 && result.weather[0].id <= 804)
+					$("#open-status").html("We Are Open! &#127780");
+				
 			})
 		})
 	</script>
