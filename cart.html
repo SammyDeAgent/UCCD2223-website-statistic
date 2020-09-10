@@ -47,7 +47,6 @@
 	<meta itemprop="image" content="https://the-silk-road.azurewebsites.net/img/TSR_backdrop.png" />
 
 	<!-- External Files and Plugins -->
-	<script src="js/app.js"></script>
 	<link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="css/index.css" />
 	<script src="js/jquery-3.5.1.js"></script>
@@ -189,9 +188,58 @@
 			  	</tbody>
 			</table>
 		</div>
+		<div id="deleteWrapper">
+			<button id="btnPayment" type="button" class="btn btn-primary m-1">Proceed to Payment</button>
+			<button id="btnClear" type="button" class="float-right btn btn-danger m-1" data-toggle="modal" data-target="#clearModal" >Clear All Items</button>
+			<button id="btnChecked" type="button" class="float-right btn btn-warning m-1" data-toggle="modal" data-target="#clearSelectModal" >Clear Selected</button>
+		</div>
 		<div id="emptyTable" class="text-center">
 			<h4>It looks like your cart is empty, order something!</h4>
 		</div>
+	</div>
+
+	<!-- Clear All Confirm Modal -->
+	<div class="modal" id="clearModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel1"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modalLabel1">Confirmation - Clear All</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				Confirm delete all cart items?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="mr-auto btn btn-secondary" data-dismiss="modal">No</button>
+				<button id="btnClearYes" type="button" class=" btn btn-primary">Yes</button>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<!-- Clear Selected Confirm Modal -->
+	<div class="modal" id="clearSelectModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel2"
+	aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modalLabel2">Confirmation - Remove Selected</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				Confirm delete all selected cart items?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="mr-auto btn btn-secondary" data-dismiss="modal">No</button>
+				<button id="btnCheckedYes" type="button" class=" btn btn-primary">Yes</button>
+			</div>
+		</div>
+	</div>
 	</div>
 
 	<footer class="bg-dark">
@@ -217,15 +265,17 @@
 			//Default Action on Cart Page
 			if(record != null){
 				$("#emptyTable").hide();
+				$("#deleteWrapper").show();
 				var index = 0;
 				var sumPrice = 0;
 				var sumItem = 0;
+
 				for(x in record){
 					$("#tableWrapper table tbody").append(
-						`<tr>
+						`<tr class="">
 						<td>
 							<div class="custom-control custom-checkbox">
-								<input id="checkbox${index+1}" type="checkbox" class="custom-control-input" data-id="${x}">
+								<input id="checkbox${index+1}" type="checkbox" class="custom-control-input" value="${x}">
 								<label class="custom-control-label" for="checkbox${index+1}"></label>
 							</div>
 						</td>
@@ -260,6 +310,61 @@
 						</td>
 					</tr>`
 				);
+				
+				//Delete Checking Function
+				var delMatch;
+				countChecked();
+
+				$( "#tableWrapper input[type=checkbox]" ).on( "click", ()=>{
+					countChecked();
+				} );
+
+				function countChecked() {
+					var delData = {};
+					for(let i = 0; i < $( "#tableWrapper input:checked" ).length; i++){ 
+						delData[i] = $( "#tableWrapper input:checked" )[i].attributes[3].nodeValue;
+					} 
+					delMatch = JSON.stringify(delData);
+				}; 
+
+				//Delete Selected
+				$("#btnCheckedYes").on('click',()=>{
+
+					var record = JSON.parse(sessionStorage.getItem("cartItems"));
+					var match = JSON.parse(delMatch);
+
+					var count = Object.keys(match).length;
+
+					for(let i = 0; i < count; i++){
+						var locate = false;
+
+						for(x in record){
+							
+							if(x == match[i]){
+								delete record[x];
+								locate = true;
+							}
+
+							if(locate) break;
+						}
+					}
+					var empty = JSON.stringify({});
+					var data = JSON.stringify(record);
+					if(data == empty){data = null};
+					sessionStorage.setItem("cartItems",data);
+					
+					window.location.href = "cart.html";
+				})
+
+				//Delete All
+				$("#btnClearYes").on('click',()=>{
+					sessionStorage.setItem('cartItems',null);
+					window.location.href = "cart.html"
+				})
+
+			}else{
+				$("#emptyTable").show();
+				$("#deleteWrapper").hide();
 			}
 		})
 
