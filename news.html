@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <form action="">
+            <label for="query"></label>
+            <input type="text" name="Query" id="query" />
+            <button type="submit">Submit</button>
+        </form>
+
+        <hr />
+        <div class="spinner-border" role="status" style="display: none">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.5.1.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            $(":submit").click(function (e) {
+                e.preventDefault();
+                $(".spinner-border").toggle();
+                let q = $("#query").val();
+                let api = `https://gnews.io/api/v3/search?q=${q}&token=6bedae14994202f554f561ea1f63e4a8`;
+
+                api = `https://newsapi.org/v2/top-headlines?country=us&apiKey=4df5ab9dc7d1405581e63c45a0d878a9`;
+
+                $.getJSON(api, function (response) {
+                    $(".spinner-border").toggle();
+
+                    for (let i = 0; i < 10; i++) {
+                        if (response.articles[i].image != null) {
+                            let j = response.articles[i].title;
+                            let k = response.articles[i].image;
+                            let l = response.articles[i].description;
+                            let m = response.articles[i].source.url;
+
+                            $("hr").append(
+                                `<h1>${j}</h1>
+                                <img src="${k}" alt="q" />
+                                <h1>${l}</h1>
+                                <h1>${m}</h1>
+                                `
+                            );
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

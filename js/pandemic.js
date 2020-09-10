@@ -4,13 +4,26 @@ var settings = {
     timeout: 0,
 };
 
-$.ajax(settings).done(function (response) {
-    let i = response.length - 1;
+$(function () {
+    $.ajax(settings).done(function (response) {
+        let i = response.length - 1;
 
-    let cou = response[i].Country;
-    let con = response[i].Confirmed;
-    let dea = response[i].Deaths;
-    let rec = response[i].Recovered;
-    let act = response[i].Active;
-    let dat = response[i].Date;
+        let cou = response[i].Country;
+        let con = response[i].Confirmed;
+        let dea = response[i].Deaths;
+        let rec = response[i].Recovered;
+        let act = response[i].Active;
+        let yea = response[i].Date.substring(2, 4);
+        let day = response[i].Date.substring(8, 10);
+        let mon = response[i].Date.substring(5, 7);
+
+        let dat = day + "-" + mon + "-" + yea;
+
+        $("table #coun").html(cou);
+        $("table #conf").html(con);
+        $("table #deat").html(dea);
+        $("table #reco").html(rec);
+        $("table #acti").html(act);
+        $("table #date").html(dat);
+    });
 });

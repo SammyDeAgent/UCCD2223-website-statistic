@@ -297,10 +297,8 @@
 		<hr class="border border-danger">
 	</div>
 
-	<div class="card m-4">
-		<h3 class="card-header" style="text-align: center;">Find us here</h3>
-		<div class="card-body text-align-center">
-			<div class="row">
+		<div class="container-fluid">
+			<div class="row m-2">
 
 				<div class="col-sm-12 col-md-8 d-flex justify-content-center mb-3">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.24374411962853!2d100.3848102!3d5.4321722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac4f836881441%3A0x831afd91c9a1701d!2sKompleks%20Makan%20Taman%20Sin%20Tatt!5e0!3m2!1sen!2sus!4v1599394515986!5m2!1sen!2sus" width="100%" height="480" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -321,13 +319,13 @@
 							/>
 							<p id="temp-val" class="text-center text-dark m-1">Uh-oh! Something isn't working...</p>
 							<p id="temp-desc" class="text-center text-dark m-1">It is probably sunny outside.</p>
-							<p id="open-status" class="text-center text-dark m-1">We Are Open!</p>
+							<p id="open-status" class="text-center text-dark m-1">We Are Closed!</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+\
 
 	<footer class="bg-dark">
 		<div class="container-fluid pt-2 text-white">
@@ -361,8 +359,8 @@
 
 				weat = weat.toUpperCase();
 
-				if (weat != "Clear" || weat != "Clouds") {
-					$("#open-status").html("We Are Closed!");
+				if (weat == "CLEAR" || weat == "CLOUDS") {
+					$("#open-status").html("We Are Open!");
 				}
 			})
 		})
