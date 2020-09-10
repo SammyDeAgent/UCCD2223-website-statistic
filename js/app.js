@@ -89,7 +89,7 @@ $(document).ready(function () {
             $("#cartNumber").html(parseInt(cartCount));
         }else{
             for(x in record){
-                cartCount += parseInt(record[x]);
+                cartCount += parseInt(record[x][2]);
             }
             $("#cartNumber").html(parseInt(cartCount));
         }  
