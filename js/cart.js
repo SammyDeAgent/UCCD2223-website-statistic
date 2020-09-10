@@ -15,7 +15,15 @@ $(document).ready(function () {
                 cartCount += parseInt(record[x]);
             }
             $("#cartNumber").html(parseInt(cartCount));
-        }  
+        }
+
+        //Cart-Add Alert
+        $('#alert-add .toast-body').html(
+            $(this)[0].activeElement.attributes["data-name"].nodeValue + " has been added to the cart."
+        );
+        $('#alert-add').toast({animation: true, delay: 2000});
+        $('#alert-add').toast('show');
+
     });
 });
 
