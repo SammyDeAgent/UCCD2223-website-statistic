@@ -1,7 +1,12 @@
 $(document).ready(function () {
     //Adding To Cart
     $("#cardMenuWrapper").on("click", "#enabled", () => {
-        updateCount($(this)[0].activeElement.attributes["data-id"].nodeValue);
+
+        var id = $(this)[0].activeElement.attributes["data-id"].nodeValue;
+        var name = $(this)[0].activeElement.attributes["data-name"].nodeValue;
+        var price = $(this)[0].activeElement.attributes["data-price"].nodeValue;
+
+        updateCount(id,name,price);
 
         var cartCount = 0;
 
@@ -12,14 +17,14 @@ $(document).ready(function () {
             $("#cartNumber").html(parseInt(cartCount));
         }else{
             for(x in record){
-                cartCount += parseInt(record[x]);
+                cartCount += parseInt(record[x][2]);
             }
             $("#cartNumber").html(parseInt(cartCount));
         }
 
         //Cart-Add Alert
         $('#alert-add .toast-body').html(
-            $(this)[0].activeElement.attributes["data-name"].nodeValue + " has been added to the cart."
+           name + " has been added to the cart."
         );
         $('#alert-add').toast({animation: true, delay: 2000});
         $('#alert-add').toast('show');
@@ -27,7 +32,7 @@ $(document).ready(function () {
     });
 });
 
-function updateCount(id) {
+function updateCount(id,name,price) {
     var locate = false;
     if (typeof (Storage) !== "undefined") {
         var record = JSON.parse(sessionStorage.getItem("cartItems"));
@@ -37,16 +42,16 @@ function updateCount(id) {
     }else{
         for(x in record){
             if(x == id){
-                var temp = parseInt(record[x]);
+                var temp = parseInt(record[x][2]);
                 temp++;
-                record[x] = temp;
+                record[x][2] = temp;
                 locate = true;
             }
             if(locate) break;
         }
     }
     if(locate == false){
-       record[id] = 1;
+       record[id] = [name,price,1];
     }
     var data = JSON.stringify(record);
     sessionStorage.setItem("cartItems",data);
