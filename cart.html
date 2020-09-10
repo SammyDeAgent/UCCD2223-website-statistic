@@ -190,7 +190,7 @@
 			</table>
 		</div>
 		<div id="emptyTable" class="text-center">
-			<h4>It look's like your cart is empty, order something!</h4>
+			<h4>It looks like your cart is empty, order something!</h4>
 		</div>
 	</div>
 
@@ -218,12 +218,14 @@
 			if(record != null){
 				$("#emptyTable").hide();
 				var index = 0;
+				var sumPrice = 0;
+				var sumItem = 0;
 				for(x in record){
 					$("#tableWrapper table tbody").append(
 						`<tr>
 						<td>
 							<div class="custom-control custom-checkbox">
-								<input id="checkbox${index+1}" type="checkbox" class="custom-control-input">
+								<input id="checkbox${index+1}" type="checkbox" class="custom-control-input" data-id="${x}">
 								<label class="custom-control-label" for="checkbox${index+1}"></label>
 							</div>
 						</td>
@@ -242,7 +244,22 @@
 						</tr>`
 					)
 					index++;
+					sumPrice += parseFloat(record[x][2])*parseFloat(record[x][1]);
+					sumItem += parseInt(record[x][2]);
 				}
+				$("#tableWrapper table tbody").append(
+					`<tr class="table-info">
+						<td>Total</td>
+						<td></td>
+						<td></td>
+						<td>
+							${sumItem}
+						</td>
+						<td>
+							${sumPrice.toFixed(2)}
+						</td>
+					</tr>`
+				);
 			}
 
 		})
