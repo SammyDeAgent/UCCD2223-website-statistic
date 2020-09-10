@@ -15,19 +15,22 @@ function calcDistance(position) {
     let stallLon = 100.3848102;
     const RAD = 6371;
 
-    let userLat = position.coords.latitude;
-    let userLon = position.coords.longitude;
+    var userLoc = {};
+    userLoc.lat = position.coords.latitude;
+    userLoc.lon = position.coords.longitude;
 
-    let dLat = ((userLat - stallLat) * Math.PI) / 180.0;
-    let dLon = ((userLon - stallLon) * Math.PI) / 180.0;
+    localStorage.setItem("userLoc", JSON.stringify(userLoc));
 
-    userLat = (userLat * Math.PI) / 180.0;
+    let dLat = ((userLoc.lat - stallLat) * Math.PI) / 180.0;
+    let dLon = ((userLoc.lon - stallLon) * Math.PI) / 180.0;
+
+    userLoc.lat = (userLoc.lat * Math.PI) / 180.0;
     stallLat = (stallLat * Math.PI) / 180.0;
 
     let a =
         Math.pow(Math.sin(dLat / 2), 2) +
         Math.pow(Math.sin(dLon / 2), 2) *
-            Math.cos(userLat) *
+            Math.cos(userLoc.lat) *
             Math.cos(stallLat);
     let c = 2 * Math.asin(Math.sqrt(a));
 
@@ -58,7 +61,7 @@ function calcDistance(position) {
 function showError(error) {
     switch (error.code) {
         case error.PERMISSION_DENIED:
-            $("#distance").html("User Denied The Request For Geolocation.");
+            $("#distance").html("You Denied The Request For Geolocation.");
             break;
         case error.POSITION_UNAVAILABLE:
             $("#distance").html("Location Information Is Unavailable.");
