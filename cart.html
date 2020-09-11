@@ -245,7 +245,7 @@
 	<div class="container-fluid g-form" style="display: none;">
 		<h3>Code: <span id="code"></span></h3>
 		<h5>Please put this code in the google form below</h5>
-		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScMpazMvdJ5gmdPO0HYNzGqivkX9HA-DkIX2QqS4d9gdKYzfw/viewform?embedded=true" width="720" height="1280" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfPB3-xxhtYH5ACCEhvmsogEx2HyIsq1P9zIYQr5vpZyNpj7g/viewform?embedded=true" width="640" height="1244" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 	</div>
 
 	<footer class="bg-dark">
@@ -267,8 +267,7 @@
 		$(document).ready(function(){
 
 			//testing
-			// sessionStorage.setItem("cartItems",JSON.stringify({"1001":["Nashville Hot Chicken","13.50",1],"1002":["Honey Garlic Karaage","12.00",1],"2002":["White Castle Sliders","15.60",1],"3001":["Mocha","7.50",3]}))
-
+			sessionStorage.setItem("cartItems",JSON.stringify({"1001":["Nashville Hot Chicken","13.50",1],"1002":["Honey Garlic Karaage","12.00",1],"2002":["White Castle Sliders","15.60",1],"3001":["Mocha","7.50",3]}))
 
 			var record = JSON.parse(sessionStorage.getItem("cartItems"));
 			
