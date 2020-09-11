@@ -274,7 +274,6 @@
 				var sumItem = 0;
 
 				for(x in record){
-					console.log(x);
 					$("#tableWrapper table tbody").append(
 						`<tr class="">
 						<td>
@@ -368,7 +367,15 @@
 				})
 
 				$("#btnPayment").on('click', ()=>{
-					let code = JSON.parse(sessionStorage.getItem("cartItems"));
+					let code = "";
+					let record = JSON.parse(sessionStorage.getItem("cartItems"));
+
+					for (x in record) {
+						console.log(x);
+						console.log(record[x][2]);
+						code += x + record[x][2];
+						console.log(code);
+					}
 				});
 			}else{
 				$("#emptyTable").show();
