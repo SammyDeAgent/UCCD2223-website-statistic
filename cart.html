@@ -264,7 +264,7 @@
 			// sessionStorage.setItem("cartItems",JSON.stringify({"1001":["Nashville Hot Chicken","13.50",1],"1002":["Honey Garlic Karaage","12.00",1],"2002":["White Castle Sliders","15.60",1],"3001":["Mocha","7.50",3]}))
 
 			var record = JSON.parse(sessionStorage.getItem("cartItems"));
-			console.log(record);
+			console.log(record[0]);
 			
 			//Default Action on Cart Page
 			if(record != null){
@@ -275,6 +275,7 @@
 				var sumItem = 0;
 
 				for(x in record){
+					console.log(x);
 					$("#tableWrapper table tbody").append(
 						`<tr class="">
 						<td>
