@@ -393,19 +393,6 @@
 					$("span#code").html(code);
 					$("footer").removeClass("fixed-bottom");
 				});
-
-				//Google Form Submission on Complete
-				var load = 0;
-				document.getElementById('gform').onload = function(){
-					/*Execute on every reload on iFrame*/
-					load++;
-					if(load > 1){
-						/*Second reload is a submit*/
-						sessionStorage.setItem("cartItems",null)
-						document.location = "cart.html";
-					}
-				}
-
 			}else{
 				$("#emptyTable").show();
 				$("#deleteWrapper").hide();
