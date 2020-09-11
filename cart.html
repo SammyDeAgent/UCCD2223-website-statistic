@@ -268,7 +268,7 @@
 
 		$(document).ready(function(){
 
-			// testing
+			// Testing
 			// sessionStorage.setItem("cartItems",JSON.stringify({"1001":["Nashville Hot Chicken","13.50",1],"1002":["Honey Garlic Karaage","12.00",1],"2002":["White Castle Sliders","15.60",1],"3001":["Mocha","7.50",3]}));
 
 			var record = JSON.parse(sessionStorage.getItem("cartItems"));
@@ -327,11 +327,13 @@
 				countChecked();
 
 				$( "#tableWrapper input[type=checkbox]" ).on( "click", ()=>{
+					$( "#tableWrapper input" ).parent().parent().parent().removeClass("table-danger");
 					countChecked();
 				} );
 
 				function countChecked() {
 					var delData = {};
+					$( "#tableWrapper input:checked" ).parent().parent().parent().addClass("table-danger");
 					for(let i = 0; i < $( "#tableWrapper input:checked" ).length; i++){ 
 						delData[i] = $( "#tableWrapper input:checked" )[i].attributes[3].nodeValue;
 					}
