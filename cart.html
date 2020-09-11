@@ -261,7 +261,6 @@
 		$(document).ready(function(){
 
 			var record = JSON.parse(sessionStorage.getItem("cartItems"));
-			console.log(record[0]);
 			
 			//Default Action on Cart Page
 			if(record != null){
@@ -364,6 +363,9 @@
 					window.location.href = "cart.html"
 				})
 
+				$("#btnPayment").on('click', ()=>{
+					let code = JSON.parse(sessionStorage.getItem("cartItems"));
+				});
 			}else{
 				$("#emptyTable").show();
 				$("#deleteWrapper").hide();
