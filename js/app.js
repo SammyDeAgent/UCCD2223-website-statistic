@@ -36,24 +36,31 @@ $(document).ready(function () {
         var catjson = null;
         switch (i) {
             case 0:
-                $.getJSON("../JSON/fchicken.json", (jd) =>
-                    cardAppend(jd, "cat1", i)
+                $.getJSON("../JSON/fchicken.json", (jd) => {
+                        localStorage.setItem("cat"+i,JSON.stringify(jd));
+                    }   
                 );
+                cardAppend("cat1", i)
                 break;
             case 1:
-                $.getJSON("../JSON/burger.json", (jd) =>
-                    cardAppend(jd, "cat2", i)
+                $.getJSON("../JSON/burger.json", (jd) =>{
+                        localStorage.setItem("cat" + i, JSON.stringify(jd));
+                    }
                 );
+                cardAppend("cat2", i);
                 break;
             case 2:
-                $.getJSON("../JSON/coffee.json", (jd) =>
-                    cardAppend(jd, "cat3", i)
+                $.getJSON("../JSON/coffee.json", (jd) =>{
+                        localStorage.setItem("cat" + i, JSON.stringify(jd));
+                    }
                 );
+                cardAppend("cat3", i);
                 break;
         }
     }
 
-    function cardAppend(data, header, k) {
+    function cardAppend(header, k) {
+        var data = JSON.parse(localStorage.getItem("cat"+k));
         $("#" + header).after(
             '<div class="container-fluid mt-2 mb-5">' +
                 '<div id="' +

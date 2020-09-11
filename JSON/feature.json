@@ -1,0 +1,20 @@
+[
+    {
+        "name":"Espresso",
+        "desc": "Freshy grounded coffee beans enfused via a coffe bench, can't get wrong with that",
+        "imgsrc": "/img/products/coffee1.jpg",
+        "price":"9.90"
+    },
+    {
+        "name": "Americano",
+        "desc": "A literal cup of joe for morning workers, plain simple, yet elegant",
+        "imgsrc": "/img/products/coffee2.jpg",
+        "price": "5.60"
+    },
+    {
+        "name": "Latte",
+        "desc": "A combination of steamed milk and aromatic coffee, people's favorate",
+        "imgsrc": "/img/products/coffee3.jpg",
+        "price": "7.80"
+    }
+]

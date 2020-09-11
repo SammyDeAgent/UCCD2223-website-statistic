@@ -261,64 +261,11 @@
 	</div>
 
 
-	<div class="card m-4">
+	<div id="featureWrapper" class="card m-4">
 		<h3 class="card-header text-center">Featured Items <span class="badge badge-pill badge-primary">Hot!</span></h3>
 		<div class="card-body" style="text-align: center;">
 			
-
 			<div class="row">
-
-				<div class="col d-flex justify-content-around mb-3">
-					<div class="flip-card">
-						<div class="flip-card-inner">
-							<div class="flip-card-front">
-								<img src="/img/products/coffee1.jpg" alt="Espresso" style="width: 100%;height: 100%;">
-							</div>
-							<div class="flip-card-back bg-dark p-3">
-								<h1 class="pt-4">Espresso</h1>
-								<p>
-									Freshy grounded coffee beans enfused via a coffe bench, can't get wrong with that
-								</p>
-								<p class="fixed-bottom m-3">Price: RM 9.90</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col d-flex justify-content-around mb-3">
-					<div class="flip-card">
-						<div class="flip-card-inner">
-							<div class="flip-card-front">
-								<img src="/img/products/coffee4.jpg" alt="Americano" style="width: 100%;height: 100%;">
-							</div>
-							<div class="flip-card-back bg-dark p-3">
-								<h1 class="pt-4">Americano</h1>
-								<p>
-									A literal cup of joe for morning workers, plain simple, yet elegant
-								</p>
-								<p class="fixed-bottom m-3">Price: RM 5.60</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col d-flex justify-content-around mb-3">
-					<div class="flip-card">
-						<div class="flip-card-inner">
-							<div class="flip-card-front">
-								<img src="/img/products/coffee3.jpg" alt="Latte" style="width: 100%;height: 100%;">
-							</div>
-							<div class="flip-card-back bg-dark p-3">
-								<h1 class="pt-4">Latte</h1>
-								<p>
-									A combination of steamed milk and aromatic coffee, people's favorate
-								</p>
-								<p class="fixed-bottom m-3">Price: RM 7.80</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
 			</div>
 
 			<p class="card-text mt-4">People usually order these items when they visit our stall. You can come and try them out.</p>
@@ -390,6 +337,34 @@
 	<script src="/js/cart.js"></script>
 	<script src="js/geo.js"></script>
 	<script src="js/pandemic.js"></script>
+	<script>
+		$(document).ready(()=>{
+			$.getJSON("../JSON/feature.json",(jd)=>{
+				localStorage.setItem("feature", JSON.stringify(jd));
+			})
+			var data = JSON.parse(localStorage.getItem('feature'));
+			for(let i = 0; i < data.length; i++){
+				$("#featureWrapper .row").append(
+					'<div class="col d-flex justify-content-around mb-3">'+
+						'<div class="flip-card">'+
+							'<div class="flip-card-inner">'+
+								'<div class="flip-card-front">'+
+									'<img src="'+ data[i].imgsrc +'" alt="'+ data[i].name +'" style="width:100%;height:100%">'+
+									'</div>'+
+								'<div class="flip-card-back bg-dark p-3">'+
+									'<h1 class="pt-4">'+ data[i].name +'</h1>'+ '<p>' +
+										data[i].desc +
+										'</p>'+
+									'<p class="fixed-bottom m-3"> Price: RM' +
+										data[i].price + '</p>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+					'</div>' 
+				)
+			}
+		})
+	</script>
 
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
