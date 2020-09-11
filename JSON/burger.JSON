@@ -4,27 +4,27 @@
         "name":"Special Double Cheeseburger",
         "desc":"Marinated in our homemade special BBQ sauce, this classic patty will surely make you smile",
         "price":"12.50",
-        "imgsrc":"img/products/burger.jpg"
+        "imgsrc":"img/products/burger1.jpg"
     },
     {
         "id":"2001",
         "name":"Fried Chicken Sandwich",
         "desc":"Comes in either savory or spicy hot, these cripsy treat with left mouth watering",
         "price":"17.90",
-        "imgsrc":"img/products/burger.jpg"
+        "imgsrc":"img/products/burger2.jpg"
     },
     {
         "id":"2002",
         "name":"White Castle Sliders",
         "desc":"Originated from White Castle, we offer the same 6 sliders combo, truly nostalgic",
         "price":"15.60",
-        "imgsrc":"img/products/burger.jpg"
+        "imgsrc":"img/products/burger3.jpg"
     },
     {
         "id":"2003",
         "name":"Veggie Delight",
         "desc":"Our twist on a vegetration patty, created from the combination of tofu and umami boosting mushrooms",
         "price":"9.80",
-        "imgsrc":"img/products/burger.jpg"
+        "imgsrc":"img/products/burger4.jpg"
     }
 ]
