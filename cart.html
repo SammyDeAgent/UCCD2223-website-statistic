@@ -67,13 +67,18 @@
 		.modal button{
 			width: 5rem;
 		}
+		@media (max-width: 992px){
+			#deleteWrapper button{
+				width: 100%;
+			}
+		}
 	
 	</style>
 
 
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 	<!-- CSS Bootstrap Theme -->
 	<link id="csstheme" rel="stylesheet" property="stylesheet" href="css/bootstrap-darkly.css">
@@ -163,7 +168,7 @@
 		</div>
 	</div>
 
-	<div id="tableWrapper" class="card ml-3 mr-3 mb-3 p-2" style="margin-top:4.5rem;">
+	<div id="tableWrapper" class="card mb-5 ml-3 mr-3 mb-3 p-2" style="margin-top:4.5rem;">
 		<h3 class="card-title"><span class="mdi mdi-cart-outline mr-1" style="font-size:2.2rem"></span>Shopping Cart</h3>
 		<div class="alert alert-warning" role="alert">
 			<strong><span class="mdi mdi-alert-circle mr-1" style="font-size:1.25rem"></span>Remember!</strong> Cart items will be cleared upon leaving the session or signing out.
@@ -185,8 +190,10 @@
 		</div>
 		<div id="deleteWrapper">
 			<button id="btnPayment" type="button" class="btn btn-primary m-1">Proceed to Payment</button>
-			<button id="btnClear" type="button" class="float-right btn btn-danger m-1" data-toggle="modal" data-target="#clearModal" >Clear All Items</button>
-			<button id="btnChecked" type="button" class="float-right btn btn-warning m-1" data-toggle="modal" data-target="#clearSelectModal" disabled>Clear Selected</button>
+			<button id="btnChecked" type="button" class=" btn btn-warning m-1" data-toggle="modal"
+				data-target="#clearSelectModal" disabled>Clear Selected</button>
+			<button id="btnClear" type="button" class=" btn btn-danger m-1" data-toggle="modal" data-target="#clearModal" >Clear All Items</button>
+			
 		</div>
 		<div id="emptyTable" class="text-center">
 			<h4>It looks like your cart is empty, order something!</h4>
@@ -247,7 +254,7 @@
 		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfPB3-xxhtYH5ACCEhvmsogEx2HyIsq1P9zIYQr5vpZyNpj7g/viewform?embedded=true" width="100%" height="720" frameborder="0" marginheight="0" marginwidth="0"></iframe>
 	</div>
 
-	<footer class="bg-dark fixed-bottom">
+	<footer class="mt-auto bg-dark">
 		<div class="container-fluid pt-2 text-white">
 			<div class="row">
 				<div class="col">
@@ -388,13 +395,15 @@
 
 					$(".g-form").show();
 					$("span#code").html(code);
-					$("footer").removeClass("fixed-bottom");
 				});
 			}else{
 				$("#emptyTable").show();
 				$("#deleteWrapper").hide();
 			}
+			
 		})
+
+		
 
 	</script>
 	
