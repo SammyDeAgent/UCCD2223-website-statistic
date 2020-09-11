@@ -261,7 +261,7 @@
 		$(document).ready(function(){
 
 			var record = JSON.parse(sessionStorage.getItem("cartItems"));
-			console.log(record);
+			console.log(record[0]);
 			
 			//Default Action on Cart Page
 			if(record != null){
@@ -272,6 +272,7 @@
 				var sumItem = 0;
 
 				for(x in record){
+					console.log(x);
 					$("#tableWrapper table tbody").append(
 						`<tr class="">
 						<td>
