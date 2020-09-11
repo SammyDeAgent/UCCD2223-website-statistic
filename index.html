@@ -264,7 +264,7 @@
 	<div id="featureWrapper" class="card m-4">
 		<h3 class="card-header text-center">Featured Items <span class="badge badge-pill badge-primary">Hot!</span></h3>
 		<div class="card-body" style="text-align: center;">
-			
+
 			<div class="row">
 			</div>
 
@@ -339,12 +339,19 @@
 	<script src="js/pandemic.js"></script>
 	<script>
 		$(document).ready(()=>{
-			$.getJSON("../JSON/feature.json",(jd)=>{
-				localStorage.setItem("feature", JSON.stringify(jd));
-			})
-			var data = JSON.parse(localStorage.getItem('feature'));
-			for(let i = 0; i < data.length; i++){
-				$("#featureWrapper .row").append(
+			if(localStorage.getItem('feature')==null){
+				$.getJSON("../JSON/feature.json",(jd)=>{
+					localStorage.setItem("feature", JSON.stringify(jd));
+					appendFeature();
+				})
+			}else{
+				appendFeature();
+			}
+			
+			function appendFeature(){
+				var data = JSON.parse(localStorage.getItem('feature'));
+				for(let i = 0; i < data.length; i++){
+					$("#featureWrapper .row").append(
 					'<div class="col d-flex justify-content-around mb-3">'+
 						'<div class="flip-card">'+
 							'<div class="flip-card-inner">'+
@@ -361,8 +368,9 @@
 							'</div>' +
 						'</div>' +
 					'</div>' 
-				)
-			}
+					)
+				}
+			};
 		})
 	</script>
 

@@ -657,9 +657,16 @@
 	<script src="/js/cart.js"></script>
 	<script>
 		$(document).ready(()=>{
-			$.getJSON("../JSON/chef.json",(jd)=>{
-				localStorage.setItem("chef", JSON.stringify(jd));
-			})
+			if(localStorage.getItem('chef')==null){
+				$.getJSON("../JSON/chef.json",(jd)=>{
+					localStorage.setItem("chef", JSON.stringify(jd));
+					appendChef();
+				})
+			}else{
+				appendChef();
+			}
+			
+			function appendChef(){
 			var data = JSON.parse(localStorage.getItem('chef'));
 			for(let i = 0; i < data.length; i++){
 				$("#chefWrapper .row").append(
@@ -686,7 +693,9 @@
 					'</div>'
 				);
 			};
-		});
+		}
+		
+		});	
 	</script>
 
 	<script>

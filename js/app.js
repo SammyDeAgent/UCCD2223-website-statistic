@@ -33,29 +33,25 @@ $(document).ready(function () {
 
     //Menu Card JSON Parse
     for (let i = 0; i < 3; i++) {
-        var catjson = null;
+        var jsonsrc ="";
         switch (i) {
             case 0:
-                $.getJSON("../JSON/fchicken.json", (jd) => {
-                        localStorage.setItem("cat"+i,JSON.stringify(jd));
-                    }   
-                );
-                cardAppend("cat1", i)
+                jsonsrc="../JSON/fchicken.json";
                 break;
             case 1:
-                $.getJSON("../JSON/burger.json", (jd) =>{
-                        localStorage.setItem("cat" + i, JSON.stringify(jd));
-                    }
-                );
-                cardAppend("cat2", i);
-                break;
+                jsonsrc="../JSON/burger.json"
+               break;
             case 2:
-                $.getJSON("../JSON/coffee.json", (jd) =>{
-                        localStorage.setItem("cat" + i, JSON.stringify(jd));
-                    }
-                );
-                cardAppend("cat3", i);
+                jsonsrc="/JSON/coffee.json"
                 break;
+        }
+        if (localStorage.getItem("cat" + i) == null) {
+            $.getJSON(jsonsrc, (jd) => {
+                localStorage.setItem("cat" + i, JSON.stringify(jd));
+                cardAppend("cat" + i, i)
+            });
+        } else {
+            cardAppend("cat" + i, i)
         }
     }
 
