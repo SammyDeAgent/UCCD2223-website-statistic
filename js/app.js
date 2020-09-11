@@ -69,7 +69,7 @@ $(document).ready(function () {
                 <div class="flip-card-back bg-dark p-3"><h3 class="mt-4">${data[i].name}</h3>
                 <p>${data[i].desc}</p>
                 <div class="fixed-bottom text-center mt-4"><p>Price: RM${data[i].price}</p>
-                <button id="disabled" type="button" class="disabled m-2 btn btn-outline-primary mt-2 mb-4" data-name="${data[i].name}" data-price="${data[i].price}" data-id="${data[i].id}">Sign In to Order</button>
+                <button id="enabled" type="button" class="m-2 btn btn-outline-primary mt-2 mb-4" data-name="${data[i].name}" data-price="${data[i].price}" data-id="${data[i].id}" disabled>Sign In to Order</button>
                 </div></div></div></div></div>`
             );
         }
@@ -79,6 +79,7 @@ $(document).ready(function () {
     $("#gSignInWrapper").show();
     $("#infoWrapper").hide();
     $("#cartWrapper").removeClass("d-flex").addClass("d-none");
+    $("#cardMenuWrapper button").prop("disabled", true);
 
     var cartCount = 0;
 
@@ -115,7 +116,7 @@ function onSignIn(googleUser) {
     $("#gSignInWrapper").hide();
     $("#infoWrapper").show();
     $("#cartWrapper").addClass("d-flex").removeClass("d-none");
-    $("#cardMenuWrapper button").removeClass("disabled").html("Add to Cart").attr('id', 'enabled');
+    $("#cardMenuWrapper button").prop("disabled",false);
 
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
