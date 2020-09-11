@@ -79,7 +79,7 @@ $(document).ready(function () {
     $("#gSignInWrapper").show();
     $("#infoWrapper").hide();
     $("#cartWrapper").removeClass("d-flex").addClass("d-none");
-    $("#cardMenuWrapper button").prop("disabled", true);
+    $("#cardMenuWrapper button").prop("disabled", true).html("Sign In to Order");
 
     var cartCount = 0;
 
@@ -116,7 +116,7 @@ function onSignIn(googleUser) {
     $("#gSignInWrapper").hide();
     $("#infoWrapper").show();
     $("#cartWrapper").addClass("d-flex").removeClass("d-none");
-    $("#cardMenuWrapper button").prop("disabled",false);
+    $("#cardMenuWrapper button").prop("disabled", false).html("Add to Cart");
 
     // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
