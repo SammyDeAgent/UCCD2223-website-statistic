@@ -1,0 +1,29 @@
+[
+    {
+        "name":"Sammy",
+        "desc": "Graduated from Germany's Institute of Culinary and Fine Arts, he has mastered the technique of creating the finest meals with only the tools he can obtain. Might be a Nazi.",
+        "quote":[
+            "- It should work now.",
+            "- I'm going to... Yes."
+        ],
+        "imgsrc": "/img/chefs/Sammy.png"
+    },
+    {
+        "name": "Yamamoo",
+        "desc": "Experienced in the field of roasting and grilling, he specialized in delicate smoking process of foods and maintaining their flavour till' the plate of the customer.",
+        "quote": [
+            "- You guys take your time.",
+            "- What are you doing?"
+        ],
+        "imgsrc": "/img/chefs/Yamamoo.jpg"
+    },
+    {
+        "name": "Ernest",
+        "desc": "An advocate in the field of coffee brewing, he is a barista with passion and love, brewing the coffee with full attention to the quality coffee beans we possesses.",
+        "quote": [
+            "- I have a bad feeling about this.",
+            "- I can do it."
+        ],
+        "imgsrc": "/img/chefs/Ernest.jpg"
+    }
+]

@@ -47,7 +47,6 @@
 	<meta itemprop="image" content="https://the-silk-road.azurewebsites.net/img/TSR_backdrop.png" />
 
 	<!-- External Files and Plugins -->
-	<script src="js/app.js"></script>
 	<link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="css/index.css" />
 	<script src="js/jquery-3.5.1.js"></script>
@@ -221,76 +220,10 @@
 		<hr class="border border-danger">
 	</div>
 
-	<div class="container-fluid">
+	<div id="chefWrapper" class="container-fluid">
 		<div class="text-center" style="margin: 5% 5% 2.5% 5%">
 			<div class="display-4 mb-4">Our chefs</div>
 			<div class="row">
-				<div class="col d-flex justify-content-around mb-3">
-					<div class="flip-card">
-						<div class="flip-card-inner">
-							<div class="flip-card-front">
-								<img src="/img/chefs/Sammy.png" alt="Sammy" style="width: 100%;height: 100%;">
-							</div>
-							<div class="flip-card-back bg-dark">
-								<h1 class="mt-4 text-danger">Sammy</h1>
-								<p style="margin:5% 5%; text-align: justify;">
-									Graduated from Germany's Institute of Culinary and Fine Arts, he has mastered the technique of creating the finest meals with only the tools he can obtain. Might be a Nazi.
-								</p>
-								<p>
-									- It should work now.
-								</p>
-								<p>
-									- I'm going to... Yes.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col d-flex justify-content-around mb-3">
-					<div class="flip-card">
-						<div class="flip-card-inner">
-							<div class="flip-card-front">
-								<img src="/img/chefs/Yamamoo.jpg" alt="Yamamoo" style="width: 100%;height: 100%;">
-							</div>
-							<div class="flip-card-back bg-dark">
-								<h1 class="mt-4 text-danger" >Yamamoo</h1>
-								<p style="margin:5% 5%; text-align: justify;">
-									Experienced in the field of roasting and grilling, he specialized in delicate smoking process of foods and maintaining their flavour till' the plate of the customer.
-								</p>
-								<p>
-									- You guys take your time.
-								</p>
-								<p>
-									- What are you doing?
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col d-flex justify-content-around mb-3">
-					<div class="flip-card">
-						<div class="flip-card-inner">
-							<div class="flip-card-front">
-								<img src="/img/chefs/Ernest.jpg"" alt="Ernest" style="width: 100%;height: 100%;">
-							</div>
-							<div class="flip-card-back bg-dark">
-								<h1 class="mt-4 text-danger">Ernest</h1>
-								<p style="margin:5% 5%; text-align: justify;">
-									An edvocate in the field of coffee brewing, he is a barista with passion and love, brewing the coffee with full attention to the quality coffee beans we possesses.
-								</p>
-								<p>
-									- I have a bad feeling about this.
-								</p>
-								<p>
-									- I can do it.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
 			</div>
 		</div>
 	</div>
@@ -722,6 +655,39 @@
 	
 	<script src="/js/app.js"></script>
 	<script src="/js/cart.js"></script>
+	<script>
+		$(document).ready(()=>{
+			$.getJSON("../JSON/chef.json",(jd)=>{
+				localStorage.setItem("chef", JSON.stringify(jd));
+			})
+			var data = JSON.parse(localStorage.getItem('chef'));
+			for(let i = 0; i < data.length; i++){
+				$("#chefWrapper .row").append(
+					'<div class="col d-flex justify-content-around mb-3">'+
+						'<div class="flip-card">'+
+							'<div class="flip-card-inner">'+
+								'<div class="flip-card-front">'+
+									'<img src="'+data[i].imgsrc+'" alt="'+data[i].name+'" style="width: 100%;height: 100%;">'+
+								'</div>'+
+								'<div class="flip-card-back bg-dark">'+
+									'<h1 class="mt-4 text-danger">'+data[i].name+'</h1>'+
+									'<p style="margin:5% 5%; text-align: justify;">'+
+										data[i].desc +
+									'</p>'+
+									'<p>'+
+										data[i].quote[0] +
+									'</p>'+
+									'<p>'+
+										data[i].quote[1] +
+									'</p>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+					'</div>'
+				);
+			};
+		});
+	</script>
 
 	<script>
 		let api = `https://api.openweathermap.org/data/2.5/weather?lat=5.432&lon=100.385&appid=7ad1611a74872cdaed64838dfdda759f&units=metric`;
