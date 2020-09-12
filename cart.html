@@ -285,33 +285,62 @@
 				var sumPrice = 0;
 				var sumItem = 0;
 
-				for(x in record){
-					$("#tableWrapper table tbody").append(
-						`<tr class="">
-						<td>
-							<div class="custom-control custom-checkbox">
-								<input id="checkbox${index+1}" type="checkbox" class="custom-control-input" value="${x}">
-								<label class="custom-control-label" for="checkbox${index+1}"></label>
-							</div>
-						</td>
-						<td>
-							${record[x][0]}
-						</td>
-						<td>
-							${parseFloat(record[x][1]).toFixed(2)}
-						</td>
-						<td>
-							${parseInt(record[x][2])}
-						</td>
-						<td>
-							${(parseFloat(record[x][2])*parseFloat(record[x][1]).toFixed(2)).toFixed(2)}
-						</td>
-						</tr>`
-					)
-					index++;
-					sumPrice += parseFloat(record[x][2])*parseFloat(record[x][1]);
-					sumItem += parseInt(record[x][2]);
+				// for(x in record){
+				// 	$("#tableWrapper table tbody").append(
+				// 		`<tr class="">
+				// 		<td>
+				// 			<div class="custom-control custom-checkbox">
+				// 				<input id="checkbox${index+1}" type="checkbox" class="custom-control-input" value="${x}">
+				// 				<label class="custom-control-label" for="checkbox${index+1}"></label>
+				// 			</div>
+				// 		</td>
+				// 		<td>
+				// 			${record[x][0]}
+				// 		</td>
+				// 		<td>
+				// 			${parseFloat(record[x][1]).toFixed(2)}
+				// 		</td>
+				// 		<td>
+				// 			${parseInt(record[x][2])}
+				// 		</td>
+				// 		<td>
+				// 			${(parseFloat(record[x][2])*parseFloat(record[x][1]).toFixed(2)).toFixed(2)}
+				// 		</td>
+				// 		</tr>`
+				// 	)
+				// 	index++;
+				// 	sumPrice += parseFloat(record[x][2])*parseFloat(record[x][1]);
+				// 	sumItem += parseInt(record[x][2]);
+				// }
+
+				for(let i = 0; i < record.length; i++){
+				$("#tableWrapper table tbody").append(
+				`<tr class="">
+					<td>
+						<div class="custom-control custom-checkbox">
+							<input id="checkbox${index+1}" type="checkbox" class="custom-control-input" value="${record[i].id}">
+							<label class="custom-control-label" for="checkbox${index+1}"></label>
+						</div>
+					</td>
+					<td>
+						${record[i].name}
+					</td>
+					<td>
+						${parseFloat(record[i].price).toFixed(2)}
+					</td>
+					<td>
+						${parseInt(record[i].count)}
+					</td>
+					<td>
+						${(parseFloat(record[i].count)*parseFloat(record[i].price).toFixed(2)).toFixed(2)}
+					</td>
+				</tr>`
+				)
+				index++;
+				sumPrice += parseFloat(record[i].count)*parseFloat(record[i].price);
+				sumItem += parseInt(record[i].count);
 				}
+
 				$("#tableWrapper table tbody").append(
 					`<tr class="table-info">
 						<td></td>
@@ -359,20 +388,37 @@
 
 					var count = Object.keys(match).length;
 
+					// for(let i = 0; i < count; i++){
+					// 	var locate = false;
+
+					// 	for(x in record){
+							
+					// 		if(x == match[i]){
+					// 			delete record[x];
+					// 			locate = true;
+					// 		}
+
+					// 		if(locate) break;
+					// 	}
+					// }
+
 					for(let i = 0; i < count; i++){
 						var locate = false;
 
-						for(x in record){
+						for(let k = 0; k < record.length; k++){
 							
-							if(x == match[i]){
-								delete record[x];
+							if(record[i].id == match[i]){
+								record.splice(i,1);
 								locate = true;
 							}
 
 							if(locate) break;
 						}
 					}
-					var empty = JSON.stringify({});
+
+					// var empty = JSON.stringify({});
+					var empty = JSON.stringify([]);
+
 					var data = JSON.stringify(record);
 					if(data == empty){data = null};
 					sessionStorage.setItem("cartItems",data);
@@ -391,7 +437,8 @@
 					let code = "";
 					let record = JSON.parse(sessionStorage.getItem("cartItems"));
 
-					for (x in record) code += x + ":" + record[x][2] + ";";
+					// for (x in record) code += x + ":" + record[x][2] + ";";
+					for (let i = 0; i < record.length; i++) code += record[i].id + ":" + record[i][count] + ";";
 
 					$(".g-form").show();
 					$("span#code").html(code);

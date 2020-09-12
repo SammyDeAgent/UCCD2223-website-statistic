@@ -45,8 +45,14 @@ $(document).ready(function () {
         if(record == null){
             $("#cartNumber").html(parseInt(cartCount));
         }else{
-            for(x in record){
-                cartCount += parseInt(record[x][2]);
+            
+            // for(x in record){
+            //     cartCount += parseInt(record[x][2]);
+            // }
+            // $("#cartNumber").html(parseInt(cartCount));
+
+            for(let i = 0; i < record.length; i++){
+                cartCount += parseInt(record[i].count);
             }
             $("#cartNumber").html(parseInt(cartCount));
         }  
