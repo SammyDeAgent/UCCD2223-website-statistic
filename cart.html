@@ -438,7 +438,7 @@
 					let record = JSON.parse(sessionStorage.getItem("cartItems"));
 
 					// for (x in record) code += x + ":" + record[x][2] + ";";
-					for (let i = 0; i < record.length; i++) code += record[i].id + ":" + record[i][count] + ";";
+					for (let i = 0; i < record.length; i++) code += record[i].id + ":" + record[i].count + ";";
 
 					$(".g-form").show();
 					$("span#code").html(code);
