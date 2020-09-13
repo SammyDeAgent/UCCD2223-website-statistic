@@ -741,7 +741,7 @@
 				$("#temp-val").html(`Feels like ` + temp + `°C`);
 				$("#temp-desc").html(desc.toUpperCase());
 
-				if (hour >= 20 && hour <= 24) {
+				if (hour >= 18 && hour <= 24) {
 					if (result.weather[0].id >= 800 && result.weather[0].id <= 804) {
 						$("#open-status").html("We Are Open! &#127750");
 					}
