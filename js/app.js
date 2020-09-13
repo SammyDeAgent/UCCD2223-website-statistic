@@ -31,50 +31,6 @@ $(document).ready(function () {
             localStorage.setItem("BS_Style", styling);
     });
 
-    //Menu Card JSON Parse
-    for (let i = 0; i < 3; i++) {
-        var catjson = null;
-        switch (i) {
-            case 0:
-                $.getJSON("../JSON/fchicken.json", (jd) =>
-                    cardAppend(jd, "cat1", i)
-                );
-                break;
-            case 1:
-                $.getJSON("../JSON/burger.json", (jd) =>
-                    cardAppend(jd, "cat2", i)
-                );
-                break;
-            case 2:
-                $.getJSON("../JSON/coffee.json", (jd) =>
-                    cardAppend(jd, "cat3", i)
-                );
-                break;
-        }
-    }
-
-    function cardAppend(data, header, k) {
-        $("#" + header).after(
-            '<div class="container-fluid mt-2 mb-5">' +
-                '<div id="' +
-                header +
-                "row" +
-                '" class="row mb-3"></div></div>'
-        );
-        for (let i = 0; i < data.length; i++) {
-            $("#" + header + "row").append(
-                `<div class="col d-flex justify-content-around mt-3 mb-3">
-                <div class="flip-card"><div class="flip-card-inner">
-                <div class="flip-card-front"><img src="${data[i].imgsrc}" alt="food image" style="width: 100%;height: 100%;"></div>
-                <div class="flip-card-back bg-dark p-3"><h3 class="mt-4">${data[i].name}</h3>
-                <p>${data[i].desc}</p>
-                <div class="fixed-bottom text-center mt-4"><p>Price: RM${data[i].price}</p>
-                <button id="enabled" type="button" class="m-2 btn btn-outline-primary mt-2 mb-4" data-name="${data[i].name}" data-price="${data[i].price}" data-id="${data[i].id}" disabled>Sign In to Order</button>
-                </div></div></div></div></div>`
-            );
-        }
-    }
-    
     //Default Action
     $("#gSignInWrapper").show();
     $("#infoWrapper").hide();
@@ -89,8 +45,14 @@ $(document).ready(function () {
         if(record == null){
             $("#cartNumber").html(parseInt(cartCount));
         }else{
-            for(x in record){
-                cartCount += parseInt(record[x][2]);
+            
+            // for(x in record){
+            //     cartCount += parseInt(record[x][2]);
+            // }
+            // $("#cartNumber").html(parseInt(cartCount));
+
+            for(let i = 0; i < record.length; i++){
+                cartCount += parseInt(record[i].count);
             }
             $("#cartNumber").html(parseInt(cartCount));
         }  

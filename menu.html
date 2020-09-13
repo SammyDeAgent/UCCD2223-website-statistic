@@ -302,7 +302,7 @@
 				<p class="text-justify">
 					Southern style, traditional, and other variations, we serve the crispiest fried chicken you can ever find. Comes with a collection of homemade dip sauces which includes: Ranch Dressing, Worchesterchire Ketchup, Spicy Mustard Mayo and Cheesy Nacho Sauce.
 				</p>
-				<a class="btn btn-info" href="#cat1"">Go to Category</a>
+				<a class="btn btn-info" href="#cat0"">Go to Category</a>
 			</div>
 			<div class="col-md-auto text-center">
 				<img id="imgcat" class="p-3" src="img/products/chickencat.jpg" alt="chicken" style="height:250px;width:auto">
@@ -314,7 +314,7 @@
 				<p class="text-justify">
 					Grilled in a charcoal fired environment, our burger and patties are enfused with a distinct smokey flavour that will improve your overall experience. Every purchase are served with a handful of side slim potato fries or curly crisp fries of your choice.
 				</p>
-				<a class="btn btn-info" href="#cat2"">Go to Category</a>
+				<a class="btn btn-info" href="#cat1"">Go to Category</a>
 			</div>
 			<div class="col-md-auto text-center">
 				<img id="imgcat" class="p-3" src="img/products/burgercat.jpg" alt="burger" style="height:250px;width:auto">
@@ -326,7 +326,7 @@
 				<p class="text-justify">
 					Served in either freshly hot or cold brewed, our coffee are bench pressed from imported arabica coffee beans, hand-crafted by our experienced barista. Optionally, you may request a personal deviations or favors to suit your taste.
 				</p>
-				<a class="btn btn-info" href="#cat3"">Go to Category</a>
+				<a class="btn btn-info" href="#cat2"">Go to Category</a>
 			</div>
 			<div class="col-md-auto text-center">
 				<img id="imgcat" class="p-3" src="img/products/coffeecat.jpg" alt="coffee" style="height:250px;width:auto">
@@ -344,13 +344,13 @@
 
 	<!-- Menu Cards -->
 	<div id="cardMenuWrapper" class="m-3">
-		<div id ="cat1" class="text-center mt-5 mb-5">
+		<div id ="cat0" class="text-center mt-5 mb-5">
 			<div class="lead mt-5"><span class="border border-success rounded p-2">Fried Chicken and Dips</span></div>
 		</div>
-		<div id ="cat2" class="text-center mt-5 mb-5">
+		<div id ="cat1" class="text-center mt-5 mb-5">
 			<div class="lead mt-5"><span class="border border-success rounded p-2">Technically Sandwiches</span></div>
 		</div>
-		<div id ="cat3" class="text-center mt-5 mb-5">
+		<div id ="cat2" class="text-center mt-5 mb-5">
 			<div class="lead mt-5"><span class="border border-success rounded p-2">Freshly Brewed Coffee</span></div>
 		</div>
 	</div>
@@ -395,6 +395,55 @@
 	<script src="/js/app.js"></script>
 	<script src="/js/cart.js"></script>
 	<script src="/js/news.js"></script>
+	<script>
+		$(document).ready(()=>{
+			for (let i = 0; i < 3; i++) {
+        		var jsonsrc ="";
+        		switch (i) {
+            		case 0:
+                		jsonsrc="../JSON/fchicken.json";
+                		break;
+            		case 1:
+                		jsonsrc="../JSON/burger.json"
+               			break;
+            		case 2:
+                		jsonsrc="../JSON/coffee.json"
+                		break;
+        	}
+        	if (localStorage.getItem("cat" + i) == null) {
+           		$.getJSON(jsonsrc, (jd) => {
+                	localStorage.setItem("cat" + i, JSON.stringify(jd));
+                	cardAppend("cat" + i, i)
+            	});
+        	} else {
+            	cardAppend("cat" + i, i)
+       		}
+    	}
+
+    	function cardAppend(header, k) {
+        	var data = JSON.parse(localStorage.getItem("cat"+k));
+        	$("#" + header).after(
+            	'<div class="container-fluid mt-2 mb-5">' +
+                '<div id="' +
+                header +
+                "row" +
+                '" class="row mb-3"></div></div>'
+       		);
+        	for (let i = 0; i < data.length; i++) {
+            	$("#" + header + "row").append(
+                	`<div class="col d-flex justify-content-around mt-3 mb-3">
+                	<div class="flip-card"><div class="flip-card-inner">
+                	<div class="flip-card-front"><img src="${data[i].imgsrc}" alt="food image" style="width: 100%;height: 100%;"></div>
+                	<div class="flip-card-back bg-dark p-3"><h3 class="mt-4">${data[i].name}</h3>
+                	<p>${data[i].desc}</p>
+                	<div class="fixed-bottom text-center mt-4"><h3>RM${data[i].price}</h3>
+                	<button id="enabled" type="button" class="m-2 btn btn-outline-primary mt-2 mb-4" data-name="${data[i].name}" data-price="${data[i].price}" data-id="${data[i].id}" disabled>Sign In to Order</button>
+                	</div></div></div></div></div>`
+            	);
+        	}
+    	}
+	})
+	</script>
 
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">

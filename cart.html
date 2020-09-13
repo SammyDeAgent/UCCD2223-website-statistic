@@ -64,8 +64,13 @@
 
 	<style>
 
-		.modal button{
+		#clearModal button, #clearSelectModal button{
 			width: 5rem;
+		}
+		@media (max-width: 992px){
+			#deleteWrapper button{
+				width: 100%;
+			}
 		}
 	
 	</style>
@@ -73,7 +78,7 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 	<!-- CSS Bootstrap Theme -->
 	<link id="csstheme" rel="stylesheet" property="stylesheet" href="css/bootstrap-darkly.css">
@@ -163,7 +168,7 @@
 		</div>
 	</div>
 
-	<div id="tableWrapper" class="card ml-3 mr-3 mb-5 p-2" style="margin-top:4.5rem;">
+	<div id="tableWrapper" class="card mb-5 ml-3 mr-3 mb-3 p-2" style="margin-top:4.5rem;">
 		<h3 class="card-title"><span class="mdi mdi-cart-outline mr-1" style="font-size:2.2rem"></span>Shopping Cart</h3>
 		<div class="alert alert-warning" role="alert">
 			<strong><span class="mdi mdi-alert-circle mr-1" style="font-size:1.25rem"></span>Remember!</strong> Cart items will be cleared upon leaving the session or signing out.
@@ -185,8 +190,10 @@
 		</div>
 		<div id="deleteWrapper">
 			<button id="btnPayment" type="button" class="btn btn-primary m-1">Place Order</button>
-			<button id="btnClear" type="button" class="float-right btn btn-danger m-1" data-toggle="modal" data-target="#clearModal" >Clear All Items</button>
-			<button id="btnChecked" type="button" class="float-right btn btn-warning m-1" data-toggle="modal" data-target="#clearSelectModal" disabled>Clear Selected</button>
+			<button id="btnChecked" type="button" class=" btn btn-warning m-1" data-toggle="modal"
+				data-target="#clearSelectModal" disabled>Clear Selected</button>
+			<button id="btnClear" type="button" class=" btn btn-danger m-1" data-toggle="modal" data-target="#clearModal" >Clear All Items</button>
+			
 		</div>
 		<div id="emptyTable" class="text-center">
 			<h4>It looks like your cart is empty, order something!</h4>
@@ -247,7 +254,7 @@
 		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfPB3-xxhtYH5ACCEhvmsogEx2HyIsq1P9zIYQr5vpZyNpj7g/viewform?embedded=true" width="100%" height="720" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 	</div>
 
-	<footer class="bg-dark fixed-bottom">
+	<footer class="mt-auto bg-dark">
 		<div class="container-fluid pt-2 text-white">
 			<div class="row">
 				<div class="col">
@@ -278,33 +285,62 @@
 				var sumPrice = 0;
 				var sumItem = 0;
 
-				for(x in record){
-					$("#tableWrapper table tbody").append(
-						`<tr class="">
-						<td>
-							<div class="custom-control custom-checkbox">
-								<input id="checkbox${index+1}" type="checkbox" class="custom-control-input" value="${x}">
-								<label class="custom-control-label" for="checkbox${index+1}"></label>
-							</div>
-						</td>
-						<td>
-							${record[x][0]}
-						</td>
-						<td>
-							${parseFloat(record[x][1]).toFixed(2)}
-						</td>
-						<td>
-							${parseInt(record[x][2])}
-						</td>
-						<td>
-							${(parseFloat(record[x][2])*parseFloat(record[x][1]).toFixed(2)).toFixed(2)}
-						</td>
-						</tr>`
-					)
-					index++;
-					sumPrice += parseFloat(record[x][2])*parseFloat(record[x][1]);
-					sumItem += parseInt(record[x][2]);
+				// for(x in record){
+				// 	$("#tableWrapper table tbody").append(
+				// 		`<tr class="">
+				// 		<td>
+				// 			<div class="custom-control custom-checkbox">
+				// 				<input id="checkbox${index+1}" type="checkbox" class="custom-control-input" value="${x}">
+				// 				<label class="custom-control-label" for="checkbox${index+1}"></label>
+				// 			</div>
+				// 		</td>
+				// 		<td>
+				// 			${record[x][0]}
+				// 		</td>
+				// 		<td>
+				// 			${parseFloat(record[x][1]).toFixed(2)}
+				// 		</td>
+				// 		<td>
+				// 			${parseInt(record[x][2])}
+				// 		</td>
+				// 		<td>
+				// 			${(parseFloat(record[x][2])*parseFloat(record[x][1]).toFixed(2)).toFixed(2)}
+				// 		</td>
+				// 		</tr>`
+				// 	)
+				// 	index++;
+				// 	sumPrice += parseFloat(record[x][2])*parseFloat(record[x][1]);
+				// 	sumItem += parseInt(record[x][2]);
+				// }
+
+				for(let i = 0; i < record.length; i++){
+				$("#tableWrapper table tbody").append(
+				`<tr class="">
+					<td>
+						<div class="custom-control custom-checkbox">
+							<input id="checkbox${index+1}" type="checkbox" class="custom-control-input" value="${record[i].id}">
+							<label class="custom-control-label" for="checkbox${index+1}"></label>
+						</div>
+					</td>
+					<td>
+						${record[i].name}
+					</td>
+					<td>
+						${parseFloat(record[i].price).toFixed(2)}
+					</td>
+					<td>
+						${parseInt(record[i].count)}
+					</td>
+					<td>
+						${(parseFloat(record[i].count)*parseFloat(record[i].price).toFixed(2)).toFixed(2)}
+					</td>
+				</tr>`
+				)
+				index++;
+				sumPrice += parseFloat(record[i].count)*parseFloat(record[i].price);
+				sumItem += parseInt(record[i].count);
 				}
+
 				$("#tableWrapper table tbody").append(
 					`<tr class="table-info">
 						<td></td>
@@ -352,20 +388,37 @@
 
 					var count = Object.keys(match).length;
 
+					// for(let i = 0; i < count; i++){
+					// 	var locate = false;
+
+					// 	for(x in record){
+							
+					// 		if(x == match[i]){
+					// 			delete record[x];
+					// 			locate = true;
+					// 		}
+
+					// 		if(locate) break;
+					// 	}
+					// }
+
 					for(let i = 0; i < count; i++){
 						var locate = false;
 
-						for(x in record){
+						for(let k = 0; k < record.length; k++){
 							
-							if(x == match[i]){
-								delete record[x];
+							if(record[k].id == match[i]){
+								record.splice(k,1);
 								locate = true;
 							}
 
 							if(locate) break;
 						}
 					}
-					var empty = JSON.stringify({});
+
+					// var empty = JSON.stringify({});
+					var empty = JSON.stringify([]);
+
 					var data = JSON.stringify(record);
 					if(data == empty){data = null};
 					sessionStorage.setItem("cartItems",data);
@@ -384,17 +437,20 @@
 					let code = "";
 					let record = JSON.parse(sessionStorage.getItem("cartItems"));
 
-					for (x in record) code += x + ":" + record[x][2] + ";";
+					// for (x in record) code += x + ":" + record[x][2] + ";";
+					for (let i = 0; i < record.length; i++) code += record[i].id + ":" + record[i].count + ";";
 
 					$(".g-form").show();
 					$("span#code").html(code);
-					$("footer").removeClass("fixed-bottom");
 				});
 			}else{
 				$("#emptyTable").show();
 				$("#deleteWrapper").hide();
 			}
+			
 		})
+
+		
 
 	</script>
 	

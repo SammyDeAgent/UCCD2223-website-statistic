@@ -15,10 +15,17 @@ $(document).ready(function () {
         if (record == null) {
             $("#cartNumber").html(parseInt(cartCount));
         } else {
-            for (x in record) {
-                cartCount += parseInt(record[x][2]);
+
+            // for (x in record) {
+            //     cartCount += parseInt(record[x][2]);
+            // }
+            // $("#cartNumber").html(parseInt(cartCount));
+
+            for (let i = 0; i < record.length; i++) {
+                cartCount += parseInt(record[i].count);
             }
             $("#cartNumber").html(parseInt(cartCount));
+
         }
 
         //Cart-Add Alert
@@ -35,20 +42,40 @@ function updateCount(id, name, price) {
         var record = JSON.parse(sessionStorage.getItem("cartItems"));
     }
     if (record == null) {
-        record = {};
+        record = [];
     } else {
-        for (x in record) {
-            if (x == id) {
-                var temp = parseInt(record[x][2]);
+
+        // for (x in record) {
+        //     if (x == id) {
+        //         var temp = parseInt(record[x][2]);
+        //         temp++;
+        //         record[x][2] = temp;
+        //         locate = true;
+        //     }
+        //     if (locate) break;
+        // }
+
+        for(let i = 0; i < record.length; i++){
+            if(record[i].id == id){
+                var temp = parseInt(record[i].count)
                 temp++;
-                record[x][2] = temp;
+                record[i].count = temp;
                 locate = true;
             }
-            if (locate) break;
+            if(locate) break;
         }
     }
     if (locate == false) {
-        record[id] = [name, price, 1];
+
+        // record[id] = [name, price, 1];
+
+        var obj = new Object();
+        obj.id = id;
+        obj.name = name;
+        obj.price = price;
+        obj.count = 1;
+        record.push(obj);
+
     }
     var data = JSON.stringify(record);
     sessionStorage.setItem("cartItems", data);
