@@ -8,7 +8,7 @@ Contributors:
 
 Azure URL:
 ```
-https://the-silk-road.azurewebsites.net
+https://the-silk-road.azurewebsites.net [DEAD]
 ```
 
 **Git Commands**
