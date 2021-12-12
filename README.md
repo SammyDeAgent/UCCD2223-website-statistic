@@ -8,7 +8,7 @@ Contributors:
 
 Azure URL:
 ```
-https://the-silk-road.azurewebsites.net [DEAD]
+https://sammydeagent.github.io/uccd2223-website-statistic/
 ```
 
 **Git Commands**
