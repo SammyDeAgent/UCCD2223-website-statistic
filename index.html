@@ -61,6 +61,24 @@
 	<script src="js/googleAPI.js"></script>
 	<meta name="google-signin-client_id"
 		content="505338635145-6s54bgd0oieh9rgmr9tev016255i8t38.apps.googleusercontent.com">
+	<script>
+        function handleCredentialResponse(response) {
+          console.log("Encoded JWT ID token: " + response.credential);
+        }
+        window.onload = function () {
+          google.accounts.id.initialize({
+            client_id: "YOUR_GOOGLE_CLIENT_ID",
+            callback: handleCredentialResponse
+          });
+          google.accounts.id.renderButton(
+            document.getElementById("buttonDiv"),
+            { theme: "outline", size: "large" }  // customization attributes
+          );
+          google.accounts.id.prompt(); // also display the One Tap dialog
+        }
+    </script>
+ 
+
 
 	<style>
 		.jumbotron {
@@ -113,7 +131,8 @@
 				<a id="userCart" class="mdi mdi-cart-outline" href="cart.html"></a>
 				<span id="cartNumber" class="badge badge-pill badge-primary">0</span>
 			</div>
-			<div id="gSignInWrapper" class="g-signin2" data-width="GBtnWidth" data-theme="dark" data-onsuccess="onSignIn"></div>
+			<!--<div id="gSignInWrapper" class="g-signin2" data-width="GBtnWidth" data-theme="dark" data-onsuccess="onSignIn"></div>-->
+			<div id="buttonDiv"></div>
 			<div id="navtheme" class="nav-item dropdown">
 				<button id="navthemeBtn" class="btn btn-block btn-primary nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
 					aria-haspopup="true" aria-expanded="false">
