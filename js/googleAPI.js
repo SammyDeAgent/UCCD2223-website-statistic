@@ -8,7 +8,7 @@ var gapiPromise = (function () {
 
 var authInited = gapiPromise.then(function () {
     gapi.auth2.init({
-        client_id: '505338635145-4r3f4cbq31r2nl60gfqjk7d473naarqb.apps.googleusercontent.com'
+        client_id: '505338635145-8fgfrtunnk4r8f673oc21s6blp10e774.apps.googleusercontent.com'
     });
 })
 
