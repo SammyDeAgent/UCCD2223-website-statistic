@@ -6,7 +6,7 @@
             "- It should work now.",
             "- I'm going to... Yes."
         ],
-        "imgsrc": "img/chefs/Sammy.png"
+        "imgsrc": "img/Chefs/Sammy.png"
     },
     {
         "name": "Yamamoo",
@@ -15,7 +15,7 @@
             "- You guys take your time.",
             "- What are you doing?"
         ],
-        "imgsrc": "img/chefs/Yamamoo.jpg"
+        "imgsrc": "img/Chefs/Yamamoo.jpg"
     },
     {
         "name": "Ernest",
@@ -24,6 +24,6 @@
             "- I have a bad feeling about this.",
             "- I can do it."
         ],
-        "imgsrc": "img/chefs/Ernest.jpg"
+        "imgsrc": "img/Chefs/Ernest.jpg"
     }
 ]
